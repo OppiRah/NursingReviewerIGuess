@@ -63,7 +63,7 @@ Built-in AI; accounts and sync; block sharing (v0.2; tests H-H3); leaderboards; 
 - **Voice:** encouraging; light humor; never mocks a mistake; Taglish allowed.
 - **Precedent:** Duolingo says it designed characters to motivate learners and reflect product qualities (S109, C134). That is a vendor account, not evidence that a mascot improves learning; the handoff itself says mascot learning benefits are not established (S111).
 
-### Notes on the concept image (`assets/mascot-concept-v0.png`, S112)
+### Notes on the concept image (`assets/mascot-concept-v0.png` (local only — gitignored, not in the repo), S112)
 
 - **Keep:** the swoopy crest (a strong silhouette), the expression range, and the purple/yellow palette, which avoids generic medical blue.
 - **Tension with its own brief** (`INFERENCE`, C137):
@@ -106,7 +106,7 @@ Built-in AI; accounts and sync; block sharing (v0.2; tests H-H3); leaderboards; 
 
 ## 11. Open decisions for the owner
 
-1. Platform: installable web app (PWA) vs Expo/React Native.
+1. Platform: see ADR-001 (proposed).
 2. Local-first storage approach.
 3. Scheduler algorithm: FSRS vs SM-2.
 4. Product name.

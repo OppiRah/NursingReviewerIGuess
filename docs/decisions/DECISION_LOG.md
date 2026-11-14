@@ -147,6 +147,37 @@
 - **Actions authorized (paths, budget, external actions):** Documentation only (`docs/product/PRODUCT_SPEC.md` and research records). **Implementation is NOT authorized**; building needs a separate owner authorization. No spending.
 - **Next review:** Platform/architecture decision, then the first build authorization.
 
+## D-009 — ADR-001 proposed; awaiting owner approval
+
+- **Date / status:** 2026-11-14 / **proposed, not approved**. Writing the ADR does not approve it.
+- **Decision owner / approval evidence:** Owner, through the ADR-001 task prompt issued to Claude Code on 2026-11-14 (documentation only)
+- **Question:** How is v0.1 delivered to the owner's nursing friends (platform and local storage)?
+- **Alternatives considered (including no-build):** A PWA; B Expo/React Native; C PWA now, Capacitor later; D Flutter (rejected). See `docs/product/ADR-001-platform.md`.
+- **Evidence IDs and sources:** S114–S122; C138–C146
+- **Supporting / contradicting evidence:** Proposed option C. Strongest reason against: iPhone reminders need Home Screen install, a permission tap and a server-sent Web Push (S114, C146); iOS storage is best-effort (S115).
+- **Assumptions and uncertainty:** Apple Developer Program fee, TestFlight terms, Expo notifications/SQLite details and Capacitor are `UNKNOWN` (C145).
+- **Expected upside / downside:** Upside: no store fees, fastest path for the owner. Downside: reminder reliability on iPhone is unproven.
+- **Reversal/kill conditions:** Spike failure (ADR-001 §7) → reconsider option B or Capacitor before the first build.
+- **Actions authorized (paths, budget, external actions):** None beyond documentation. The spike and any build need separate owner authorization.
+- **Next review:** Owner approves or revises ADR-001, then authorizes either the spike or the first build task.
+
+## D-010 — ADR-001 approved with amendments; SPIKE-001 authorized
+
+- **Date / status:** 2026-11-14 / approved by owner
+- **Decision owner / approval evidence:** Owner, through the ADR-001 approval and SPIKE-001 task prompt issued to Claude Code on 2026-11-14
+- **Question:** Is ADR-001 approved, and what is the first code allowed?
+- **Alternatives considered (including no-build):** ADR-001 options A–D; Expo remains the fallback.
+- **Evidence IDs and sources:** ADR-001; S114–S122; C138–C146
+- **Decision:** ADR-001 (option C: PWA now, Capacitor later) is **approved with amendments**:
+  1. **v0.1 reminders = calendar .ics** (a repeating daily event with an alert) **plus a "due today" screen on app open.** Web push is deferred to ADR-002, and only if the .ics approach fails or friends ignore it.
+  2. **Backup export is mandatory:** one-tap "Export my data" and a gentle weekly reminder to export.
+  3. **SPIKE-001** tests (a) storage, (b) .ics reminders and (c) export round-trip. If (a) fails on iPhone, switch to Expo (ADR-001 fallback).
+- **Assumptions and uncertainty:** Calendar alert behavior for imported .ics files on iPhone and Android is unverified until the device test.
+- **Expected upside / downside:** Upside: no server for reminders. Downside: calendar reminders sit outside the app and may be ignored.
+- **Reversal/kill conditions:** SPIKE-001 decision rules in `docs/product/SPIKE-001-results.md`.
+- **Actions authorized (paths, budget, external actions):** SPIKE-001 only: throwaway code in `spike/pwa-check/` (plain HTML/CSS/JS, no npm, no frameworks, no build step, no external resources, nothing leaves the device); local check with `python -m http.server`. **No hosting or deploy by agents**; the owner deploys manually. Nothing from `spike/` is reused without a separate decision. **Product build not authorized.**
+- **Next review:** After the owner fills in `docs/product/SPIKE-001-results.md` (7-day device test).
+
 ## Future decision entry template
 
 ### D-XXX — [Title]

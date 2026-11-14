@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="theme-color" content="#4b2a8c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="PWA Check">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>SPIKE-001 PWA Check</title>
+</head>
+<body>
+  <header>
+    <h1>SPIKE-001 · PWA check</h1>
+    <p class="warn">Throwaway feasibility test. Not the product.</p>
+  </header>
+
+  <section>
+    <h2>1. Environment</h2>
+    <dl id="env"></dl>
+  </section>
+
+  <section>
+    <h2>2. Storage test (a)</h2>
+    <dl id="storage"></dl>
+    <button id="seed">Seed test data</button>
+  </section>
+
+  <section>
+    <h2>3. Reminder test (b)</h2>
+    <label>Daily reminder time <input id="time" type="time" value="20:00"></label>
+    <button id="ics">Add daily reminder to calendar</button>
+    <p class="hint">Downloads <code>review-reminder.ics</code>. Open it and add it to your calendar.</p>
+  </section>
+
+  <section>
+    <h2>4. Backup test (c)</h2>
+    <button id="export">Export</button>
+    <button id="wipe">Wipe local data</button>
+    <label class="file">Import <input id="import" type="file" accept="application/json,.json"></label>
+    <p id="backup-result" class="result"></p>
+  </section>
+
+  <section>
+    <h2>5. Self-test</h2>
+    <button id="selftest">Run self-test</button>
+    <pre id="selftest-result" class="result"></pre>
+  </section>
+
+  <div id="confirm" class="modal" hidden>
+    <div class="box">
+      <p>Wipe all local test data on this device? Export first if you want to restore it.</p>
+      <button id="confirm-yes" class="danger">Yes, wipe</button>
+      <button id="confirm-no">Cancel</button>
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

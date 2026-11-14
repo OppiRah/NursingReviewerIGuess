@@ -25,10 +25,15 @@ Git rule: ask the owner before every commit/push (explicit "yes"); no AI attribu
 | B, D | QA release record, clipping | parked |
 | F, G | Voice, notifications | closed commercially |
 
+## Platform (ADR-001 approved with amendments, D-010)
+- PWA now, Capacitor later; reminders = calendar .ics + "due today" screen; export mandatory; Expo is the fallback
+- SPIKE-001 built (throwaway): ../spike/pwa-check/ — storage, .ics reminder, backup round-trip
+
 ## Next actions
-1. Owner: platform/architecture decision (PWA vs Expo; local-first storage; FSRS vs SM-2)
-2. Owner: separate first-build authorization (none yet)
-3. Strategy chat: draft the "bring your own AI" prompt format and build plan for approval
+1. Owner: deploy spike over HTTPS (Netlify Drop / Cloudflare Pages), install on iPhone + Android, run the 7-day test
+2. Owner: fill in product/SPIKE-001-results.md; next decision follows its fixed rules
+3. Later: ADR-002 (FSRS vs SM-2, UI framework, v0.2 sharing backend); "bring your own AI" prompt format
+4. Product build NOT authorized
 
 ## Open questions
 - Do NotebookLM/Knowt plan review backward from an exam date? (check in current apps)
@@ -37,6 +42,6 @@ Git rule: ask the owner before every commit/push (explicit "yes"); no AI attribu
 ## Key files
 - Paths below are relative to docs/
 - Decisions: decisions/DECISION_LOG.md (D-000..D-008), decisions/PHASE_GATE_1_TO_2.md
-- Product: product/PRODUCT_SPEC.md, product/research/PRODUCT_MASCOT_RESEARCH.md (unverified input), product/assets/
+- Product: product/PRODUCT_SPEC.md, product/research/PRODUCT_MASCOT_RESEARCH.md (unverified input), product/assets/mascot-concept-v0.png (local only — gitignored, not in the repo)
 - Evidence: research/SOURCE_REGISTER.md (grep S-ID), research/EVIDENCE_LEDGER.md (grep C-/H-ID)
 - Landscape: research/COMPETITIVE_LANDSCAPE.md (sections A–H, PH context)
