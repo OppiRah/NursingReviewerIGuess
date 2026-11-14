@@ -126,6 +126,27 @@
 - **Actions authorized (paths, budget, external actions):** `git init`, one commit and one push to `OppiRah/NursingReviewerIGuess` after the owner's explicit "yes" in session. Ongoing: Git policy in `CLAUDE.md` (ask before every commit and push; no AI attribution; never commit `.env*` except `.env.example`, keys, sample or course files, or `docs/research/interviews/notes/`). No force-push, history rewrites, other branches, tags or workflows.
 - **Next review:** As needed when implementation is ever authorized.
 
+## D-008 — Product H selected (owner override); validation by friends prototype; mascot adopted as concept
+
+- **Date / status:** 2026-11-14 / decided by owner
+- **Decision owner / approval evidence:** Owner, through the product-selection task prompt issued to Claude Code on 2026-11-14
+- **Question:** Which product is selected, and how will it be validated?
+- **Alternatives considered (including no-build):** C, E and A remain recorded at low priority; B and D parked; F and G closed commercially (D-006). No-build remains possible if the stop rule triggers.
+- **Evidence IDs and sources:** H section in `docs/research/COMPETITIVE_LANDSCAPE.md`; C118–C137, H-H1–H-H3; S101–S112. Spec: `docs/product/PRODUCT_SPEC.md`.
+- **Supporting / contradicting evidence:** Capability is already available (C127, C128); the case is fit and behavior. No formal interviews; evidence so far is secondhand (C118) plus single-institution abstracts (C129, C130).
+- **Decision:**
+  - **H (nursing student reviewer) is selected** as the product. This is the Phase 4 selection, made as an **owner override** (Phase 2 interviews and Phase 3 were not completed).
+  - **Formal interviews are skipped** by owner decision.
+  - **Validation is a friends prototype** with a success rule fixed in advance: **"≥3 of 5 nursing friends use it on ≥3 different days in the week before a school exam, without being reminded by the owner."**
+  - **Stop/rethink rule:** if the success rule is not met in the first real exam week, or if friends report trusting their chatbot plus reading more than the app.
+  - **Scope:** school (course) exams first; PNLE later.
+  - **Mascot:** adopted as a concept, the "Momentum Companion" (supporting role only).
+- **Assumptions and uncertainty:** The friends sample is small and biased toward the owner; the handoff (S111) and concept image (S112) are unverified inputs; several handoff studies remain `UNKNOWN (handoff claim, unverified)`.
+- **Expected upside / downside:** Upside: a fast, cheap real-use test. Downside: skipping interviews raises the risk of building for an assumed problem.
+- **Reversal/kill conditions:** The stop/rethink rule above.
+- **Actions authorized (paths, budget, external actions):** Documentation only (`docs/product/PRODUCT_SPEC.md` and research records). **Implementation is NOT authorized**; building needs a separate owner authorization. No spending.
+- **Next review:** Platform/architecture decision, then the first build authorization.
+
 ## Future decision entry template
 
 ### D-XXX — [Title]
