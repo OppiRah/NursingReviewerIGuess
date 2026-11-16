@@ -15,6 +15,8 @@ At the end of every task, update `docs/STATUS.md`: keep it ≤60 lines, replace 
 
 ## Current authorization
 
+Implementation is authorized only for tasks whose prompt explicitly says so (BUILD-001 onward), within that task's scope. App code lives in `app/`.
+
 You may review and, **when directed**, update markdown research artifacts in *this directory*. Research existing products via your available research/browsing tools **only if available and authorized**. If you cannot browse, do not invent references: create clearly labeled verification queues and tell the owner what access is needed. Never quietly substitute model memory for current verification.
 
 You must not: create app code, scaffolds, APIs, accounts, deployments, DBs, tests for an unselected product, paid services, web scraping jobs, dependencies, CI pipelines, GitHub repos, external contact, or changes outside this workspace. Commits and pushes only per the Git policy below; no GitHub Actions. Do not read neighboring private projects by default.

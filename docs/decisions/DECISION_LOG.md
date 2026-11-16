@@ -178,6 +178,40 @@
 - **Actions authorized (paths, budget, external actions):** SPIKE-001 only: throwaway code in `spike/pwa-check/` (plain HTML/CSS/JS, no npm, no frameworks, no build step, no external resources, nothing leaves the device); local check with `python -m http.server`. **No hosting or deploy by agents**; the owner deploys manually. Nothing from `spike/` is reused without a separate decision. **Product build not authorized.**
 - **Next review:** After the owner fills in `docs/product/SPIKE-001-results.md` (7-day device test).
 
+## D-011 — Spike device test skipped (risk accepted); ADR-002 adopted; BUILD-001–004 authorized
+
+- **Date / status:** 2026-11-14 / approved by owner
+- **Decision owner / approval evidence:** Owner, through the overnight task prompt "ADR-002 + BUILD-001 → BUILD-004" issued to Claude Code on 2026-11-14
+- **Question:** Can the first product build start without the SPIKE-001 7-day device test?
+- **Alternatives considered (including no-build):** Wait for the 7-day test; switch to Expo now; build the PWA now with mandatory backup export as mitigation.
+- **Evidence IDs and sources:** ADR-001 (amended, D-010); `docs/product/ADR-002-stack-scheduler-import.md`
+- **Decision:**
+  1. SPIKE-001's 7-day device test is **skipped**; the owner accepts the iOS storage/reminder risk. Mandatory backup export is the mitigation.
+  2. **ADR-002 is adopted** (Vite + React + TypeScript strict; Dexie/IndexedDB; FSRS via `ts-fsrs` behind a `Scheduler` interface; one canonical text import format).
+  3. **Implementation is authorized** for BUILD-001 to BUILD-004 within the task's scope: app code in `app/`, the listed dependencies only, no CI, no deploy, no remote calls.
+- **Assumptions and uncertainty:** iPhone home-screen storage persistence and `.ics` alert behavior remain unverified on real devices.
+- **Expected upside / downside:** Upside: a usable friends prototype sooner. Downside: an iOS storage failure would be found by friends, not by the spike.
+- **Reversal/kill conditions:** Data loss on a friend's iPhone, or `.ics` alerts not firing → revisit ADR-001 fallback (Capacitor or Expo).
+- **Actions authorized (paths, budget, external actions):** Writes to `app/**`, ADR-002, `docs/product/BUILD_LOG.md`, `docs/product/ARCHITECTURE.md`, this log, `docs/STATUS.md`, the CLAUDE.md authorization line and `.gitignore`. npm installs inside `app/` from the allowed list. No commits/pushes without owner approval; no deploys.
+- **Next review:** After BUILD-004, when the owner reviews BUILD_LOG and decides on commit and friends-prototype release.
+
+## D-012 — BUILD-005: real-world import (PDF/DOCX upload, paste normalization and recovery) + Android back
+
+- **Date / status:** 2026-11-16 / implemented by Claude Code under the owner's BUILD-005 task prompt; **not released, not committed** (owner commits)
+- **Decision owner / approval evidence:** Owner, through the BUILD-005 task prompt (implementation authorized for that scope)
+- **Question:** How do students get their real reviewers in, given that text copied from a real PDF parsed to 0 items?
+- **Alternatives considered (including no-build):** paste only, with instructions to clean up text (rejected: the failure was invisible to students); server-side extraction (rejected: privacy and no-backend rule); OCR (deferred, see ADR-002 Addendum BUILD-005).
+- **Evidence IDs and sources:** strategy-chat measurement on a private owner file (0 → 200 items after two artifact fixes; file never in the repo); synthetic fixture `app/e2e/fixtures/pdf-artifacts.txt` (0 → 30 items).
+- **Decision:**
+  - Normalization pass before parsing; merged-block recovery; error isolation; heading summary; capital-letter choice rules (ADR-002 Addendum BUILD-005).
+  - On-device `.pdf`/`.docx` upload with `pdfjs-dist` 6.5.438 (Apache-2.0) and `mammoth` 1.13.0 (BSD-2-Clause), both licenses checked in their `package.json`; lazy-loaded, not precached, no remote fetches.
+  - Browser-history navigation so the Android back button moves between screens; back during a session asks first.
+- **Assumptions and uncertainty:** real phones not tested (PDF reading speed on low-end Android, iOS Safari with the legacy pdf.js build); real reviewer layouts beyond the two measured artifacts unknown.
+- **Expected upside / downside:** Upside: students can import their actual files. Downside: ~1.8 MB of reader code downloaded on first PDF/Word import.
+- **Reversal/kill conditions:** if friends' PDFs still fail, collect anonymized failure patterns (not files) and extend normalization; if most are scans, reconsider OCR in a new ADR.
+- **Actions authorized (paths, budget, external actions):** `app/**` and the listed docs only; installs limited to `pdfjs-dist` and `mammoth` in `app/`. No commit/push by agents (denied in settings); owner commits.
+- **Next review:** owner review of BUILD_LOG "BUILD-005", then commit; real-device check of PDF import on the friends' phones.
+
 ## Future decision entry template
 
 ### D-XXX — [Title]

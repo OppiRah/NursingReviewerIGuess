@@ -1,0 +1,35 @@
+# Synthetic Test Deck
+1. Sample question 1: which color is the sky on a clear day?
+a. Green
+b. Blue
+c. Red
+d. Yellow
+Answer: b
+Rationale: Sample rationale 1. This is synthetic test data.
+---
+2. Sample question 2: which shape has three sides?
+a) Square
+b) Circle
+c) Triangle
+Answer: c
+Rationale: Sample rationale 2.
+---
+3. Sample question 3: which number is even?
+A. 3
+B. 4
+C. 7
+Answer: B
+Rationale: Sample rationale 3.
+---
+4. Sample question 4: which of these is a fruit?
+a. Apple
+b. Brick
+Answer: a
+---
+5. Sample question 5: which word is a color?
+a. Run
+b. Purple
+c. Table
+d. Seven
+Answer: b
+Rationale: Sample rationale 5.

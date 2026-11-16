@@ -1,0 +1,27 @@
+# Mixed Synthetic Deck
+1. Sample SATA question: which of these are colors? (Select all that apply.)
+a. Red
+b. Chair
+c. Blue
+d. Green
+Answer: a, c, d
+Rationale: Sample SATA rationale. Red, blue and green are colors.
+---
+Q: Sample flashcard: what is 2 + 2?
+A: 4
+Rationale: Sample flashcard rationale.
+---
+Type: priority
+3. Sample priority question: which task should be done first?
+a. The second task
+b. The first task
+c. The third task
+Answer: b
+Rationale: Sample priority rationale. The first task comes first.
+---
+4. Sample MCQ: which animal says moo?
+a. Cat
+b. Cow
+c. Duck
+Answer: b
+Rationale: Sample MCQ rationale.

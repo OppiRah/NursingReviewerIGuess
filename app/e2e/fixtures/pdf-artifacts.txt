@@ -1,0 +1,216 @@
+CHAPTER 1: SAMPLE FUNDAMENTALS
+1. Sample question 1: which sample option is correct?
+a. Sample option A for question 1
+b. Sample option B for question 1
+c. Sample option C for question 1
+d. Sample option D for question 1
+Answer: b
+Rationale: Sample rationale for question 1 (synthetic fixture, not study material).
+--2. Sample question 2: which sample option is correct?
+a. Sample option A for question 2
+b. Sample option B for question 2
+c. Sample option C for question 2
+d. Sample option D for question 2
+Answer: c
+Rationale: Sample rationale for question 2 (synthetic fixture, not study material).
+--3. Sample question 3: which sample option is correct?
+a. Sample option A for question 3
+b. Sample option B for question 3
+c. Sample option C for question 3
+d. Sample option D for question 3
+Answer: d
+Rationale: Sample rationale for question 3 (synthetic fixture, not study material).
+--4. Sample question 4: which sample option is correct?
+a. Sample option A for question 4
+b. Sample option B for question 4
+c. Sample option C for question 4
+d. Sample option D for question 4
+Answer: a
+Rationale: Sample rationale for question 4 (synthetic fixture, not study material).
+--5. Sample question 5: a sample infection with
+E. coli was found. Which sample action is first?
+a. Sample option A for question 5
+b. Sample option B for question 5
+c. Sample option C for question 5
+d. Sample option D for question 5
+Answer: b
+Rationale: Sample rationale for question 5 (synthetic fixture, not study material).
+--6. Sample question 6: which sample option is correct?
+a. Sample option A for question 6
+b. Sample option B for question 6
+c. Sample option C for question 6
+d. Sample option D for question 6
+Answer: c
+Rationale: Sample rationale for question 6 (synthetic fixture, not study material).
+--7. Sample question 7: which sample option is correct?
+a. Sample option A for question 7
+b. Sample option B for question 7
+c. Sample option C for question 7
+d. Sample option D for question 7
+Answer: d
+Rationale: Sample rationale for question 7 (synthetic fixture, not study material).
+--8. Sample question 8: which sample option is correct?
+a. Sample option A for question 8
+b. Sample option B for question 8
+c. Sample option C for question 8
+d. Sample option D for question 8
+Answer: a
+Rationale: Sample rationale for question 8 (synthetic fixture, not study material).
+--9. Sample question 9: which sample option is correct?
+a. Sample option A for question 9
+b. Sample option B caused by
+C. diff toxin in the sample
+c. Sample option C for question 9
+d. Sample option D for question 9
+Answer: b
+Rationale: Sample rationale for question 9 (synthetic fixture, not study material).
+--10. Sample question 10: which sample option is correct?
+a. Sample option A for question 10
+b. Sample option B for question 10
+c. Sample option C for question 10
+d. Sample option D for question 10
+Answer: c
+Rationale: Sample rationale for question 10 (synthetic fixture, not study material).
+SECTION 2: Sample Care
+--11. Sample question 11: which sample option is correct?
+a. Sample option A for question 11
+b. Sample option B for question 11
+c. Sample option C for question 11
+d. Sample option D for question 11
+Answer: d
+Rationale: Sample rationale for question 11 (synthetic fixture, not study material).
+--12. Sample question 12: which sample option is correct?
+a. Sample option A for question 12
+b. Sample option B for question 12
+c. Sample option C for question 12
+d. Sample option D for question 12
+Answer: a
+Rationale: Sample rationale for question 12 (synthetic fixture, not study material).
+--13. Sample question 13: which sample option is correct?
+a. Sample option A for question 13
+b. Sample option B for question 13
+c. Sample option C for question 13
+d. Sample option D for question 13
+Answer: b
+Rationale: Sample rationale for question 13 (synthetic fixture, not study material).
+--14. Sample question 14: which sample option is correct?
+a. Sample option A for question 14
+b. Sample option B for question 14
+c. Sample option C for question 14
+d. Sample option D for question 14
+Answer: c
+Rationale: Sample rationale for question 14 (synthetic fixture, not study material).
+--15. Sample question 15: which sample option is correct?
+a. Sample option A for question 15
+b. Sample option B for question 15
+c. Sample option C for question 15
+d. Sample option D for question 15
+Answer: d
+Rationale: Sample rationale for question 15 (synthetic fixture, not study material).
+--16. Sample question 16: which sample option is correct?
+a. Sample option A for question 16
+b. Sample option B for question 16
+c. Sample option C for question 16
+d. Sample option D for question 16
+Answer: a
+Rationale: Sample rationale for question 16 (synthetic fixture, not study material).
+--17. Sample question 17: which sample option is correct?
+a. Sample option A for question 17
+b. Sample option B for question 17
+c. Sample option C for question 17
+d. Sample option D for question 17
+Answer: b
+Rationale: Sample rationale for question 17 (synthetic fixture, not study material).
+--18. Sample question 18: which sample option is correct?
+a. Sample option A for question 18
+b. Sample option B for question 18
+c. Sample option C for question 18
+d. Sample option D for question 18
+Answer: c
+Rationale: Sample rationale for question 18 (synthetic fixture, not study material).
+--19. Sample question 19: which sample option is correct?
+a. Sample option A for question 19
+b. Sample option B for question 19
+c. Sample option C for question 19
+d. Sample option D for question 19
+Answer: d
+Rationale: Sample rationale for question 19 (synthetic fixture, not study material).
+--20. Sample question 20: which sample option is correct?
+a. Sample option A for question 20
+b. Sample option B for question 20
+c. Sample option C for question 20
+d. Sample option D for question 20
+Answer: a
+Rationale: Sample rationale for question 20 (synthetic fixture, not study material).
+CHAPTER 3
+--21. Sample question 21: which sample option is correct?
+a. Sample option A for question 21
+b. Sample option B for question 21
+c. Sample option C for question 21
+d. Sample option D for question 21
+Answer: b
+Rationale: Sample rationale for question 21 (synthetic fixture, not study material).
+--22. Sample question 22: which sample option is correct?
+a. Sample option A for question 22
+b. Sample option B for question 22
+c. Sample option C for question 22
+d. Sample option D for question 22
+Answer: c
+Rationale: Sample rationale for question 22 (synthetic fixture, not study material).
+--23. Sample question 23: which sample option is correct?
+a. Sample option A for question 23
+b. Sample option B for question 23
+c. Sample option C for question 23
+d. Sample option D for question 23
+Answer: d
+Rationale: Sample rationale for question 23 (synthetic fixture, not study material).
+--24. Sample question 24: which sample option is correct?
+a. Sample option A for question 24
+b. Sample option B for question 24
+c. Sample option C for question 24
+d. Sample option D for question 24
+Answer: a
+Rationale: Sample rationale for question 24 (synthetic fixture, not study material).
+--25. Sample question 25: which sample option is correct?
+a. Sample option A for question 25
+b. Sample option B for question 25
+c. Sample option C for question 25
+d. Sample option D for question 25
+Answer: b
+Rationale: Sample rationale for question 25 (synthetic fixture, not study material).
+--26. Sample question 26: which sample option is correct?
+a. Sample option A for question 26
+b. Sample option B for question 26
+c. Sample option C for question 26
+d. Sample option D for question 26
+Answer: c
+Rationale: Sample rationale for question 26 (synthetic fixture, not study material).
+--27. Sample question 27: which sample option is correct?
+a. Sample option A for question 27
+b. Sample option B for question 27
+c. Sample option C for question 27
+d. Sample option D for question 27
+Answer: d
+Rationale: Sample rationale for question 27 (synthetic fixture, not study material).
+--28. Sample question 28: which sample option is correct?
+a. Sample option A for question 28
+b. Sample option B for question 28
+c. Sample option C for question 28
+d. Sample option D for question 28
+Answer: a
+Rationale: Sample rationale for question 28 (synthetic fixture, not study material).
+--29. Sample question 29: which sample option is correct?
+a. Sample option A for question 29
+b. Sample option B for question 29
+c. Sample option C for question 29
+d. Sample option D for question 29
+Answer: b
+Rationale: Sample rationale for question 29 (synthetic fixture, not study material).
+--30. Sample question 30: which sample option is correct?
+a. Sample option A for question 30
+b. Sample option B for question 30
+c. Sample option C for question 30
+d. Sample option D for question 30
+Answer: c
+Rationale: Sample rationale for question 30 (synthetic fixture, not study material).
+---

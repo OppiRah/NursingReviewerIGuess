@@ -1,0 +1,8001 @@
+# Synthetic 1000 (SAMPLE, not for study)
+1. Sample question 1: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 1.
+---
+2. Sample question 2: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 2.
+---
+3. Sample question 3: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 3.
+---
+4. Sample question 4: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 4.
+---
+5. Sample question 5: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 5.
+---
+6. Sample question 6: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 6.
+---
+7. Sample question 7: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 7.
+---
+8. Sample question 8: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 8.
+---
+9. Sample question 9: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 9.
+---
+10. Sample question 10: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 10.
+---
+11. Sample question 11: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 11.
+---
+12. Sample question 12: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 12.
+---
+13. Sample question 13: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 13.
+---
+14. Sample question 14: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 14.
+---
+15. Sample question 15: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 15.
+---
+16. Sample question 16: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 16.
+---
+17. Sample question 17: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 17.
+---
+18. Sample question 18: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 18.
+---
+19. Sample question 19: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 19.
+---
+20. Sample question 20: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 20.
+---
+21. Sample question 21: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 21.
+---
+22. Sample question 22: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 22.
+---
+23. Sample question 23: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 23.
+---
+24. Sample question 24: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 24.
+---
+25. Sample question 25: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 25.
+---
+26. Sample question 26: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 26.
+---
+27. Sample question 27: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 27.
+---
+28. Sample question 28: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 28.
+---
+29. Sample question 29: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 29.
+---
+30. Sample question 30: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 30.
+---
+31. Sample question 31: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 31.
+---
+32. Sample question 32: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 32.
+---
+33. Sample question 33: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 33.
+---
+34. Sample question 34: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 34.
+---
+35. Sample question 35: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 35.
+---
+36. Sample question 36: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 36.
+---
+37. Sample question 37: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 37.
+---
+38. Sample question 38: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 38.
+---
+39. Sample question 39: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 39.
+---
+40. Sample question 40: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 40.
+---
+41. Sample question 41: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 41.
+---
+42. Sample question 42: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 42.
+---
+43. Sample question 43: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 43.
+---
+44. Sample question 44: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 44.
+---
+45. Sample question 45: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 45.
+---
+46. Sample question 46: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 46.
+---
+47. Sample question 47: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 47.
+---
+48. Sample question 48: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 48.
+---
+49. Sample question 49: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 49.
+---
+50. Sample question 50: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 50.
+---
+51. Sample question 51: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 51.
+---
+52. Sample question 52: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 52.
+---
+53. Sample question 53: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 53.
+---
+54. Sample question 54: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 54.
+---
+55. Sample question 55: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 55.
+---
+56. Sample question 56: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 56.
+---
+57. Sample question 57: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 57.
+---
+58. Sample question 58: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 58.
+---
+59. Sample question 59: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 59.
+---
+60. Sample question 60: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 60.
+---
+61. Sample question 61: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 61.
+---
+62. Sample question 62: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 62.
+---
+63. Sample question 63: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 63.
+---
+64. Sample question 64: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 64.
+---
+65. Sample question 65: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 65.
+---
+66. Sample question 66: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 66.
+---
+67. Sample question 67: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 67.
+---
+68. Sample question 68: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 68.
+---
+69. Sample question 69: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 69.
+---
+70. Sample question 70: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 70.
+---
+71. Sample question 71: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 71.
+---
+72. Sample question 72: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 72.
+---
+73. Sample question 73: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 73.
+---
+74. Sample question 74: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 74.
+---
+75. Sample question 75: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 75.
+---
+76. Sample question 76: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 76.
+---
+77. Sample question 77: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 77.
+---
+78. Sample question 78: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 78.
+---
+79. Sample question 79: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 79.
+---
+80. Sample question 80: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 80.
+---
+81. Sample question 81: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 81.
+---
+82. Sample question 82: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 82.
+---
+83. Sample question 83: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 83.
+---
+84. Sample question 84: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 84.
+---
+85. Sample question 85: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 85.
+---
+86. Sample question 86: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 86.
+---
+87. Sample question 87: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 87.
+---
+88. Sample question 88: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 88.
+---
+89. Sample question 89: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 89.
+---
+90. Sample question 90: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 90.
+---
+91. Sample question 91: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 91.
+---
+92. Sample question 92: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 92.
+---
+93. Sample question 93: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 93.
+---
+94. Sample question 94: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 94.
+---
+95. Sample question 95: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 95.
+---
+96. Sample question 96: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 96.
+---
+97. Sample question 97: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 97.
+---
+98. Sample question 98: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 98.
+---
+99. Sample question 99: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 99.
+---
+100. Sample question 100: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 100.
+---
+101. Sample question 101: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 101.
+---
+102. Sample question 102: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 102.
+---
+103. Sample question 103: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 103.
+---
+104. Sample question 104: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 104.
+---
+105. Sample question 105: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 105.
+---
+106. Sample question 106: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 106.
+---
+107. Sample question 107: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 107.
+---
+108. Sample question 108: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 108.
+---
+109. Sample question 109: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 109.
+---
+110. Sample question 110: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 110.
+---
+111. Sample question 111: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 111.
+---
+112. Sample question 112: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 112.
+---
+113. Sample question 113: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 113.
+---
+114. Sample question 114: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 114.
+---
+115. Sample question 115: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 115.
+---
+116. Sample question 116: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 116.
+---
+117. Sample question 117: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 117.
+---
+118. Sample question 118: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 118.
+---
+119. Sample question 119: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 119.
+---
+120. Sample question 120: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 120.
+---
+121. Sample question 121: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 121.
+---
+122. Sample question 122: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 122.
+---
+123. Sample question 123: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 123.
+---
+124. Sample question 124: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 124.
+---
+125. Sample question 125: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 125.
+---
+126. Sample question 126: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 126.
+---
+127. Sample question 127: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 127.
+---
+128. Sample question 128: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 128.
+---
+129. Sample question 129: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 129.
+---
+130. Sample question 130: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 130.
+---
+131. Sample question 131: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 131.
+---
+132. Sample question 132: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 132.
+---
+133. Sample question 133: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 133.
+---
+134. Sample question 134: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 134.
+---
+135. Sample question 135: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 135.
+---
+136. Sample question 136: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 136.
+---
+137. Sample question 137: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 137.
+---
+138. Sample question 138: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 138.
+---
+139. Sample question 139: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 139.
+---
+140. Sample question 140: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 140.
+---
+141. Sample question 141: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 141.
+---
+142. Sample question 142: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 142.
+---
+143. Sample question 143: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 143.
+---
+144. Sample question 144: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 144.
+---
+145. Sample question 145: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 145.
+---
+146. Sample question 146: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 146.
+---
+147. Sample question 147: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 147.
+---
+148. Sample question 148: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 148.
+---
+149. Sample question 149: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 149.
+---
+150. Sample question 150: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 150.
+---
+151. Sample question 151: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 151.
+---
+152. Sample question 152: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 152.
+---
+153. Sample question 153: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 153.
+---
+154. Sample question 154: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 154.
+---
+155. Sample question 155: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 155.
+---
+156. Sample question 156: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 156.
+---
+157. Sample question 157: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 157.
+---
+158. Sample question 158: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 158.
+---
+159. Sample question 159: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 159.
+---
+160. Sample question 160: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 160.
+---
+161. Sample question 161: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 161.
+---
+162. Sample question 162: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 162.
+---
+163. Sample question 163: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 163.
+---
+164. Sample question 164: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 164.
+---
+165. Sample question 165: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 165.
+---
+166. Sample question 166: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 166.
+---
+167. Sample question 167: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 167.
+---
+168. Sample question 168: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 168.
+---
+169. Sample question 169: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 169.
+---
+170. Sample question 170: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 170.
+---
+171. Sample question 171: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 171.
+---
+172. Sample question 172: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 172.
+---
+173. Sample question 173: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 173.
+---
+174. Sample question 174: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 174.
+---
+175. Sample question 175: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 175.
+---
+176. Sample question 176: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 176.
+---
+177. Sample question 177: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 177.
+---
+178. Sample question 178: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 178.
+---
+179. Sample question 179: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 179.
+---
+180. Sample question 180: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 180.
+---
+181. Sample question 181: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 181.
+---
+182. Sample question 182: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 182.
+---
+183. Sample question 183: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 183.
+---
+184. Sample question 184: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 184.
+---
+185. Sample question 185: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 185.
+---
+186. Sample question 186: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 186.
+---
+187. Sample question 187: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 187.
+---
+188. Sample question 188: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 188.
+---
+189. Sample question 189: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 189.
+---
+190. Sample question 190: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 190.
+---
+191. Sample question 191: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 191.
+---
+192. Sample question 192: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 192.
+---
+193. Sample question 193: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 193.
+---
+194. Sample question 194: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 194.
+---
+195. Sample question 195: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 195.
+---
+196. Sample question 196: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 196.
+---
+197. Sample question 197: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 197.
+---
+198. Sample question 198: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 198.
+---
+199. Sample question 199: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 199.
+---
+200. Sample question 200: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 200.
+---
+201. Sample question 201: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 201.
+---
+202. Sample question 202: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 202.
+---
+203. Sample question 203: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 203.
+---
+204. Sample question 204: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 204.
+---
+205. Sample question 205: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 205.
+---
+206. Sample question 206: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 206.
+---
+207. Sample question 207: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 207.
+---
+208. Sample question 208: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 208.
+---
+209. Sample question 209: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 209.
+---
+210. Sample question 210: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 210.
+---
+211. Sample question 211: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 211.
+---
+212. Sample question 212: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 212.
+---
+213. Sample question 213: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 213.
+---
+214. Sample question 214: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 214.
+---
+215. Sample question 215: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 215.
+---
+216. Sample question 216: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 216.
+---
+217. Sample question 217: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 217.
+---
+218. Sample question 218: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 218.
+---
+219. Sample question 219: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 219.
+---
+220. Sample question 220: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 220.
+---
+221. Sample question 221: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 221.
+---
+222. Sample question 222: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 222.
+---
+223. Sample question 223: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 223.
+---
+224. Sample question 224: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 224.
+---
+225. Sample question 225: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 225.
+---
+226. Sample question 226: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 226.
+---
+227. Sample question 227: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 227.
+---
+228. Sample question 228: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 228.
+---
+229. Sample question 229: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 229.
+---
+230. Sample question 230: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 230.
+---
+231. Sample question 231: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 231.
+---
+232. Sample question 232: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 232.
+---
+233. Sample question 233: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 233.
+---
+234. Sample question 234: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 234.
+---
+235. Sample question 235: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 235.
+---
+236. Sample question 236: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 236.
+---
+237. Sample question 237: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 237.
+---
+238. Sample question 238: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 238.
+---
+239. Sample question 239: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 239.
+---
+240. Sample question 240: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 240.
+---
+241. Sample question 241: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 241.
+---
+242. Sample question 242: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 242.
+---
+243. Sample question 243: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 243.
+---
+244. Sample question 244: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 244.
+---
+245. Sample question 245: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 245.
+---
+246. Sample question 246: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 246.
+---
+247. Sample question 247: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 247.
+---
+248. Sample question 248: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 248.
+---
+249. Sample question 249: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 249.
+---
+250. Sample question 250: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 250.
+---
+251. Sample question 251: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 251.
+---
+252. Sample question 252: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 252.
+---
+253. Sample question 253: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 253.
+---
+254. Sample question 254: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 254.
+---
+255. Sample question 255: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 255.
+---
+256. Sample question 256: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 256.
+---
+257. Sample question 257: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 257.
+---
+258. Sample question 258: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 258.
+---
+259. Sample question 259: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 259.
+---
+260. Sample question 260: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 260.
+---
+261. Sample question 261: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 261.
+---
+262. Sample question 262: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 262.
+---
+263. Sample question 263: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 263.
+---
+264. Sample question 264: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 264.
+---
+265. Sample question 265: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 265.
+---
+266. Sample question 266: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 266.
+---
+267. Sample question 267: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 267.
+---
+268. Sample question 268: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 268.
+---
+269. Sample question 269: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 269.
+---
+270. Sample question 270: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 270.
+---
+271. Sample question 271: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 271.
+---
+272. Sample question 272: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 272.
+---
+273. Sample question 273: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 273.
+---
+274. Sample question 274: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 274.
+---
+275. Sample question 275: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 275.
+---
+276. Sample question 276: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 276.
+---
+277. Sample question 277: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 277.
+---
+278. Sample question 278: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 278.
+---
+279. Sample question 279: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 279.
+---
+280. Sample question 280: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 280.
+---
+281. Sample question 281: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 281.
+---
+282. Sample question 282: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 282.
+---
+283. Sample question 283: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 283.
+---
+284. Sample question 284: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 284.
+---
+285. Sample question 285: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 285.
+---
+286. Sample question 286: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 286.
+---
+287. Sample question 287: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 287.
+---
+288. Sample question 288: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 288.
+---
+289. Sample question 289: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 289.
+---
+290. Sample question 290: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 290.
+---
+291. Sample question 291: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 291.
+---
+292. Sample question 292: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 292.
+---
+293. Sample question 293: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 293.
+---
+294. Sample question 294: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 294.
+---
+295. Sample question 295: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 295.
+---
+296. Sample question 296: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 296.
+---
+297. Sample question 297: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 297.
+---
+298. Sample question 298: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 298.
+---
+299. Sample question 299: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 299.
+---
+300. Sample question 300: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 300.
+---
+301. Sample question 301: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 301.
+---
+302. Sample question 302: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 302.
+---
+303. Sample question 303: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 303.
+---
+304. Sample question 304: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 304.
+---
+305. Sample question 305: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 305.
+---
+306. Sample question 306: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 306.
+---
+307. Sample question 307: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 307.
+---
+308. Sample question 308: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 308.
+---
+309. Sample question 309: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 309.
+---
+310. Sample question 310: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 310.
+---
+311. Sample question 311: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 311.
+---
+312. Sample question 312: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 312.
+---
+313. Sample question 313: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 313.
+---
+314. Sample question 314: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 314.
+---
+315. Sample question 315: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 315.
+---
+316. Sample question 316: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 316.
+---
+317. Sample question 317: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 317.
+---
+318. Sample question 318: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 318.
+---
+319. Sample question 319: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 319.
+---
+320. Sample question 320: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 320.
+---
+321. Sample question 321: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 321.
+---
+322. Sample question 322: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 322.
+---
+323. Sample question 323: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 323.
+---
+324. Sample question 324: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 324.
+---
+325. Sample question 325: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 325.
+---
+326. Sample question 326: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 326.
+---
+327. Sample question 327: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 327.
+---
+328. Sample question 328: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 328.
+---
+329. Sample question 329: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 329.
+---
+330. Sample question 330: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 330.
+---
+331. Sample question 331: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 331.
+---
+332. Sample question 332: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 332.
+---
+333. Sample question 333: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 333.
+---
+334. Sample question 334: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 334.
+---
+335. Sample question 335: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 335.
+---
+336. Sample question 336: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 336.
+---
+337. Sample question 337: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 337.
+---
+338. Sample question 338: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 338.
+---
+339. Sample question 339: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 339.
+---
+340. Sample question 340: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 340.
+---
+341. Sample question 341: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 341.
+---
+342. Sample question 342: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 342.
+---
+343. Sample question 343: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 343.
+---
+344. Sample question 344: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 344.
+---
+345. Sample question 345: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 345.
+---
+346. Sample question 346: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 346.
+---
+347. Sample question 347: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 347.
+---
+348. Sample question 348: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 348.
+---
+349. Sample question 349: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 349.
+---
+350. Sample question 350: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 350.
+---
+351. Sample question 351: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 351.
+---
+352. Sample question 352: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 352.
+---
+353. Sample question 353: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 353.
+---
+354. Sample question 354: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 354.
+---
+355. Sample question 355: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 355.
+---
+356. Sample question 356: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 356.
+---
+357. Sample question 357: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 357.
+---
+358. Sample question 358: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 358.
+---
+359. Sample question 359: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 359.
+---
+360. Sample question 360: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 360.
+---
+361. Sample question 361: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 361.
+---
+362. Sample question 362: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 362.
+---
+363. Sample question 363: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 363.
+---
+364. Sample question 364: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 364.
+---
+365. Sample question 365: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 365.
+---
+366. Sample question 366: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 366.
+---
+367. Sample question 367: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 367.
+---
+368. Sample question 368: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 368.
+---
+369. Sample question 369: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 369.
+---
+370. Sample question 370: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 370.
+---
+371. Sample question 371: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 371.
+---
+372. Sample question 372: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 372.
+---
+373. Sample question 373: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 373.
+---
+374. Sample question 374: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 374.
+---
+375. Sample question 375: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 375.
+---
+376. Sample question 376: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 376.
+---
+377. Sample question 377: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 377.
+---
+378. Sample question 378: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 378.
+---
+379. Sample question 379: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 379.
+---
+380. Sample question 380: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 380.
+---
+381. Sample question 381: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 381.
+---
+382. Sample question 382: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 382.
+---
+383. Sample question 383: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 383.
+---
+384. Sample question 384: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 384.
+---
+385. Sample question 385: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 385.
+---
+386. Sample question 386: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 386.
+---
+387. Sample question 387: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 387.
+---
+388. Sample question 388: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 388.
+---
+389. Sample question 389: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 389.
+---
+390. Sample question 390: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 390.
+---
+391. Sample question 391: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 391.
+---
+392. Sample question 392: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 392.
+---
+393. Sample question 393: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 393.
+---
+394. Sample question 394: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 394.
+---
+395. Sample question 395: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 395.
+---
+396. Sample question 396: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 396.
+---
+397. Sample question 397: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 397.
+---
+398. Sample question 398: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 398.
+---
+399. Sample question 399: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 399.
+---
+400. Sample question 400: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 400.
+---
+401. Sample question 401: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 401.
+---
+402. Sample question 402: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 402.
+---
+403. Sample question 403: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 403.
+---
+404. Sample question 404: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 404.
+---
+405. Sample question 405: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 405.
+---
+406. Sample question 406: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 406.
+---
+407. Sample question 407: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 407.
+---
+408. Sample question 408: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 408.
+---
+409. Sample question 409: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 409.
+---
+410. Sample question 410: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 410.
+---
+411. Sample question 411: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 411.
+---
+412. Sample question 412: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 412.
+---
+413. Sample question 413: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 413.
+---
+414. Sample question 414: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 414.
+---
+415. Sample question 415: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 415.
+---
+416. Sample question 416: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 416.
+---
+417. Sample question 417: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 417.
+---
+418. Sample question 418: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 418.
+---
+419. Sample question 419: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 419.
+---
+420. Sample question 420: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 420.
+---
+421. Sample question 421: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 421.
+---
+422. Sample question 422: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 422.
+---
+423. Sample question 423: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 423.
+---
+424. Sample question 424: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 424.
+---
+425. Sample question 425: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 425.
+---
+426. Sample question 426: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 426.
+---
+427. Sample question 427: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 427.
+---
+428. Sample question 428: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 428.
+---
+429. Sample question 429: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 429.
+---
+430. Sample question 430: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 430.
+---
+431. Sample question 431: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 431.
+---
+432. Sample question 432: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 432.
+---
+433. Sample question 433: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 433.
+---
+434. Sample question 434: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 434.
+---
+435. Sample question 435: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 435.
+---
+436. Sample question 436: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 436.
+---
+437. Sample question 437: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 437.
+---
+438. Sample question 438: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 438.
+---
+439. Sample question 439: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 439.
+---
+440. Sample question 440: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 440.
+---
+441. Sample question 441: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 441.
+---
+442. Sample question 442: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 442.
+---
+443. Sample question 443: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 443.
+---
+444. Sample question 444: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 444.
+---
+445. Sample question 445: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 445.
+---
+446. Sample question 446: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 446.
+---
+447. Sample question 447: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 447.
+---
+448. Sample question 448: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 448.
+---
+449. Sample question 449: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 449.
+---
+450. Sample question 450: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 450.
+---
+451. Sample question 451: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 451.
+---
+452. Sample question 452: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 452.
+---
+453. Sample question 453: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 453.
+---
+454. Sample question 454: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 454.
+---
+455. Sample question 455: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 455.
+---
+456. Sample question 456: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 456.
+---
+457. Sample question 457: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 457.
+---
+458. Sample question 458: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 458.
+---
+459. Sample question 459: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 459.
+---
+460. Sample question 460: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 460.
+---
+461. Sample question 461: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 461.
+---
+462. Sample question 462: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 462.
+---
+463. Sample question 463: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 463.
+---
+464. Sample question 464: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 464.
+---
+465. Sample question 465: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 465.
+---
+466. Sample question 466: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 466.
+---
+467. Sample question 467: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 467.
+---
+468. Sample question 468: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 468.
+---
+469. Sample question 469: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 469.
+---
+470. Sample question 470: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 470.
+---
+471. Sample question 471: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 471.
+---
+472. Sample question 472: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 472.
+---
+473. Sample question 473: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 473.
+---
+474. Sample question 474: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 474.
+---
+475. Sample question 475: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 475.
+---
+476. Sample question 476: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 476.
+---
+477. Sample question 477: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 477.
+---
+478. Sample question 478: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 478.
+---
+479. Sample question 479: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 479.
+---
+480. Sample question 480: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 480.
+---
+481. Sample question 481: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 481.
+---
+482. Sample question 482: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 482.
+---
+483. Sample question 483: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 483.
+---
+484. Sample question 484: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 484.
+---
+485. Sample question 485: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 485.
+---
+486. Sample question 486: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 486.
+---
+487. Sample question 487: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 487.
+---
+488. Sample question 488: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 488.
+---
+489. Sample question 489: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 489.
+---
+490. Sample question 490: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 490.
+---
+491. Sample question 491: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 491.
+---
+492. Sample question 492: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 492.
+---
+493. Sample question 493: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 493.
+---
+494. Sample question 494: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 494.
+---
+495. Sample question 495: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 495.
+---
+496. Sample question 496: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 496.
+---
+497. Sample question 497: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 497.
+---
+498. Sample question 498: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 498.
+---
+499. Sample question 499: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 499.
+---
+500. Sample question 500: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 500.
+---
+501. Sample question 501: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 501.
+---
+502. Sample question 502: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 502.
+---
+503. Sample question 503: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 503.
+---
+504. Sample question 504: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 504.
+---
+505. Sample question 505: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 505.
+---
+506. Sample question 506: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 506.
+---
+507. Sample question 507: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 507.
+---
+508. Sample question 508: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 508.
+---
+509. Sample question 509: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 509.
+---
+510. Sample question 510: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 510.
+---
+511. Sample question 511: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 511.
+---
+512. Sample question 512: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 512.
+---
+513. Sample question 513: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 513.
+---
+514. Sample question 514: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 514.
+---
+515. Sample question 515: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 515.
+---
+516. Sample question 516: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 516.
+---
+517. Sample question 517: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 517.
+---
+518. Sample question 518: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 518.
+---
+519. Sample question 519: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 519.
+---
+520. Sample question 520: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 520.
+---
+521. Sample question 521: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 521.
+---
+522. Sample question 522: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 522.
+---
+523. Sample question 523: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 523.
+---
+524. Sample question 524: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 524.
+---
+525. Sample question 525: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 525.
+---
+526. Sample question 526: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 526.
+---
+527. Sample question 527: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 527.
+---
+528. Sample question 528: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 528.
+---
+529. Sample question 529: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 529.
+---
+530. Sample question 530: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 530.
+---
+531. Sample question 531: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 531.
+---
+532. Sample question 532: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 532.
+---
+533. Sample question 533: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 533.
+---
+534. Sample question 534: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 534.
+---
+535. Sample question 535: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 535.
+---
+536. Sample question 536: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 536.
+---
+537. Sample question 537: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 537.
+---
+538. Sample question 538: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 538.
+---
+539. Sample question 539: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 539.
+---
+540. Sample question 540: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 540.
+---
+541. Sample question 541: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 541.
+---
+542. Sample question 542: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 542.
+---
+543. Sample question 543: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 543.
+---
+544. Sample question 544: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 544.
+---
+545. Sample question 545: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 545.
+---
+546. Sample question 546: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 546.
+---
+547. Sample question 547: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 547.
+---
+548. Sample question 548: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 548.
+---
+549. Sample question 549: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 549.
+---
+550. Sample question 550: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 550.
+---
+551. Sample question 551: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 551.
+---
+552. Sample question 552: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 552.
+---
+553. Sample question 553: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 553.
+---
+554. Sample question 554: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 554.
+---
+555. Sample question 555: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 555.
+---
+556. Sample question 556: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 556.
+---
+557. Sample question 557: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 557.
+---
+558. Sample question 558: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 558.
+---
+559. Sample question 559: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 559.
+---
+560. Sample question 560: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 560.
+---
+561. Sample question 561: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 561.
+---
+562. Sample question 562: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 562.
+---
+563. Sample question 563: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 563.
+---
+564. Sample question 564: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 564.
+---
+565. Sample question 565: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 565.
+---
+566. Sample question 566: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 566.
+---
+567. Sample question 567: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 567.
+---
+568. Sample question 568: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 568.
+---
+569. Sample question 569: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 569.
+---
+570. Sample question 570: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 570.
+---
+571. Sample question 571: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 571.
+---
+572. Sample question 572: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 572.
+---
+573. Sample question 573: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 573.
+---
+574. Sample question 574: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 574.
+---
+575. Sample question 575: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 575.
+---
+576. Sample question 576: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 576.
+---
+577. Sample question 577: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 577.
+---
+578. Sample question 578: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 578.
+---
+579. Sample question 579: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 579.
+---
+580. Sample question 580: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 580.
+---
+581. Sample question 581: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 581.
+---
+582. Sample question 582: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 582.
+---
+583. Sample question 583: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 583.
+---
+584. Sample question 584: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 584.
+---
+585. Sample question 585: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 585.
+---
+586. Sample question 586: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 586.
+---
+587. Sample question 587: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 587.
+---
+588. Sample question 588: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 588.
+---
+589. Sample question 589: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 589.
+---
+590. Sample question 590: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 590.
+---
+591. Sample question 591: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 591.
+---
+592. Sample question 592: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 592.
+---
+593. Sample question 593: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 593.
+---
+594. Sample question 594: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 594.
+---
+595. Sample question 595: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 595.
+---
+596. Sample question 596: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 596.
+---
+597. Sample question 597: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 597.
+---
+598. Sample question 598: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 598.
+---
+599. Sample question 599: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 599.
+---
+600. Sample question 600: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 600.
+---
+601. Sample question 601: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 601.
+---
+602. Sample question 602: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 602.
+---
+603. Sample question 603: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 603.
+---
+604. Sample question 604: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 604.
+---
+605. Sample question 605: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 605.
+---
+606. Sample question 606: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 606.
+---
+607. Sample question 607: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 607.
+---
+608. Sample question 608: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 608.
+---
+609. Sample question 609: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 609.
+---
+610. Sample question 610: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 610.
+---
+611. Sample question 611: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 611.
+---
+612. Sample question 612: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 612.
+---
+613. Sample question 613: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 613.
+---
+614. Sample question 614: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 614.
+---
+615. Sample question 615: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 615.
+---
+616. Sample question 616: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 616.
+---
+617. Sample question 617: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 617.
+---
+618. Sample question 618: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 618.
+---
+619. Sample question 619: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 619.
+---
+620. Sample question 620: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 620.
+---
+621. Sample question 621: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 621.
+---
+622. Sample question 622: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 622.
+---
+623. Sample question 623: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 623.
+---
+624. Sample question 624: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 624.
+---
+625. Sample question 625: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 625.
+---
+626. Sample question 626: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 626.
+---
+627. Sample question 627: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 627.
+---
+628. Sample question 628: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 628.
+---
+629. Sample question 629: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 629.
+---
+630. Sample question 630: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 630.
+---
+631. Sample question 631: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 631.
+---
+632. Sample question 632: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 632.
+---
+633. Sample question 633: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 633.
+---
+634. Sample question 634: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 634.
+---
+635. Sample question 635: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 635.
+---
+636. Sample question 636: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 636.
+---
+637. Sample question 637: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 637.
+---
+638. Sample question 638: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 638.
+---
+639. Sample question 639: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 639.
+---
+640. Sample question 640: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 640.
+---
+641. Sample question 641: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 641.
+---
+642. Sample question 642: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 642.
+---
+643. Sample question 643: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 643.
+---
+644. Sample question 644: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 644.
+---
+645. Sample question 645: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 645.
+---
+646. Sample question 646: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 646.
+---
+647. Sample question 647: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 647.
+---
+648. Sample question 648: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 648.
+---
+649. Sample question 649: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 649.
+---
+650. Sample question 650: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 650.
+---
+651. Sample question 651: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 651.
+---
+652. Sample question 652: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 652.
+---
+653. Sample question 653: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 653.
+---
+654. Sample question 654: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 654.
+---
+655. Sample question 655: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 655.
+---
+656. Sample question 656: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 656.
+---
+657. Sample question 657: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 657.
+---
+658. Sample question 658: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 658.
+---
+659. Sample question 659: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 659.
+---
+660. Sample question 660: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 660.
+---
+661. Sample question 661: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 661.
+---
+662. Sample question 662: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 662.
+---
+663. Sample question 663: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 663.
+---
+664. Sample question 664: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 664.
+---
+665. Sample question 665: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 665.
+---
+666. Sample question 666: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 666.
+---
+667. Sample question 667: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 667.
+---
+668. Sample question 668: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 668.
+---
+669. Sample question 669: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 669.
+---
+670. Sample question 670: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 670.
+---
+671. Sample question 671: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 671.
+---
+672. Sample question 672: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 672.
+---
+673. Sample question 673: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 673.
+---
+674. Sample question 674: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 674.
+---
+675. Sample question 675: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 675.
+---
+676. Sample question 676: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 676.
+---
+677. Sample question 677: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 677.
+---
+678. Sample question 678: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 678.
+---
+679. Sample question 679: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 679.
+---
+680. Sample question 680: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 680.
+---
+681. Sample question 681: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 681.
+---
+682. Sample question 682: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 682.
+---
+683. Sample question 683: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 683.
+---
+684. Sample question 684: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 684.
+---
+685. Sample question 685: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 685.
+---
+686. Sample question 686: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 686.
+---
+687. Sample question 687: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 687.
+---
+688. Sample question 688: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 688.
+---
+689. Sample question 689: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 689.
+---
+690. Sample question 690: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 690.
+---
+691. Sample question 691: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 691.
+---
+692. Sample question 692: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 692.
+---
+693. Sample question 693: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 693.
+---
+694. Sample question 694: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 694.
+---
+695. Sample question 695: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 695.
+---
+696. Sample question 696: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 696.
+---
+697. Sample question 697: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 697.
+---
+698. Sample question 698: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 698.
+---
+699. Sample question 699: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 699.
+---
+700. Sample question 700: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 700.
+---
+701. Sample question 701: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 701.
+---
+702. Sample question 702: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 702.
+---
+703. Sample question 703: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 703.
+---
+704. Sample question 704: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 704.
+---
+705. Sample question 705: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 705.
+---
+706. Sample question 706: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 706.
+---
+707. Sample question 707: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 707.
+---
+708. Sample question 708: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 708.
+---
+709. Sample question 709: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 709.
+---
+710. Sample question 710: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 710.
+---
+711. Sample question 711: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 711.
+---
+712. Sample question 712: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 712.
+---
+713. Sample question 713: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 713.
+---
+714. Sample question 714: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 714.
+---
+715. Sample question 715: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 715.
+---
+716. Sample question 716: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 716.
+---
+717. Sample question 717: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 717.
+---
+718. Sample question 718: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 718.
+---
+719. Sample question 719: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 719.
+---
+720. Sample question 720: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 720.
+---
+721. Sample question 721: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 721.
+---
+722. Sample question 722: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 722.
+---
+723. Sample question 723: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 723.
+---
+724. Sample question 724: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 724.
+---
+725. Sample question 725: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 725.
+---
+726. Sample question 726: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 726.
+---
+727. Sample question 727: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 727.
+---
+728. Sample question 728: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 728.
+---
+729. Sample question 729: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 729.
+---
+730. Sample question 730: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 730.
+---
+731. Sample question 731: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 731.
+---
+732. Sample question 732: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 732.
+---
+733. Sample question 733: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 733.
+---
+734. Sample question 734: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 734.
+---
+735. Sample question 735: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 735.
+---
+736. Sample question 736: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 736.
+---
+737. Sample question 737: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 737.
+---
+738. Sample question 738: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 738.
+---
+739. Sample question 739: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 739.
+---
+740. Sample question 740: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 740.
+---
+741. Sample question 741: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 741.
+---
+742. Sample question 742: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 742.
+---
+743. Sample question 743: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 743.
+---
+744. Sample question 744: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 744.
+---
+745. Sample question 745: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 745.
+---
+746. Sample question 746: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 746.
+---
+747. Sample question 747: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 747.
+---
+748. Sample question 748: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 748.
+---
+749. Sample question 749: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 749.
+---
+750. Sample question 750: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 750.
+---
+751. Sample question 751: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 751.
+---
+752. Sample question 752: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 752.
+---
+753. Sample question 753: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 753.
+---
+754. Sample question 754: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 754.
+---
+755. Sample question 755: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 755.
+---
+756. Sample question 756: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 756.
+---
+757. Sample question 757: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 757.
+---
+758. Sample question 758: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 758.
+---
+759. Sample question 759: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 759.
+---
+760. Sample question 760: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 760.
+---
+761. Sample question 761: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 761.
+---
+762. Sample question 762: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 762.
+---
+763. Sample question 763: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 763.
+---
+764. Sample question 764: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 764.
+---
+765. Sample question 765: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 765.
+---
+766. Sample question 766: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 766.
+---
+767. Sample question 767: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 767.
+---
+768. Sample question 768: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 768.
+---
+769. Sample question 769: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 769.
+---
+770. Sample question 770: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 770.
+---
+771. Sample question 771: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 771.
+---
+772. Sample question 772: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 772.
+---
+773. Sample question 773: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 773.
+---
+774. Sample question 774: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 774.
+---
+775. Sample question 775: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 775.
+---
+776. Sample question 776: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 776.
+---
+777. Sample question 777: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 777.
+---
+778. Sample question 778: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 778.
+---
+779. Sample question 779: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 779.
+---
+780. Sample question 780: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 780.
+---
+781. Sample question 781: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 781.
+---
+782. Sample question 782: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 782.
+---
+783. Sample question 783: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 783.
+---
+784. Sample question 784: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 784.
+---
+785. Sample question 785: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 785.
+---
+786. Sample question 786: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 786.
+---
+787. Sample question 787: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 787.
+---
+788. Sample question 788: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 788.
+---
+789. Sample question 789: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 789.
+---
+790. Sample question 790: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 790.
+---
+791. Sample question 791: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 791.
+---
+792. Sample question 792: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 792.
+---
+793. Sample question 793: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 793.
+---
+794. Sample question 794: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 794.
+---
+795. Sample question 795: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 795.
+---
+796. Sample question 796: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 796.
+---
+797. Sample question 797: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 797.
+---
+798. Sample question 798: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 798.
+---
+799. Sample question 799: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 799.
+---
+800. Sample question 800: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 800.
+---
+801. Sample question 801: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 801.
+---
+802. Sample question 802: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 802.
+---
+803. Sample question 803: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 803.
+---
+804. Sample question 804: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 804.
+---
+805. Sample question 805: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 805.
+---
+806. Sample question 806: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 806.
+---
+807. Sample question 807: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 807.
+---
+808. Sample question 808: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 808.
+---
+809. Sample question 809: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 809.
+---
+810. Sample question 810: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 810.
+---
+811. Sample question 811: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 811.
+---
+812. Sample question 812: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 812.
+---
+813. Sample question 813: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 813.
+---
+814. Sample question 814: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 814.
+---
+815. Sample question 815: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 815.
+---
+816. Sample question 816: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 816.
+---
+817. Sample question 817: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 817.
+---
+818. Sample question 818: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 818.
+---
+819. Sample question 819: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 819.
+---
+820. Sample question 820: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 820.
+---
+821. Sample question 821: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 821.
+---
+822. Sample question 822: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 822.
+---
+823. Sample question 823: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 823.
+---
+824. Sample question 824: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 824.
+---
+825. Sample question 825: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 825.
+---
+826. Sample question 826: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 826.
+---
+827. Sample question 827: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 827.
+---
+828. Sample question 828: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 828.
+---
+829. Sample question 829: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 829.
+---
+830. Sample question 830: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 830.
+---
+831. Sample question 831: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 831.
+---
+832. Sample question 832: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 832.
+---
+833. Sample question 833: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 833.
+---
+834. Sample question 834: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 834.
+---
+835. Sample question 835: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 835.
+---
+836. Sample question 836: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 836.
+---
+837. Sample question 837: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 837.
+---
+838. Sample question 838: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 838.
+---
+839. Sample question 839: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 839.
+---
+840. Sample question 840: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 840.
+---
+841. Sample question 841: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 841.
+---
+842. Sample question 842: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 842.
+---
+843. Sample question 843: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 843.
+---
+844. Sample question 844: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 844.
+---
+845. Sample question 845: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 845.
+---
+846. Sample question 846: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 846.
+---
+847. Sample question 847: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 847.
+---
+848. Sample question 848: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 848.
+---
+849. Sample question 849: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 849.
+---
+850. Sample question 850: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 850.
+---
+851. Sample question 851: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 851.
+---
+852. Sample question 852: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 852.
+---
+853. Sample question 853: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 853.
+---
+854. Sample question 854: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 854.
+---
+855. Sample question 855: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 855.
+---
+856. Sample question 856: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 856.
+---
+857. Sample question 857: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 857.
+---
+858. Sample question 858: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 858.
+---
+859. Sample question 859: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 859.
+---
+860. Sample question 860: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 860.
+---
+861. Sample question 861: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 861.
+---
+862. Sample question 862: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 862.
+---
+863. Sample question 863: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 863.
+---
+864. Sample question 864: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 864.
+---
+865. Sample question 865: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 865.
+---
+866. Sample question 866: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 866.
+---
+867. Sample question 867: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 867.
+---
+868. Sample question 868: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 868.
+---
+869. Sample question 869: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 869.
+---
+870. Sample question 870: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 870.
+---
+871. Sample question 871: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 871.
+---
+872. Sample question 872: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 872.
+---
+873. Sample question 873: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 873.
+---
+874. Sample question 874: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 874.
+---
+875. Sample question 875: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 875.
+---
+876. Sample question 876: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 876.
+---
+877. Sample question 877: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 877.
+---
+878. Sample question 878: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 878.
+---
+879. Sample question 879: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 879.
+---
+880. Sample question 880: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 880.
+---
+881. Sample question 881: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 881.
+---
+882. Sample question 882: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 882.
+---
+883. Sample question 883: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 883.
+---
+884. Sample question 884: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 884.
+---
+885. Sample question 885: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 885.
+---
+886. Sample question 886: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 886.
+---
+887. Sample question 887: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 887.
+---
+888. Sample question 888: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 888.
+---
+889. Sample question 889: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 889.
+---
+890. Sample question 890: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 890.
+---
+891. Sample question 891: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 891.
+---
+892. Sample question 892: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 892.
+---
+893. Sample question 893: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 893.
+---
+894. Sample question 894: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 894.
+---
+895. Sample question 895: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 895.
+---
+896. Sample question 896: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 896.
+---
+897. Sample question 897: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 897.
+---
+898. Sample question 898: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 898.
+---
+899. Sample question 899: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 899.
+---
+900. Sample question 900: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 900.
+---
+901. Sample question 901: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 901.
+---
+902. Sample question 902: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 902.
+---
+903. Sample question 903: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 903.
+---
+904. Sample question 904: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 904.
+---
+905. Sample question 905: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 905.
+---
+906. Sample question 906: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 906.
+---
+907. Sample question 907: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 907.
+---
+908. Sample question 908: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 908.
+---
+909. Sample question 909: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 909.
+---
+910. Sample question 910: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 910.
+---
+911. Sample question 911: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 911.
+---
+912. Sample question 912: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 912.
+---
+913. Sample question 913: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 913.
+---
+914. Sample question 914: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 914.
+---
+915. Sample question 915: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 915.
+---
+916. Sample question 916: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 916.
+---
+917. Sample question 917: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 917.
+---
+918. Sample question 918: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 918.
+---
+919. Sample question 919: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 919.
+---
+920. Sample question 920: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 920.
+---
+921. Sample question 921: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 921.
+---
+922. Sample question 922: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 922.
+---
+923. Sample question 923: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 923.
+---
+924. Sample question 924: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 924.
+---
+925. Sample question 925: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 925.
+---
+926. Sample question 926: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 926.
+---
+927. Sample question 927: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 927.
+---
+928. Sample question 928: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 928.
+---
+929. Sample question 929: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 929.
+---
+930. Sample question 930: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 930.
+---
+931. Sample question 931: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 931.
+---
+932. Sample question 932: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 932.
+---
+933. Sample question 933: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 933.
+---
+934. Sample question 934: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 934.
+---
+935. Sample question 935: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 935.
+---
+936. Sample question 936: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 936.
+---
+937. Sample question 937: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 937.
+---
+938. Sample question 938: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 938.
+---
+939. Sample question 939: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 939.
+---
+940. Sample question 940: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 940.
+---
+941. Sample question 941: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 941.
+---
+942. Sample question 942: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 942.
+---
+943. Sample question 943: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 943.
+---
+944. Sample question 944: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 944.
+---
+945. Sample question 945: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 945.
+---
+946. Sample question 946: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 946.
+---
+947. Sample question 947: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 947.
+---
+948. Sample question 948: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 948.
+---
+949. Sample question 949: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 949.
+---
+950. Sample question 950: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 950.
+---
+951. Sample question 951: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 951.
+---
+952. Sample question 952: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 952.
+---
+953. Sample question 953: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 953.
+---
+954. Sample question 954: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 954.
+---
+955. Sample question 955: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 955.
+---
+956. Sample question 956: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 956.
+---
+957. Sample question 957: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 957.
+---
+958. Sample question 958: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 958.
+---
+959. Sample question 959: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 959.
+---
+960. Sample question 960: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 960.
+---
+961. Sample question 961: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 961.
+---
+962. Sample question 962: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 962.
+---
+963. Sample question 963: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 963.
+---
+964. Sample question 964: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 964.
+---
+965. Sample question 965: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 965.
+---
+966. Sample question 966: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 966.
+---
+967. Sample question 967: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 967.
+---
+968. Sample question 968: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 968.
+---
+969. Sample question 969: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 969.
+---
+970. Sample question 970: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 970.
+---
+971. Sample question 971: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 971.
+---
+972. Sample question 972: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 972.
+---
+973. Sample question 973: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 973.
+---
+974. Sample question 974: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 974.
+---
+975. Sample question 975: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 975.
+---
+976. Sample question 976: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 976.
+---
+977. Sample question 977: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 977.
+---
+978. Sample question 978: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 978.
+---
+979. Sample question 979: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 979.
+---
+980. Sample question 980: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 980.
+---
+981. Sample question 981: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 981.
+---
+982. Sample question 982: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 982.
+---
+983. Sample question 983: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 983.
+---
+984. Sample question 984: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 984.
+---
+985. Sample question 985: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 985.
+---
+986. Sample question 986: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 986.
+---
+987. Sample question 987: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 987.
+---
+988. Sample question 988: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 988.
+---
+989. Sample question 989: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 989.
+---
+990. Sample question 990: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 990.
+---
+991. Sample question 991: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 991.
+---
+992. Sample question 992: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 992.
+---
+993. Sample question 993: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 993.
+---
+994. Sample question 994: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 994.
+---
+995. Sample question 995: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 995.
+---
+996. Sample question 996: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 996.
+---
+997. Sample question 997: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 997.
+---
+998. Sample question 998: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 998.
+---
+999. Sample question 999: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 999.
+---
+1000. Sample question 1000: which option is labelled B?
+a. Option A
+b. Option B
+c. Option C
+d. Option D
+Answer: b
+Rationale: Sample rationale 1000.
+---

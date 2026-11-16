@@ -136,5 +136,13 @@ desktop.ini
 .vscode/*
 !.vscode/extensions.json
 
+# ===== App build/test output =====
+app/node_modules/
+app/dist/
+app/test-results/
+app/playwright-report/
+app/coverage/
+app/blob-report/
+
 # ===== Product assets (local only) =====
 docs/product/assets/
