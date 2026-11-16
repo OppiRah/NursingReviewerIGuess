@@ -7,6 +7,11 @@ export const MAX_PDF_PAGES = 300;
 
 export type FileKind = 'pdf' | 'docx' | 'text' | 'unsupported';
 
+/** An import problem with a message meant for the student (shown as-is). */
+export class FriendlyImportError extends Error {
+  override name = 'FriendlyImportError';
+}
+
 export function fileKind(file: { name: string; type: string }): FileKind {
   const name = file.name.toLowerCase();
   if (name.endsWith('.pdf') || file.type === 'application/pdf') return 'pdf';

@@ -31,9 +31,21 @@ export interface ParseResult {
   items: ParsedItem[];
   errors: ParseIssue[];
   warnings: ParseIssue[];
+  /**
+   * Words in text that was not turned into questions: lines outside any question plus questions
+   * that had errors. Lets the Import screen tell "these are study notes" from "a few broken questions".
+   */
+  proseWords: number;
+  /** Words in lines outside any question only (drives the "some parts looked like notes" hint). */
+  ignoredWords: number;
+  /** "Answer:" lines seen. Study notes have none; a broken question deck has many. */
+  answerLines: number;
 }
 
-const RE_TITLE = /^#\s*(.*)$/;
+const RE_TITLE = /^#{1,6}\s*(.*)$/;
+/** "1." alone on a line (e.g. from "Question 1:" with the text on the next line). */
+const RE_NUM_BARE = /^(\d{1,4})[.)]$/;
+const wordCount = (s: string): number => (s.trim() ? s.trim().split(/\s+/).length : 0);
 const RE_SEP = /^-{3,}$/;
 const RE_TYPE = /^type\s*:\s*(.*)$/i;
 const RE_ANSWER = /^(?:correct\s+)?answer\s*:\s*(.*)$/i;
@@ -66,6 +78,8 @@ type Field = 'question' | 'choice' | 'answer' | 'back' | 'rationale';
 
 interface Block {
   line: number;
+  /** Index (into the normalized lines) where the block starts. */
+  startIdx: number;
   kind: 'numbered' | 'flash';
   declaredType: ItemType | null;
   question: string[];
@@ -85,6 +99,8 @@ interface PassResult extends ParseResult {
   requests: { idx: number; blockLine: number }[];
   /** Original line numbers of ignored chapter/section headings. */
   headings: number[];
+  /** Original line numbers of text outside any question (incl. chatbot small talk). */
+  ignored: number[];
 }
 
 function parseDeclaredType(raw: string): ItemType | null {
@@ -96,10 +112,19 @@ function parseDeclaredType(raw: string): ItemType | null {
   return null;
 }
 
-/** "b" → ["b"]; "a, c, d" → ["a","c","d"]; "b. Some text" → ["b"]; otherwise null. */
+/**
+ * "b" → ["b"]; "a, c, d" → ["a","c","d"]; "b. Some text", "b) Beta", "B - Beta", "Option B" → ["b"];
+ * otherwise null.
+ */
 export function parseAnswerLetters(raw: string): string[] | null {
-  const s = raw.trim().replace(/\.$/, '');
+  const s = raw
+    .trim()
+    .replace(/^(?:the\s+)?(?:correct\s+)?(?:options?|choices?|letters?)\s+/i, '')
+    .replace(/\.$/, '');
   if (!s) return null;
+  // "B - Beta": the text after the dash must be a word, never another letter ("A - C" is an error, not "a").
+  const dashed = /^\(?([a-h])\)?\s*[-–—]\s+(?![a-h]\b)\S{2,}/i.exec(s);
+  if (dashed && dashed[1]) return [dashed[1].toLowerCase()];
   const tokens = s.split(/\s*(?:,|;|&|\band\b|\s)\s*/i).filter(Boolean);
   if (tokens.length > 0 && tokens.every((t) => /^\(?[a-h]\)?[.)]?$/i.test(t))) {
     return [...new Set(tokens.map((t) => t.replace(/[^a-h]/gi, '').toLowerCase()))].sort();
@@ -118,18 +143,33 @@ function startsWithAbbreviatedTerm(text: string): boolean {
 
 /** One parsing pass over normalized lines. `forced` holds line indexes that must start a question. */
 function parsePass(lines: NormLine[], forced: ReadonlySet<number>): PassResult {
-  const result: PassResult = { title: null, items: [], errors: [], warnings: [], requests: [], headings: [] };
+  const result: PassResult = { title: null, items: [], errors: [], warnings: [], requests: [], headings: [], ignored: [], proseWords: 0, ignoredWords: 0, answerLines: 0 };
   let firstHeading: string | null = null;
 
   let block: Block | null = null;
   let pendingType: { type: ItemType; line: number } | null = null;
   let seenBlock = false;
+  /** Index of the line being processed (finalize() uses it to size the block that just ended). */
+  let curIdx = 0;
+
+  /** Text outside any question: counted for one summary warning, never a warning per line. */
+  const ignore = (lineNo: number, text: string): void => {
+    if (result.ignored[result.ignored.length - 1] !== lineNo) result.ignored.push(lineNo);
+    const w = wordCount(text);
+    result.proseWords += w;
+    result.ignoredWords += w;
+  };
 
   const finalize = (): void => {
     if (!block) return;
     const b = block;
     block = null;
     const errs = [...b.errors];
+    const blockWords = (): number => {
+      let n = 0;
+      for (let k = b.startIdx; k < curIdx && k < lines.length; k++) n += wordCount(lines[k]?.text ?? '');
+      return n;
+    };
     const question = join(b.question);
     const rationale = b.rationale ? join(b.rationale) : '';
     const where = `Question at line ${b.line}`;
@@ -142,6 +182,7 @@ function parsePass(lines: NormLine[], forced: ReadonlySet<number>): PassResult {
       if (!back) errs.push({ line: b.line, message: `${where}: flashcard has no "A:" answer line.` });
       if (errs.length) {
         result.errors.push(...errs);
+        result.proseWords += blockWords();
         return;
       }
       result.items.push({ type: 'flashcard', question, choices: [], answer: [], back, rationale, line: b.line });
@@ -188,6 +229,7 @@ function parsePass(lines: NormLine[], forced: ReadonlySet<number>): PassResult {
 
     if (errs.length) {
       result.errors.push(...errs);
+      result.proseWords += blockWords();
       return;
     }
     if (!rationale) result.warnings.push({ line: b.line, message: `${where}: no rationale. It will be saved, but you won't see an explanation after answering.` });
@@ -207,6 +249,7 @@ function parsePass(lines: NormLine[], forced: ReadonlySet<number>): PassResult {
     seenBlock = true;
     block = {
       line: lineNo,
+      startIdx: curIdx,
       kind,
       declaredType: pendingType?.type ?? null,
       question: [firstQuestionText],
@@ -241,6 +284,16 @@ function parsePass(lines: NormLine[], forced: ReadonlySet<number>): PassResult {
         b.errors.push({ line: lineNo, message: `Question at line ${b.line}: unexpected text after "Answer:" (line ${lineNo}). Start explanations with "Rationale:".` });
         break;
     }
+  };
+
+  /** Is everything after line `idx` up to a separator or the end only blank lines or small talk? */
+  const onlyChatterFollows = (idx: number): boolean => {
+    for (let j = idx + 1; j < lines.length; j++) {
+      const e = lines[j];
+      if (!e || !e.text || e.chatty) continue;
+      return RE_SEP.test(e.text);
+    }
+    return true;
   };
 
   /** Do choices or an Answer: line follow line `idx` before the next block boundary? */
@@ -283,8 +336,43 @@ function parsePass(lines: NormLine[], forced: ReadonlySet<number>): PassResult {
     let m: RegExpExecArray | null;
     const open = block as Block | null;
 
+    curIdx = i;
+    // Chatbot small talk ("Here are your questions:", "Let me know…") outside a question, or after a
+    // finished question and a blank line, is ignored instead of glued into the last rationale.
+    // Inside a finished question only a sign-off ("Let me know…") that is followed by nothing but
+    // more small talk counts; "Here is why B is wrong…" in a rationale's second paragraph is kept.
+    if (entry.chatty) {
+      const prevBlank = (lines[i - 1]?.text ?? '') === '';
+      const finished = !!open && (open.field === 'rationale' || open.answerRaw !== null);
+      if (!open || (entry.chatty === 'signoff' && prevBlank && finished && onlyChatterFollows(i))) {
+        finalize();
+        ignore(lineNo, line);
+        return;
+      }
+    }
+
     if (forced.has(i) && (m = RE_NUM_LOOSE.exec(line))) {
       startBlock(lineNo, 'numbered', m[2] ?? '');
+      return;
+    }
+
+    // Inside a rationale, a line that chatbot clean-up rewrote ("- 1. assess airway", "* b) check
+    // pulse", "Question 2: compare…") keeps its original text unless a real new question starts.
+    if (open?.field === 'rationale' && entry.orig !== undefined && (entry.orig.match(/^[-*+]\s/) || !questionFollows(i))) {
+      open.rationale?.push(entry.orig);
+      return;
+    }
+
+    // "## 1. Cardiovascular" is a section heading unless choices/Answer follow it.
+    if (entry.fromHash && RE_NUM.test(line) && !questionFollows(i)) {
+      result.headings.push(lineNo);
+      if (open && open.answerRaw !== null) finalize();
+      return;
+    }
+    // "## Respiratory" after a finished question ends it, instead of being glued into the rationale.
+    if (open && open.answerRaw !== null && /^#{1,6}\s+\S/.test(line)) {
+      finalize();
+      result.headings.push(lineNo);
       return;
     }
 
@@ -306,7 +394,7 @@ function parsePass(lines: NormLine[], forced: ReadonlySet<number>): PassResult {
       if (entry.glued && !questionFollows(i + 1)) {
         skipIdx = i + 1;
         if (open) appendText(open, entry.glued, lineNo);
-        else result.warnings.push({ line: lineNo, message: `Line ${lineNo}: text outside a question was ignored ("${entry.glued.slice(0, 40)}").` });
+        else ignore(lineNo, entry.glued);
         return;
       }
       finalize();
@@ -354,15 +442,20 @@ function parsePass(lines: NormLine[], forced: ReadonlySet<number>): PassResult {
         startBlock(lineNo, 'numbered', m[2] ?? '');
         return;
       }
+      if (RE_NUM_BARE.test(line) && questionFollows(i)) {
+        startBlock(lineNo, 'numbered', '');
+        return;
+      }
       if (RE_CHOICE.test(line) || RE_ANSWER.test(line) || RE_RATIONALE.test(line) || RE_A.test(line)) {
         result.errors.push({ line: lineNo, message: `Line ${lineNo}: "${line.slice(0, 40)}" is not inside a numbered question.` });
       } else {
-        result.warnings.push({ line: lineNo, message: `Line ${lineNo}: text outside a question was ignored ("${line.slice(0, 40)}").` });
+        ignore(lineNo, line);
       }
       return;
     }
 
     if ((m = RE_ANSWER.exec(line))) {
+      result.answerLines++;
       if (b.answerRaw !== null) {
         const split = findSplit(b, i);
         if (split !== null) result.requests.push({ idx: split, blockLine: b.line });
@@ -375,7 +468,9 @@ function parsePass(lines: NormLine[], forced: ReadonlySet<number>): PassResult {
       return;
     }
     if ((m = RE_RATIONALE.exec(line))) {
-      b.rationale = [m[1] ?? ''];
+      // A second Rationale:/Explanation:/Reason: line adds to the first instead of replacing it.
+      if (b.rationale) b.rationale.push(m[1] ?? '');
+      else b.rationale = [m[1] ?? ''];
       b.field = 'rationale';
       return;
     }
@@ -405,9 +500,10 @@ function parsePass(lines: NormLine[], forced: ReadonlySet<number>): PassResult {
       }
     }
 
-    appendText(b, line, lineNo);
+    appendText(b, b.field === 'rationale' ? (entry.orig ?? line) : line, lineNo);
   });
 
+  curIdx = lines.length;
   finalize();
   if (pendingType) {
     const p = pendingType as { type: ItemType; line: number };
@@ -422,7 +518,7 @@ const MAX_PASSES = 50;
 
 export function parseReviewer(input: string): ParseResult {
   if (new TextEncoder().encode(input).length > MAX_IMPORT_BYTES) {
-    return { title: null, items: [], errors: [{ line: 0, message: 'This text is larger than 2 MB. Split it into smaller parts and import them one at a time.' }], warnings: [] };
+    return { title: null, items: [], errors: [{ line: 0, message: 'This text is larger than 2 MB. Split it into smaller parts and import them one at a time.' }], warnings: [], proseWords: 0, ignoredWords: 0, answerLines: 0 };
   }
 
   const lines = normalizeLines(input);
@@ -446,7 +542,7 @@ export function parseReviewer(input: string): ParseResult {
     pass.errors.push({ line: r.blockLine, message: `Question at line ${r.blockLine}: more than one "Answer:" line.` });
   }
 
-  const result: ParseResult = { title: pass.title, items: pass.items, errors: pass.errors, warnings: pass.warnings };
+  const result: ParseResult = { title: pass.title, items: pass.items, errors: pass.errors, warnings: pass.warnings, proseWords: pass.proseWords, ignoredWords: pass.ignoredWords, answerLines: pass.answerLines };
   for (const [line, count] of recovered) {
     result.warnings.push({ line, message: `Recovered ${count} ${count === 1 ? 'question' : 'questions'} from a merged block near line ${line}.` });
   }
@@ -454,6 +550,11 @@ export function parseReviewer(input: string): ParseResult {
   if (h.length > 0) {
     const shown = h.slice(0, 10).join(', ') + (h.length > 10 ? ', …' : '');
     result.warnings.push({ line: 0, message: `${h.length} heading ${h.length === 1 ? 'line' : 'lines'} ignored (${h.length === 1 ? 'line' : 'lines'} ${shown}).` });
+  }
+  const ig = pass.ignored;
+  if (ig.length > 0) {
+    const shown = ig.slice(0, 10).join(', ') + (ig.length > 10 ? ', …' : '');
+    result.warnings.push({ line: 0, message: `${ig.length} ${ig.length === 1 ? 'line' : 'lines'} outside the questions ignored (${ig.length === 1 ? 'line' : 'lines'} ${shown}).` });
   }
   if (result.items.length === 0 && result.errors.length === 0) {
     result.errors.push({ line: 0, message: 'No questions found. Paste text in the format shown below, or use the BYO-AI prompt.' });

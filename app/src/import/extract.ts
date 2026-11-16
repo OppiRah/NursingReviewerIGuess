@@ -4,8 +4,9 @@
  * browser: no upload, no server, no remote workers or fonts. The pdf.js worker is bundled locally.
  * Output is plain text only; mammoth's HTML output is never used.
  */
-import { MAX_PDF_PAGES } from './kinds';
-import { MIN_PAGE_CHARS, runsToText, visibleChars, type TextRun } from './pdfLines';
+import { FriendlyImportError, MAX_PDF_PAGES } from './kinds';
+import { MIN_PAGE_CHARS, classifyPdf, pageStats, removeUnreadable, runsToText, visibleChars, type PageTextStats, type PdfTextStatus, type TextRun } from './pdfLines';
+import { checkZip, zipProblemMessage } from './zipGuard';
 
 export interface PdfExtract {
   text: string;
@@ -13,8 +14,8 @@ export interface PdfExtract {
   pagesRead: number;
   /** Pages with almost no text (likely images or slides). */
   emptyPages: number;
-  /** Most of the document has no readable text: probably a scan. */
-  scanned: boolean;
+  /** ok, or why the text can't be used: no text at all (scanned) vs text that can't be mapped (unreadable). */
+  status: PdfTextStatus;
 }
 
 export async function extractPdf(data: ArrayBuffer, onProgress?: (page: number, total: number) => void): Promise<PdfExtract> {
@@ -41,6 +42,7 @@ export async function extractPdf(data: ArrayBuffer, onProgress?: (page: number, 
     const pagesRead = Math.min(total, MAX_PDF_PAGES);
     const pageTexts: string[] = [];
     let emptyPages = 0;
+    const stats: PageTextStats[] = [];
     for (let p = 1; p <= pagesRead; p++) {
       onProgress?.(p, pagesRead);
       const page = await doc.getPage(p);
@@ -51,19 +53,23 @@ export async function extractPdf(data: ArrayBuffer, onProgress?: (page: number, 
         const t = item.transform as number[];
         runs.push({ str: item.str, x: t[4] ?? 0, y: t[5] ?? 0, width: item.width, height: item.height || Math.abs(t[3] ?? 0) });
       }
-      const text = runsToText(runs);
+      stats.push(pageStats(runs));
+      const text = removeUnreadable(runsToText(runs));
       if (visibleChars(text) < MIN_PAGE_CHARS) emptyPages++;
       pageTexts.push(text);
       page.cleanup();
     }
     const text = pageTexts.join('\n');
-    return { text, pages: total, pagesRead, emptyPages, scanned: pagesRead > 0 && emptyPages / pagesRead > 0.5 };
+    return { text, pages: total, pagesRead, emptyPages, status: classifyPdf(stats) };
   } finally {
     await task.destroy();
   }
 }
 
 export async function extractDocx(data: ArrayBuffer): Promise<string> {
+  // Zip-bomb guard: check the ZIP directory before mammoth inflates anything.
+  const zip = checkZip(data);
+  if (!zip.ok) throw new FriendlyImportError(zipProblemMessage(zip.reason));
   const mammoth = await import('mammoth');
   const lib = (mammoth as unknown as { default?: typeof mammoth }).default ?? mammoth;
   const result = await lib.extractRawText({ arrayBuffer: data });

@@ -4,11 +4,46 @@ import { PageTitle } from '../components/PageTitle';
 import { createDeck } from '../data/repo';
 import { BYO_AI_PROMPT } from '../domain/byoPrompt';
 import { isDateStr, localDateStr } from '../domain/dates';
-import { MAX_IMPORT_BYTES, parseReviewer } from '../domain/parser';
-import { MAX_PDF_PAGES, MAX_UPLOAD_BYTES, fileKind } from '../import/kinds';
+import { MAX_IMPORT_BYTES, parseReviewer, type ParseResult } from '../domain/parser';
+import { FriendlyImportError, MAX_PDF_PAGES, MAX_UPLOAD_BYTES, fileKind } from '../import/kinds';
 
+const UNREADABLE_MESSAGE = "Text in this PDF couldn't be read cleanly — try the original Word/Google Doc.";
 const SCANNED_MESSAGE =
   "This PDF looks like scanned images or slides — text can't be read from it yet. Try the original Google Doc/Word file, or use the AI prompt.";
+
+/** No questions found in more than this many words → show the "study notes" card (BUILD-006). */
+const NOTES_MIN_WORDS = 300;
+/** Some questions found, but this many words of prose besides → suggest the AI prompt for those parts. */
+const MIXED_NOTES_MIN_WORDS = 150;
+/** Show at most this many warnings; the rest are summarized. */
+const MAX_WARNINGS_SHOWN = 20;
+
+/** Problems and warnings from a parse, as plain text (never HTML). */
+function Issues({ parsed }: { parsed: ParseResult }) {
+  const shown = parsed.warnings.slice(0, MAX_WARNINGS_SHOWN);
+  const more = parsed.warnings.length - shown.length;
+  return (
+    <>
+      {parsed.errors.length > 0 && (
+        <>
+          <h3>Problems (these questions will not be saved)</h3>
+          <ul className="issues errors" data-testid="parse-errors">
+            {parsed.errors.map((er, i) => <li key={i}>{er.line > 0 ? `Line ${er.line}: ` : ''}{er.message}</li>)}
+          </ul>
+        </>
+      )}
+      {parsed.warnings.length > 0 && (
+        <details>
+          <summary>Warnings ({parsed.warnings.length})</summary>
+          <ul className="issues warnings" data-testid="parse-warnings">
+            {shown.map((w, i) => <li key={i}>{w.message}</li>)}
+            {more > 0 && <li data-testid="warnings-more">and {more} more</li>}
+          </ul>
+        </details>
+      )}
+    </>
+  );
+}
 
 /** "Chapter 3 reviewer.pdf" → "Chapter 3 reviewer" (title suggestion only). */
 function titleFromFileName(name: string): string {
@@ -40,6 +75,12 @@ export function ImportScreen() {
   const [fileTitle, setFileTitle] = useState('');
 
   const parsed = useMemo(() => (text.trim() ? parseReviewer(text) : null), [text]);
+  const words = useMemo(() => (text.trim() ? text.trim().split(/\s+/).length : 0), [text]);
+  // Long text with no questions at all is almost always study notes: point to the AI prompt first.
+  // A broken question deck (many "Answer:" lines) is not notes: show its real errors instead.
+  const looksLikeNotes = !!parsed && parsed.items.length === 0 && words > NOTES_MIN_WORDS && parsed.answerLines < 2;
+  // Only text outside any question counts here, not a few broken questions.
+  const mixedNotes = !!parsed && parsed.items.length > 0 && parsed.ignoredWords >= MIXED_NOTES_MIN_WORDS;
   const effectiveTitle = titleTouched ? title : title || parsed?.title || fileTitle || '';
 
   const onFile = async (e: ChangeEvent<HTMLInputElement>): Promise<void> => {
@@ -77,8 +118,8 @@ export function ImportScreen() {
       const data = await file.arrayBuffer();
       if (kind === 'pdf') {
         const r = await extractPdf(data, (page, total) => setReading(`Reading page ${page} of ${total}…`));
-        if (r.scanned) {
-          setFileError(SCANNED_MESSAGE);
+        if (r.status !== 'ok') {
+          setFileError(r.status === 'scanned' ? SCANNED_MESSAGE : UNREADABLE_MESSAGE);
           return;
         }
         const notes: string[] = [];
@@ -90,7 +131,11 @@ export function ImportScreen() {
         setText(await extractDocx(data));
       }
       setFileTitle(titleFromFileName(file.name));
-    } catch {
+    } catch (err) {
+      if (err instanceof FriendlyImportError) {
+        setFileError(err.message);
+        return;
+      }
       setFileError(
         kind === 'pdf'
           ? "Couldn't read that PDF. It may be password-protected or damaged. Try the original Google Doc/Word file, or use the AI prompt."
@@ -172,29 +217,34 @@ export function ImportScreen() {
         {fileNote && <p role="status" className="muted">{fileNote}</p>}
         {fileError && <p role="alert" className="error">{fileError}</p>}
 
-        {parsed && (
+        {parsed && looksLikeNotes && (
+          <div className="preview notes-card" aria-live="polite" data-testid="notes-card">
+            <h3>This looks like study notes, not questions.</h3>
+            <p>Turn them into questions with your AI:</p>
+            <ol>
+              <li>Copy prompt</li>
+              <li>Open ChatGPT/Claude, paste the prompt, then your notes</li>
+              <li>Paste the result here</li>
+            </ol>
+            <button type="button" className="btn primary" onClick={copyPrompt}>Copy prompt</button>
+            {copyMsg && <p role="status" className="muted" data-testid="notes-copy-status">{copyMsg}</p>}
+            <details data-testid="notes-details">
+              <summary>Show details</summary>
+              <Issues parsed={parsed} />
+            </details>
+          </div>
+        )}
+        {parsed && !looksLikeNotes && (
           <div className="preview" aria-live="polite" data-testid="preview">
             <p className="lead">
               <strong data-testid="parsed-count">{parsed.items.length}</strong> {parsed.items.length === 1 ? 'question' : 'questions'} ready
               {parsed.errors.length > 0 && <>, <strong className="error">{parsed.errors.length} {parsed.errors.length === 1 ? 'problem' : 'problems'}</strong> to fix</>}
               {parsed.warnings.length > 0 && <>, {parsed.warnings.length} {parsed.warnings.length === 1 ? 'warning' : 'warnings'}</>}
             </p>
-            {parsed.errors.length > 0 && (
-              <>
-                <h3>Problems (these questions will not be saved)</h3>
-                <ul className="issues errors" data-testid="parse-errors">
-                  {parsed.errors.map((er, i) => <li key={i}>{er.line > 0 ? `Line ${er.line}: ` : ''}{er.message}</li>)}
-                </ul>
-              </>
+            {mixedNotes && (
+              <p className="hint" data-testid="mixed-notes">Some parts looked like notes — use the AI prompt for those.</p>
             )}
-            {parsed.warnings.length > 0 && (
-              <details>
-                <summary>Warnings ({parsed.warnings.length})</summary>
-                <ul className="issues warnings">
-                  {parsed.warnings.map((w, i) => <li key={i}>{w.message}</li>)}
-                </ul>
-              </details>
-            )}
+            <Issues parsed={parsed} />
           </div>
         )}
 

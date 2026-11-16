@@ -55,3 +55,58 @@ export function visibleChars(text: string): number {
 
 /** A page with fewer visible characters than this is treated as an image/scan. */
 export const MIN_PAGE_CHARS = 20;
+
+// ---------- "Scanned" vs "unreadable" (BUILD-006) ----------
+
+/**
+ * Characters pdf.js returns when a font has no usable text mapping (no ToUnicode, CID fonts without
+ * cMaps): the replacement character, private-use code points and C0 control characters.
+ */
+const UNREADABLE = new RegExp(
+  `[${String.fromCharCode(0xfffd)}${String.fromCharCode(0xe000)}-${String.fromCharCode(0xf8ff)}\x00-\x08\x0B\x0C\x0E-\x1F]`,
+  'g',
+);
+
+export interface PageTextStats {
+  /** Visible characters that map to real text. */
+  readableChars: number;
+  /** Characters that came out as replacement/private-use/control characters. */
+  unreadableChars: number;
+  /** Drawn text runs (non-zero width) that produced no characters at all. */
+  emptyGlyphRuns: number;
+}
+
+export function removeUnreadable(text: string): string {
+  return text.replace(UNREADABLE, '');
+}
+
+export function pageStats(runs: Pick<TextRun, 'str' | 'width'>[]): PageTextStats {
+  let readableChars = 0;
+  let unreadableChars = 0;
+  let emptyGlyphRuns = 0;
+  for (const r of runs) {
+    if (r.str === '') {
+      if (r.width > 0) emptyGlyphRuns++;
+      continue;
+    }
+    const bad = r.str.match(UNREADABLE)?.length ?? 0;
+    unreadableChars += bad;
+    readableChars += visibleChars(removeUnreadable(r.str));
+  }
+  return { readableChars, unreadableChars, emptyGlyphRuns };
+}
+
+export type PdfTextStatus = 'ok' | 'scanned' | 'unreadable';
+
+/**
+ * - ok: at least half the pages have readable text.
+ * - unreadable: text is there (runs or characters exist) but can't be mapped to letters → try the Word/Google Doc.
+ * - scanned: no text at all, only images → scans or slides.
+ */
+export function classifyPdf(pages: PageTextStats[]): PdfTextStatus {
+  if (pages.length === 0) return 'scanned';
+  const readablePages = pages.filter((p) => p.readableChars >= MIN_PAGE_CHARS).length;
+  if (readablePages * 2 >= pages.length) return 'ok';
+  const garbled = pages.reduce((n, p) => n + p.unreadableChars + p.emptyGlyphRuns, 0);
+  return garbled >= MIN_PAGE_CHARS ? 'unreadable' : 'scanned';
+}

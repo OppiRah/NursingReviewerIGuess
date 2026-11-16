@@ -1,5 +1,5 @@
 # STATUS — read first, update last (≤60 lines)
-Last updated: 2026-11-16 · **Product: H (D-008)** · **BUILD-001–005 built (D-011, D-012), not released, not committed**
+Last updated: 2026-11-16 · **Product: H (D-008)** · **BUILD-001–005 committed (4ddf97d); BUILD-006 built (D-013), staged, not committed, not released**
 Repo: github.com/OppiRah/NursingReviewerIGuess (public). Interview notes are local-only in research/interviews/notes/ (gitignored).
 Git rule: ask the owner before every commit/push (explicit "yes"); no AI attribution. See ../CLAUDE.md "Git policy".
 
@@ -25,13 +25,15 @@ Git rule: ask the owner before every commit/push (explicit "yes"); no AI attribu
 - BUILD-003: onboarding, mascot moments, gentle streak, dark mode, 360px/44px, axe + keyboard-only E2E
 - BUILD-004: security tests, 2 MB limit, hostile-backup validation, 1,000-item timing, ARCHITECTURE.md, app/README.md
 - BUILD-005 (2026-11-16): on-device PDF/DOCX upload (pdfjs-dist, mammoth; lazy), paste normalization + merged-block recovery (real PDF text: 0 → 200 items), Android back button; gates 182 unit / 29 E2E
+- BUILD-006 (2026-11-16): BYO-AI path made robust (fences, bold, Q-forms, small talk), notes card with Copy prompt, DOCX zip-bomb guard, scanned vs unreadable PDFs, history after reload; gates 233 unit / 33 E2E; audit NOT RUN (network)
 - Gates: see product/BUILD_LOG.md (final report at the end)
 
 ## Next actions
-1. Owner: review BUILD_LOG "decisions made alone" (BUILD-001–005) + commit/push (agents can't commit: denied in settings)
+1. Owner: review BUILD_LOG "BUILD-006" decisions + commit/push (agents can't commit: denied in settings)
 2. Owner: deploy app/dist via Netlify Drop; run the real-device checklist in BUILD_LOG (iPhone storage, .ics alarms, install)
-3. Give it to 5 friends a week before a school exam; measure the D-008 rule
-4. Later: product name; mascot redraw; v0.2 sharing (ADR needed)
+3. Real phone: try copy prompt → ChatGPT/Claude → paste (iOS clipboard untested)
+4. Give it to 5 friends a week before a school exam; measure the D-008 rule
+5. Later: product name; mascot redraw; v0.2 sharing (ADR needed)
 
 ## Open questions
 - Do NotebookLM/Knowt plan review backward from an exam date? (check in current apps)
@@ -40,7 +42,7 @@ Git rule: ask the owner before every commit/push (explicit "yes"); no AI attribu
 
 ## Key files
 - Paths below are relative to docs/
-- Decisions: decisions/DECISION_LOG.md (D-000..D-012)
+- Decisions: decisions/DECISION_LOG.md (D-000..D-013)
 - Product: product/PRODUCT_SPEC.md, product/ADR-001-platform.md, product/ADR-002-stack-scheduler-import.md, product/ARCHITECTURE.md, product/BUILD_LOG.md
 - App: ../app/README.md (run, test, build, deploy, BYO-AI flow)
 - Evidence: research/SOURCE_REGISTER.md (grep S-ID), research/EVIDENCE_LEDGER.md (grep C-/H-ID)

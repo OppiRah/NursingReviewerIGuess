@@ -1,0 +1,20 @@
+Here are your questions:
+
+```
+# Hema
+**1. Which finding is expected?**
+a. Alpha
+b. Beta
+c. Gamma
+d. Delta
+**Answer:** b
+**Rationale:** Because beta.
+---
+2) Second question here
+A) one
+B) two
+Answer: A
+Rationale: ok
+```
+
+Let me know if you want more!

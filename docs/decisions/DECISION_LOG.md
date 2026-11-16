@@ -212,6 +212,23 @@
 - **Actions authorized (paths, budget, external actions):** `app/**` and the listed docs only; installs limited to `pdfjs-dist` and `mammoth` in `app/`. No commit/push by agents (denied in settings); owner commits.
 - **Next review:** owner review of BUILD_LOG "BUILD-005", then commit; real-device check of PDF import on the friends' phones.
 
+## D-013 — BUILD-006: BYO-AI is the main path; chatbot-output tolerance, notes detection, guards
+
+- **Date / status:** 2026-11-16 / implemented by Claude Code under the owner's BUILD-006 task prompt; **not released, not committed** (owner commits)
+- **Decision owner / approval evidence:** Owner, through the BUILD-006 task prompt (implementation authorized for that scope; no new dependencies)
+- **Question:** Most friends keep prose notes, not Q&A. How do they get questions into the app?
+- **Alternatives considered (including no-build):** parse prose directly into questions (rejected: that needs AI generation inside the app, which breaks the no-AI-calls rule and accuracy controls); built-in AI (deferred, PRODUCT_SPEC §4c).
+- **Evidence IDs and sources:** strategy-chat check on private owner files (Q&A PDF 200/0; two prose reviewers 0 items with 436 warnings / 102 errors; chatbot sample 1 item / 4 errors) — files never in the repo; synthetic fixtures `app/e2e/fixtures/chatbot-*.txt`, `prose-notes.txt`.
+- **Decision:**
+  - The **BYO-AI prompt is the main import path** for notes; the parser tolerates typical chatbot output whether or not the model obeys the prompt (ADR-002 "Addendum BUILD-006").
+  - Notes detection: a "these are study notes" card with Copy prompt instead of a wall of errors.
+  - Leftover BUILD-005 review fixes: DOCX zip-bomb guard (50 MB / 100:1), "scanned" vs "unreadable" PDF messages, history rebased after a deep reload.
+- **Assumptions and uncertainty:** chatbot output styles beyond the four synthetic samples; whether friends follow the copy → chatbot → paste loop on a phone (clipboard on iOS Safari untested).
+- **Expected upside / downside:** Upside: prose-note users get a clear path instead of a confusing error list. Downside: the import depends on an external chatbot the student chooses.
+- **Reversal/kill conditions:** if friends don't complete the copy-paste loop, reconsider built-in AI generation in a new ADR (cost, privacy, accuracy).
+- **Actions authorized (paths, budget, external actions):** `app/**` and the listed docs; no new dependencies; no commits by agents.
+- **Next review:** owner review of BUILD_LOG "BUILD-006", then commit; real-phone test of the copy → chatbot → paste loop.
+
 ## Future decision entry template
 
 ### D-XXX — [Title]

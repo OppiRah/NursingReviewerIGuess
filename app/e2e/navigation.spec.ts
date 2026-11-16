@@ -98,3 +98,28 @@ test('"← All decks" goes back instead of piling up history (review #9)', async
   await page.goBack();
   await expect(page.getByRole('heading', heading('Today'))).toBeVisible();
 });
+
+test('reload deep in the app opens Today, and back on Today leaves (no stale entries) (BUILD-006)', async ({ page }) => {
+  await openFresh(page);
+  await nav(page, 'Decks');
+  await nav(page, 'Settings');
+  await page.reload();
+  await expect(page.getByRole('heading', heading('Today'))).toBeVisible();
+  // Tabs still work normally after the rebase.
+  await nav(page, 'Decks');
+  await page.goBack();
+  await expect(page.getByRole('heading', heading('Today'))).toBeVisible();
+  await page.goBack();
+  await expect.poll(() => page.url()).toBe('about:blank');
+});
+
+test('reload during a session goes back to Today and leaves no stale entries (BUILD-006)', async ({ page }) => {
+  await openFresh(page);
+  await importFixture(page);
+  await startSession(page);
+  await page.reload();
+  await expect(page.getByRole('heading', heading('Today'))).toBeVisible();
+  await expect(page.getByRole('alertdialog')).toHaveCount(0);
+  await page.goBack();
+  await expect.poll(() => page.url()).toBe('about:blank');
+});

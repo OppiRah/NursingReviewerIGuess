@@ -88,3 +88,35 @@ test('build output: the PDF/Word readers are not in the service-worker precache'
   // ...but they are runtime-cached after first use, so later imports work offline.
   expect(sw).toContain('import-readers');
 });
+
+test('study notes (no questions) show the AI-prompt card first; details stay collapsed', async ({ page, context }) => {
+  await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+  await openFresh(page);
+  await nav(page, 'Import');
+  await page.getByLabel(FILE_LABEL).setInputFiles('e2e/fixtures/prose-notes.txt');
+
+  const card = page.getByTestId('notes-card');
+  await expect(card).toContainText('This looks like study notes, not questions.');
+  await expect(card).toContainText('Open ChatGPT/Claude, paste the prompt, then your notes');
+  // The error list is not shown first: it sits inside the collapsed "Show details".
+  await expect(page.getByTestId('preview')).toHaveCount(0);
+  await expect(page.getByTestId('notes-details')).not.toHaveAttribute('open', '');
+  await expect(page.getByTestId('parse-errors')).toBeHidden();
+
+  await card.getByRole('button', { name: 'Copy prompt' }).click();
+  await expect(page.getByTestId('notes-copy-status')).toContainText('Prompt copied');
+  const copied = await page.evaluate(() => navigator.clipboard.readText());
+  expect(copied).toContain('Output only the questions. Do not wrap them in a code block. Do not use bold.');
+
+  await card.getByText('Show details').click();
+  await expect(page.getByTestId('parse-errors')).toBeVisible();
+});
+
+test('chatbot output with a code fence, bold and small talk imports cleanly (acceptance sample)', async ({ page }) => {
+  await openFresh(page);
+  await nav(page, 'Import');
+  await page.getByLabel('Paste your reviewer').fill(await readText('e2e/fixtures/chatbot-fenced-bold.txt'));
+  await expect(page.getByTestId('parsed-count')).toHaveText('2');
+  await expect(page.getByTestId('parse-errors')).toHaveCount(0);
+  await expect(page.getByLabel('Deck title')).toHaveValue('Hema');
+});

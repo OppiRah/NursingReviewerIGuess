@@ -85,3 +85,25 @@ A fixed prompt lives in the app (`app/src/domain/byoPrompt.ts`) with a **Copy** 
 - Both libraries are **lazy-loaded** on the Import screen and **not precached**; a runtime cache keeps them after first use, so later imports also work offline.
 
 **No OCR.** Scanned PDFs and slide exports have no text layer. When more than half the pages have under 20 visible characters, the app says so honestly and suggests the original Google Doc/Word file or the AI prompt. OCR (e.g. Tesseract) would add a multi-MB download and run slowly on phones, and its accuracy on handwritten annotations is unreliable for medical content (the earlier sample-file check misread "WBC <1%" as "WBL 21%", C119). Revisit only if friends' files are mostly scans.
+
+## Addendum BUILD-006 — chatbot output, study notes, guards (D-013)
+
+**Why:** the strategy chat's check on the owner's private files (never in the repo): the 200-question Q&A PDF now gives 200/0, but two real **prose** reviewers gave 0 items with 436 warnings / 102 errors, and a typical chatbot answer (code fence, bold, small talk) gave 1 item / 4 errors. Most friends' material is notes, so the **BYO-AI prompt is the main path** and its output must parse whether or not the chatbot obeys the prompt.
+
+**Chatbot tolerance (`normalize.ts`, per line, original line numbers kept):**
+- ```` ``` ```` / `~~~` fences (with or without a language) → separator.
+- Emphasis removed: whole-line `**…**`, `__…__`, `*…*`, `_…_`; emphasized label prefixes (`**Answer:**`, `*Rationale:*`, `**Q1.**`, `**Answer**:`); inline `**bold**`; `__x__` only at word boundaries. Never inside words (`snake_case`, `sample_value_x` stay).
+- `- `, `* `, `+ `, `##`–`######` markers removed **only** before question structure (numbers, choices, labels); inside a rationale the original line is kept. `## 1. Cardio` with no choices after it is a section heading.
+- Question numbers: `1.`, `1)`, `Q1.`, `Q1:`, `Question 1:`, `Question 1.` (a bare `1.` or `Question 1` line starts a question when choices/Answer follow; `Q1:` + `A:` is a flashcard; `Q2.5 units` is left alone).
+- Labels: `Answer:`, `Correct answer:`, `Ans:`, `Rationale:`, `Explanation:`, `Reason:` (case-insensitive, optional bold). A second rationale-type line appends.
+- Answer values: `b`, `B`, `(b)`, `b.`, `b) Beta`, `B - Beta`, `Option B`, `Options A and C`.
+- Small talk is ignored outside questions. Inside a finished question only a **sign-off** ("Let me know…", "I hope this helps") followed by nothing but more small talk is dropped; "Here is why B is wrong…" in a rationale is kept. **All** text outside questions is reported as **one** summary warning.
+
+**Notes detection (Import screen):** 0 items, > 300 words and fewer than 2 `Answer:` lines (a broken question deck shows its real errors instead) → a card "This looks like study notes, not questions" with the 3 BYO-AI steps and a **Copy prompt** button; the error/warning details sit behind a collapsed "Show details". Some items plus ≥ 150 words outside any question (`ParseResult.ignoredWords`) → one line: "Some parts looked like notes — use the AI prompt for those." Warnings shown: first 20, then "and N more".
+
+**Prompt (`byoPrompt.ts`)** adds: output only the questions, no code block, no bold; up to 30 questions for long material; prefer application/priority questions.
+
+**Guards:**
+- **DOCX zip-bomb guard (`zipGuard.ts`):** before mammoth runs, the ZIP central directory is read with `DataView`; files are refused if the declared total uncompressed size exceeds **50 MB**, the ratio uncompressed / file size exceeds **100:1**, ZIP64 markers appear, or it is not a ZIP. Directory headers are walked while the signature matches (as the unzip library does) and must match the declared entry count and size. Limitation: a crafted file can under-declare sizes in its directory; mammoth's own inflation is then the only bound (known gap).
+- **PDF "scanned" vs "unreadable" (`pdfLines.ts`):** "scanned" only when pdf.js returns no text at all; when text runs exist but their characters can't be mapped (replacement/private-use/control characters, or drawn runs with no characters), the message is "Text in this PDF couldn't be read cleanly — try the original Word/Google Doc." Unreadable characters are stripped from otherwise good text.
+- **History after a deep reload:** a launch always opens Today (BUILD-001); if the reloaded entry is deeper than the base, the app moves back to the base entry first (falling back to rewriting the entry after 300 ms if the move never lands), so back on Today leaves the app.

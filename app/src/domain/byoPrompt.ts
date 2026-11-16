@@ -30,6 +30,9 @@ Rationale: short explanation
 ---
 - Always include a "Rationale:" line.
 - Do not use bold, tables, emojis or markdown other than the single "#" title line.
+- Output only the questions. Do not wrap them in a code block. Do not use bold.
+- If the material is long, make up to 30 questions; I can ask for more.
+- Prefer application questions (what the nurse should do / priority) over pure definitions when the material supports it.
 
 My material:
 `;

@@ -235,3 +235,7 @@ input[type='search'], select {
 .modal { background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; max-width: 360px; width: 100%; }
 .modal h2 { margin-top: 0; }
 .modal .row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+
+/* BUILD-006: "these are study notes" card on Import. */
+.notes-card { border: 2px solid var(--purple); }
+.notes-card ol { padding-left: 1.4em; }

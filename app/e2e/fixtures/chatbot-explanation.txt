@@ -1,0 +1,25 @@
+~~~text
+1. Which sample organ is described as organ A in the notes?
+a. Sample organ one
+b. Sample organ two
+c. Sample organ three
+d. Sample organ four
+Answer: b) Sample organ two
+Explanation: The sample notes describe organ two as organ A.
+
+2. What should the nurse do first for sample situation S?
+a. Sample first action
+b. Sample second action
+c. Sample third action
+Answer: a
+Explanation: The sample notes say to do the first action before the others.
+It also notes the second action can wait.
+
+3. Which sample statement is correct?
+a. Sample statement one
+b. Sample statement two
+c. Sample statement three
+d. Sample statement four
+Answer: __d__
+Explanation: Statement four matches the sample notes; the variable name sample_value_x stays intact.
+~~~

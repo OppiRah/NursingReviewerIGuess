@@ -107,10 +107,26 @@ export function App() {
       ([s, onboarded, mascot]) => {
         setScheduler(s);
         setPrefsState({ mascot });
-        const start: Route = onboarded ? { name: 'today' } : { name: 'onboarding' };
-        history.replaceState({ nr: 1, route: start, depth: 0 } satisfies NavState, '');
-        routeRef.current = start;
-        setRoute(start);
+        const base: Route = onboarded ? { name: 'today' } : { name: 'onboarding' };
+        // A launch always opens Today (BUILD-001 decision 5). After a reload deep in the app
+        // (BUILD-006), the older entries are still in history, so first move back to the base entry:
+        // then back on Today leaves the app, as on a fresh start.
+        const cur = readNav(history.state);
+        if (cur && cur.depth > 0) {
+          // history.go() is asynchronous: don't replaceState now (it would rewrite the deep entry).
+          // The popstate handler shows the base entry once the move lands.
+          silentPop(() => history.go(-cur.depth));
+          // If the move never lands (history shorter than expected), make this entry the base instead.
+          window.setTimeout(() => {
+            if ((readNav(history.state)?.depth ?? 0) > 0) history.replaceState({ nr: 1, route: base, depth: 0 } satisfies NavState, '');
+          }, 300);
+          routeRef.current = base;
+          setRoute(base);
+          return;
+        }
+        history.replaceState({ nr: 1, route: base, depth: 0 } satisfies NavState, '');
+        routeRef.current = base;
+        setRoute(base);
       },
       (e: unknown) => setFailed(e instanceof Error ? e.message : String(e)),
     );

@@ -1,0 +1,35 @@
+Sure! Here are 3 practice questions based on your sample notes.
+
+### Sample Deck: Fluids
+
+**Q1.** A sample client shows sample sign X. What should the nurse do **first**?
+- a. Sample action one
+- b. Sample action two
+- c. Sample action three
+- d. Sample action four
+
+**Correct answer:** **B - Sample action two**
+*Rationale:* Sample action two comes first in the sample notes.
+
+---
+
+**Q2.** Which sample value is in the normal range?
+- A) Sample value 1
+- B) Sample value 2
+- C) Sample value 3
+
+**Answer:** (c)
+**Explanation:** The sample notes list value 3 as normal.
+
+---
+
+**Q3.** Select all that apply: which sample items belong to group one?
+- a. Sample item alpha
+- b. Sample item beta
+- c. Sample item gamma
+- d. Sample item delta
+
+**Answer:** a, c
+**Rationale:** Alpha and gamma are in group one in the sample notes.
+
+I hope this helps! Would you like more questions?

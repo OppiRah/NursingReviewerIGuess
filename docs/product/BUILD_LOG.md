@@ -299,3 +299,46 @@ Fix attempts: unit — 2 wrong expectations in my new tests (line 6, not 5; a br
 - Only two real artifact types measured; other PDF layouts (two columns, tables) unknown.
 
 BUILD-005 status: complete. Not released. Awaiting commit approval.
+
+# BUILD-006 — robust BYO-AI parsing, notes detection, guards (2026-11-16)
+
+Scope: `app/**`, ADR-002 "Addendum BUILD-006", D-013, this log, STATUS. No new dependencies. Not committed (owner commits).
+
+## What changed
+- **Chatbot output** (`normalize.ts`, `parser.ts`): code fences, `**`/`__`/`*`/`_` wrappers (never inside words), list/heading markers before structure, `Q1.`/`Q1:`/`Question 1:`/bare `Question 1`, `Ans:`/`Reason:`/`Explanation:`/`Correct answer:`, answer values `(b)`/`b.`/`b) Beta`/`B - Beta`/`Option B`/`Options A and C`; small talk ignored and all text outside questions collapsed into **one** warning.
+- **Notes detection** (`ImportScreen.tsx`): notes card (3 steps + Copy prompt; errors behind collapsed "Show details"); mixed-notes line; warnings capped at 20 + "and N more".
+- **Prompt**: no code block/bold, up to 30 questions, prefer application questions.
+- **Leftover fixes**: DOCX zip-bomb guard (`zipGuard.ts`, 50 MB / 100:1, DataView only); PDF "scanned" vs "unreadable" (`classifyPdf`); history rebased to the base entry after a deep reload.
+
+## Acceptance and fixtures (synthetic, `app/e2e/fixtures/`)
+| Fixture | Result |
+|---|---|
+| `chatbot-fenced-bold.txt` (acceptance) | **2 items, 0 errors** (unit + E2E paste) |
+| `chatbot-chatgpt-bold.txt` | 3 items, 0 errors (SATA a, c) |
+| `chatbot-question-n.txt` | 3 items, 0 errors |
+| `chatbot-explanation.txt` | 3 items, 0 errors |
+| `prose-notes.txt` (615 words) | 0 items → notes card; Copy prompt verified via clipboard in E2E |
+
+## Fresh-eyes review (subagent) — 13 findings
+Fixed: #1 rationale paragraphs starting "Here is why…" were dropped (chatty split into opener/sign-off; sign-offs dropped only when nothing but small talk follows); #2 lying EOCD entry count (walk headers while the signature matches; count and size must agree); #4 broken decks shown as "notes" (needs < 2 `Answer:` lines; bare `Question N` heading now starts a question); #5 `Q1:` + `A:` → flashcard; #6 `A - C` read as `a` (dash form needs a word); #7 `## 1. Cardio` heading / `## Section` glued to rationale; #8 mixed hint now counts only words outside questions (`ignoredWords`); #9 `Q2.5 units` rewritten; #10 `- 1. assess airway` in a rationale started a question (original text kept); #11 reload timer used `silentPop`, plus a 300 ms fallback rewrite. Each has a unit test.
+Documented: #3 under-declared ZIP sizes bypass the guard (limitation in `zipGuard.ts` and ADR). Gap: #12 italics kept after structure (`1. *Which…*`), mid-line `__5__` loses its underline.
+
+## Gate (final run)
+| Gate | Command | Result |
+|---|---|---|
+| Typecheck | `npm run typecheck` | PASS |
+| Unit | `npx vitest run` | PASS 233/233 (15 files) |
+| E2E | `npx playwright test` | PASS 33/33 |
+| Audit | `npm audit --omit=dev` (2 tries) | NOT RUN — registry ECONNRESET twice |
+
+Bundle (gzip -9): initial `index-*.js` 133.4 KB + `error-*.js` 1.6 KB (≤250 KB: PASS); lazy PDF 545.5 KB; lazy DOCX 93.8 KB; precache 20 entries.
+
+## Decisions made alone (owner to review)
+1. Reload deep in the app opens **Today**, not the reloaded screen (keeps the BUILD-001 "launch opens Today" rule; an existing E2E test caught the first attempt).
+2. Notes thresholds: card at > 300 words, 0 items, < 2 `Answer:` lines; mixed line at ≥ 150 words outside questions.
+3. "Unreadable" when ≥ 20 garbled characters/empty drawn runs and fewer than half the pages readable.
+
+## Known gaps
+- Chatbot styles beyond the four synthetic samples; #12 cosmetic emphasis; ZIP size under-declaration (#3).
+- Clipboard on iOS Safari and the copy → chatbot → paste loop on a real phone: untested.
+- Reload history behaviour verified in Chromium only.

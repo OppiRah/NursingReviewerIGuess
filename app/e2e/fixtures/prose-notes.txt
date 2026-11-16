@@ -1,0 +1,36 @@
+SAMPLE STUDY NOTES (synthetic, not study material)
+
+Overview of the sample topic
+
+The sample topic covers how a sample system responds when sample conditions change. These notes are written as prose, the way students usually keep their reviewers, so they contain no questions, no lettered choices and no answer lines. They exist only to test how the app reacts when someone pastes notes instead of questions.
+
+The sample system has three sample parts that work together. The first part receives a sample signal and passes it along. The second part decides what to do with the signal, and the third part carries out the response. When any one part is slow, the whole sample system becomes slow as well, which is why the notes spend a long time on each part.
+
+Key points to remember
+1. The first sample part always acts before the second sample part.
+2. The second sample part compares the signal with a sample reference value.
+3. The third sample part responds only after the comparison is finished.
+4. A sample delay in any part delays every part after it.
+
+Sample terms
+The sample reference value is the number that the second part uses for comparison. A sample signal above the reference value starts response one, and a sample signal below the reference value starts response two. When the sample signal is exactly at the reference value, nothing happens, and the sample system stays in its resting state until the next signal arrives.
+
+Students often confuse response one and response two because the names are similar. A simple way to remember them is that response one goes up and response two goes down. Another way is to draw the three parts in a row and follow the arrow from left to right, writing the reference value in the middle box.
+
+Common sample situations
+1. A sample signal that is much higher than the reference value starts a strong version of response one.
+2. A sample signal that is only slightly higher starts a mild version of response one.
+3. A sample signal that keeps changing makes the sample system switch between responses.
+4. A missing sample signal leaves the sample system in its resting state.
+5. Two sample signals that arrive together are handled one at a time, oldest first.
+
+Sample steps in order
+First, observe the sample signal and write down its value. Second, compare the value with the sample reference value. Third, decide which response is expected. Fourth, check whether the response actually happened. Fifth, record the result in the sample log, together with the time and any notes about unusual findings. These steps are repeated every time a new sample signal arrives, and the log makes it possible to see patterns across a whole sample day.
+
+Things that change the sample system
+Sample factor A makes every part slower. Sample factor B makes only the second part slower. Sample factor C makes the third part respond more strongly than usual. When two factors are present at the same time, their effects add up, so the notes recommend checking for every factor before deciding what the sample system will do next.
+
+Review reminders
+Read these notes once a day during the week before the exam. Cover the explanations and try to say each key point from memory. Draw the three sample parts from memory and label the reference value. Explain the difference between response one and response two to a classmate in your own words. If any step feels unclear, go back to the sample steps in order and walk through them slowly with a made-up sample signal, writing each value down as you go.
+
+End of sample notes.
