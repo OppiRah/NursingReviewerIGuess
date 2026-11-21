@@ -144,16 +144,20 @@ export async function collectBackupData(db: ReviewerDB): Promise<BackupData> {
   }));
 }
 
-/** Builds the backup file. Does not record it as exported: call markExported once the download was handed off. */
+/** Builds the backup file. Does not record it as exported (see markExported). */
 export async function buildExport(db: ReviewerDB, now: Date): Promise<BackupFile> {
   return buildBackup(await collectBackupData(db), now);
 }
 
+/**
+ * Records a CONFIRMED backup: call only after the student said they found the file (AUDIT-001 A-08).
+ * A download being started is not proof; see app/backupExport.ts.
+ */
 export async function markExported(db: ReviewerDB, exportedAt: string): Promise<void> {
   await setSetting(db, 'lastExportAt', exportedAt);
 }
 
-/** Build + mark (used by tests and callers that don't download). */
+/** Build + mark, for tests only (the app never marks without the student's confirmation). */
 export async function exportBackup(db: ReviewerDB, now: Date): Promise<BackupFile> {
   const backup = await buildExport(db, now);
   await markExported(db, backup.exportedAt);

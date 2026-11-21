@@ -1,4 +1,4 @@
-# Nursing Reviewer — beta guide (v0.2.0)
+# Nursing Reviewer — beta guide (v0.2.1)
 
 Hi! Thanks for trying this. It's a small app made by a classmate, still in testing. Basahin muna 'to, 3 minutes lang.
 
@@ -50,7 +50,13 @@ Good to know:
 
 - No account, no server. Walang ina-upload. Kahit ako, hindi ko makikita ang reviewers mo.
 - That also means: **if you delete the app or clear Safari/Chrome data, your decks are gone.**
-- So once a week: **Settings → Export backup**. Check that the file is really in your **Files / Downloads**, then send it to yourself (email or Drive). To bring it back: **Settings → Import backup**.
+- So once a week, back up:
+  1. **Settings → Export backup.** The app makes a file named like `reviewer-backup-2026-11-21.json`. Your phone may or may not save it, and the app can't check.
+  2. Open your **Files** (iPhone) or **Downloads / Files** (Android) app and find that file. If your phone shows **Share backup file**, you can use it to save the file straight to Files or Drive.
+  3. Back in the app, tap **Yes, I found the file**. Only then does it count: "Last confirmed backup" shows the date and the backup reminder stops for 7 days.
+  4. Can't find it? Tap **I can't find it**. Nothing is counted, the reminder stays on, and you can try again. If it never appears, tell me your phone and browser.
+  5. Send the file to yourself too (email or Drive), so it isn't only on this phone.
+- To bring it back: **Settings → Import backup**.
 
 ## When a new version comes out
 

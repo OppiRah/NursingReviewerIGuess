@@ -2,11 +2,11 @@ import { useApp } from '../app/context';
 import { useAsync } from '../app/useAsync';
 import { MascotMoment } from '../components/Mascot';
 import { PageTitle } from '../components/PageTitle';
-import { streakLine, welcomeBack, workloadLine } from '../copy';
+import { outlookLine, READINESS_HINT, streakLine, welcomeBack, workloadLine } from '../copy';
 import { getSetting, loadAll } from '../data/repo';
 import { needsBackupNudge } from '../domain/backup';
 import { daysBetween, localDateStr } from '../domain/dates';
-import { buildDailyPlan, daysToExam } from '../domain/plan';
+import { buildDailyPlan, daysToExam, deckOutlook, SESSION_SIZE } from '../domain/plan';
 import { deckReadiness, formatPercent, seenCount } from '../domain/readiness';
 import { computeStreak } from '../domain/streak';
 import type { Deck } from '../domain/types';
@@ -36,7 +36,7 @@ export function TodayScreen() {
     // "Away" counts any studying (even a session ended early), not just completed sessions.
     const lastActive = [streak.lastDay, lastReview ? localDateStr(new Date(lastReview.at)) : null].filter((d): d is string => !!d).sort().pop() ?? null;
     const daysAway = lastActive ? daysBetween(lastActive, today) : null;
-    return { decks, items, lastExportAt, plan: buildDailyPlan(decks, items, t), streak, daysAway };
+    return { decks, items, lastExportAt, plan: buildDailyPlan(decks, items, t, (c, at) => scheduler.retrievability(c, at)), streak, daysAway };
   }, [db, version]);
 
   if (state.status === 'loading') return <p className="muted" aria-busy="true">Loading today's plan…</p>;
@@ -70,7 +70,7 @@ export function TodayScreen() {
         <p className="due-count" data-testid="due-count">
           <span className="big">{plan.dueCount}</span> {plan.dueCount === 1 ? 'item' : 'items'} due today
         </p>
-        {workloadLine(plan.dueCount) && <p className="hint" data-testid="workload">{workloadLine(plan.dueCount)}</p>}
+        {workloadLine(plan.dueCount, SESSION_SIZE) && <p className="hint" data-testid="workload">{workloadLine(plan.dueCount, SESSION_SIZE)}</p>}
         {plan.dueCount > 0 ? (
           <button type="button" className="btn primary big-btn" onClick={() => go({ name: 'session', mode: 'due' })}>
             Start review
@@ -89,17 +89,22 @@ export function TodayScreen() {
 
       <h2>Your exams</h2>
       <ul className="deck-list">
-        {decks.map((d) => (
-          <li key={d.id} className="card">
-            <span data-testid="exam-label">{examLabel(d, t)}</span>
-            <span className="readiness">
-              Readiness (estimated): <strong data-testid="readiness">{formatPercent(deckReadiness(d, items, scheduler, t))}</strong>
-              {' · '}
-              <span data-testid="seen">seen {seenCount(items, d.id).seen} of {seenCount(items, d.id).total}</span>
-              <span className="hint"> · a rough estimate from your answers so far, not a score</span>
-            </span>
-          </li>
-        ))}
+        {decks.map((d) => {
+          const seen = seenCount(items, d.id);
+          const outlook = outlookLine(deckOutlook(d, items, t), SESSION_SIZE);
+          return (
+            <li key={d.id} className="card">
+              <span data-testid="exam-label">{examLabel(d, t)}</span>
+              <span className="readiness">
+                Readiness (estimated): <strong data-testid="readiness">{formatPercent(deckReadiness(d, items, scheduler, t))}</strong>
+                {' · '}
+                <span data-testid="seen">seen {seen.seen} of {seen.total}</span>
+                <span className="hint" data-testid="readiness-hint"> · {READINESS_HINT}</span>
+              </span>
+              {outlook && <span className="readiness" data-testid="outlook">{outlook}</span>}
+            </li>
+          );
+        })}
       </ul>
 
       {showNudge && (

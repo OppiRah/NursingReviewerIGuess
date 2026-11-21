@@ -7,12 +7,43 @@
 export const CONTENT_NOTICE =
   'Questions come from your own files or your chatbot, so they can contain mistakes. Check answers against your source. This app is a study aid, not medical advice.';
 
-/** Honest workload for Today when more than one session is due (AUDIT-001 A-05). */
-export const workloadLine = (dueCount: number, sessionSize = 10): string => {
-  if (dueCount <= sessionSize) return '';
+/** Today's workload in sessions (AUDIT-001 A-05). `sessionSize` is the app's real SESSION_SIZE. */
+export const workloadLine = (dueCount: number, sessionSize: number): string => {
+  if (dueCount <= 0 || sessionSize <= 0) return '';
   const sessions = Math.ceil(dueCount / sessionSize);
-  return `That's about ${sessions} sessions of ${sessionSize}. Do what you can: overdue and weakest reviews come first, then new items.`;
+  const head = `About ${sessions} ${sessions === 1 ? 'session' : 'sessions'} today (${sessionSize} items each).`;
+  return sessions === 1 ? head : `${head} Do what you can: the weakest reviews come first, with some new items in every session.`;
 };
+
+/**
+ * One deck's plan until the exam (AUDIT-001 A-05), from deckOutlook(). Describes the plan's arithmetic
+ * only; it never predicts an exam result or says the student is behind.
+ */
+export const outlookLine = (o: { status: string; unseen: number; newPerDay: number }, sessionSize: number): string => {
+  const n = `${o.unseen} not seen yet`;
+  const sessions = (count: number): string => {
+    const s = Math.ceil(count / sessionSize);
+    return `about ${s} ${s === 1 ? 'session' : 'sessions'}`;
+  };
+  switch (o.status) {
+    case 'fits':
+      return `${n}: about ${o.newPerDay} new a day until the exam, plus reviews.`;
+    case 'heavy':
+      return `${n}. Seeing them all before the exam takes about ${o.newPerDay} new items a day (${sessions(o.newPerDay)} of new items), plus reviews. You may need more sessions to see every item.`;
+    case 'last-day':
+      return `${n}, and today is the last day to see them before the exam (${sessions(o.unseen)}). This deck may not be finishable before your exam at this point; every session still helps.`;
+    case 'passed':
+      return `${n}. The exam date has passed: set a new date in the deck to plan again.`;
+    case 'no-date':
+      return `${n}. Set an exam date to plan backward from it.`;
+    default:
+      return '';
+  }
+};
+
+/** The same readiness explanation on every screen that shows the number (AUDIT-001 A-06). */
+export const READINESS_HINT =
+  'A rough study estimate, not a prediction of your exam result. Items you have not seen, or last answered wrong, count as 0.';
 
 const pick = (list: readonly string[], seed: number): string => list[Math.abs(seed) % list.length] ?? list[0] ?? '';
 

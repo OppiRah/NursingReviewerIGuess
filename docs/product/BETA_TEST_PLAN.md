@@ -1,4 +1,4 @@
-# Beta test plan — friend beta (v0.2.0)
+# Beta test plan — friend beta (v0.2.1)
 
 - **Date:** 2026-11-16 · **Owner runs this.** No deploy or contact has been made by any agent.
 - **Inputs:** `AUDIT-001.md` (real-device list), `BETA_GUIDE.md` (what friends read), D-008 (success rule).
@@ -9,7 +9,7 @@ Deploy `app/dist` (Netlify Drop), then do these in order. Stop and fix if any of
 
 | # | Check | Pass looks like |
 |---|---|---|
-| 1 | **Backup really saves** (iPhone home-screen app, then Android): Export backup | The `.json` is in Files/Downloads; Import backup on the other phone shows the same decks and counts |
+| 1 | **Backup really saves** (iPhone home-screen app, then Android): Export backup, find the file, tap "Yes, I found the file"; also try "Share backup file" if shown | The `.json` is in Files/Downloads; Import backup on the other phone shows the same decks and counts |
 | 2 | **Data survives:** install, import a deck, do a session, close fully, reopen next day | Deck and progress still there |
 | 3 | **Update arrives:** deploy a second build, open the installed app, wait a minute | "New version available" banner; after tapping, Settings shows the new build date; decks intact |
 | 4 | **Copy prompt** in iPhone Safari and in the installed app | Full prompt pastes into ChatGPT |

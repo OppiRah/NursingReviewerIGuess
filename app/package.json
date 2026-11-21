@@ -1,7 +1,7 @@
 {
   "name": "nursing-reviewer",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Local-first PWA that turns your own nursing reviewers into short daily active-recall sessions.",
   "license": "UNLICENSED",
   "type": "module",

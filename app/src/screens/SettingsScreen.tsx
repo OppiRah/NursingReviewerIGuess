@@ -2,6 +2,7 @@ import { useState, type ChangeEvent } from 'react';
 import { useApp } from '../app/context';
 import { PageTitle } from '../components/PageTitle';
 import { downloadText } from '../app/download';
+import { canShareBackup, shareBackup, toPending, type PendingBackup } from '../app/backupExport';
 import { readTheme, saveTheme, type ThemePref } from '../app/theme';
 import { APP_VERSION, BUILD_DATE, readLastError } from '../app/version';
 import { buildFeedbackInfo, collectContentWords, collectFeedbackCounts } from '../domain/feedback';
@@ -22,6 +23,8 @@ export function SettingsScreen() {
   const [status, setStatus] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [pending, setPending] = useState<BackupFile | null>(null);
+  /** The latest export attempt, waiting for the student to confirm the file exists (A-08). Memory only. */
+  const [exported, setExported] = useState<PendingBackup | null>(null);
   const [confirmWipe, setConfirmWipe] = useState(false);
   const [time, setTime] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
@@ -50,16 +53,41 @@ export function SettingsScreen() {
     }
   };
 
+  // A-08: starting a download proves nothing was saved. Nothing is recorded until the student confirms.
   const onExport = () =>
     act(async () => {
+      setExported(null);
       const t = now();
-      const backup = await buildExport(db, t);
-      downloadText(backupFileName(t), JSON.stringify(backup, null, 1), 'application/json');
-      // Recorded only after the download was handed to the browser without an error.
-      await markExported(db, backup.exportedAt);
-      bump();
-      return `Backup file created: ${backupFileName(t)}. Check that the file is in your Downloads or Files app, then keep a copy somewhere safe, like Google Drive or an email to yourself.`;
+      const next = toPending(await buildExport(db, t), backupFileName(t));
+      downloadText(next.fileName, next.json, 'application/json');
+      setExported(next);
+      return `Backup file created: ${next.fileName}. Your phone may or may not have saved it. Open your Files or Downloads app and check that it is there. It does not count as a backup until you confirm below.`;
     });
+
+  const onConfirmExport = () =>
+    act(async () => {
+      if (!exported) return null;
+      await markExported(db, exported.exportedAt);
+      setExported(null);
+      bump();
+      return 'Backup confirmed. Also keep a copy somewhere safe, like Google Drive or an email to yourself.';
+    });
+
+  const onMissingExport = (): void => {
+    setExported(null);
+    setError(null);
+    setStatus(`Not counted as a backup, so the reminder stays on. Tap Export backup to try again${canShare ? ' and use "Share backup file" to save it to Files or Drive' : ''}. If the file never appears, tell us which phone and browser you use.`);
+  };
+
+  const onShareExport = () =>
+    act(async () => {
+      if (!exported) return null;
+      const outcome = await shareBackup(navigator, exported);
+      if (outcome === 'failed') throw new Error("Couldn't share the file. Nothing was counted as a backup.");
+      return outcome === 'shared' ? 'Shared. Check that the file arrived where you sent it, then confirm below.' : 'Sharing cancelled. Nothing was counted as a backup.';
+    });
+
+  const canShare = !!exported && canShareBackup(navigator, exported);
 
   const onPickBackup = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -84,6 +112,7 @@ export function SettingsScreen() {
         throw new Error(`Restore failed; your previous data was kept. (${msg(e)})`);
       }
       setPending(null);
+      setExported(null); // an earlier export attempt no longer describes this device's data
       await reloadPrefs();
       bump();
       return 'Backup restored.';
@@ -93,6 +122,7 @@ export function SettingsScreen() {
     act(async () => {
       await wipeAll(db);
       setConfirmWipe(false);
+      setExported(null);
       await reloadPrefs();
       bump();
       return 'All data on this device was deleted.';
@@ -144,7 +174,7 @@ export function SettingsScreen() {
       <div className="card">
         <h2>Backup</h2>
         <p data-testid="last-export">
-          Last exported: {lastExportAt ? new Date(lastExportAt).toLocaleDateString() : 'never'}
+          Last confirmed backup: {lastExportAt ? new Date(lastExportAt).toLocaleDateString() : 'never'}
         </p>
         {needsBackupNudge(lastExportAt, now()) && (
           <p className="nudge-text">Your data lives only on this device. A quick backup keeps it safe.</p>
@@ -156,6 +186,18 @@ export function SettingsScreen() {
             <input type="file" accept=".json,application/json" className="sr-only" onChange={onPickBackup} data-testid="backup-file" disabled={busy} />
           </label>
         </div>
+        {exported && (
+          <div className="confirm" role="group" aria-label="Confirm backup file" data-testid="confirm-export">
+            <p>
+              Did you find <strong>{exported.fileName}</strong> in your Files or Downloads app? This app can't check that for you.
+            </p>
+            <div className="row">
+              <button type="button" className="btn primary" onClick={onConfirmExport} disabled={busy}>Yes, I found the file</button>
+              {canShare && <button type="button" className="btn" onClick={onShareExport} disabled={busy}>Share backup file</button>}
+              <button type="button" className="btn" onClick={onMissingExport} disabled={busy}>I can't find it</button>
+            </div>
+          </div>
+        )}
         {pending && (
           <div className="confirm" role="group" aria-label="Confirm restore">
             <p>

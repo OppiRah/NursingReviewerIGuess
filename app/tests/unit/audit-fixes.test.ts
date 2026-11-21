@@ -85,10 +85,11 @@ describe('A-05 weakest items first when many are due the same day', () => {
     expect(buildDailyPlan([deck], items, NOW).queue.map((i) => i.id)).toEqual(['overdue', 'weak', 'mid', 'strong']);
   });
 
-  it('says how many sessions the day needs, and nothing for a single session', () => {
-    expect(workloadLine(300)).toMatch(/30 sessions/);
-    expect(workloadLine(300)).toMatch(/weakest/i);
-    expect(workloadLine(10)).toBe('');
+  it('says how many sessions the day needs (v0.2.1: also for a single session; nothing when none is due)', () => {
+    expect(workloadLine(300, 10)).toMatch(/About 30 sessions today/);
+    expect(workloadLine(300, 10)).toMatch(/weakest/i);
+    expect(workloadLine(10, 10)).toBe('About 1 session today (10 items each).');
+    expect(workloadLine(0, 10)).toBe('');
   });
 });
 
@@ -156,6 +157,7 @@ describe('FIX-001 verification follow-ups', () => {
   });
 
   it('A-05: the workload line does not overclaim', () => {
-    expect(workloadLine(300)).toMatch(/overdue and weakest reviews come first/i);
+    expect(workloadLine(300, 10)).toMatch(/weakest reviews come first, with some new items in every session/i);
+    expect(workloadLine(300, 10)).not.toMatch(/then new items/i); // no longer true: new items are mixed in (mixQueue)
   });
 });

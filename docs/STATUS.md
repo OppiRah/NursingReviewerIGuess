@@ -1,5 +1,5 @@
 # STATUS — read first, update last (≤60 lines)
-Last updated: 2026-11-21 · **Product: H (D-008)** · **v0.2.0 (BUILD-001–006 + AUDIT-001/FIX-001/BETA-PREP, D-014) committed and pushed (c695263); not deployed**
+Last updated: 2026-11-21 · **Product: H (D-008)** · **v0.2.0 pushed (c695263); v0.2.1 (HARDEN-021: A-05/A-06/A-08 + version bump) staged, NOT committed; not deployed**
 New strategist? Read `HANDOFF_FOR_STRATEGIST.md` first (written 2026-11-21).
 Repo: github.com/OppiRah/NursingReviewerIGuess (public). Interview notes are local-only in research/interviews/notes/ (gitignored).
 Git rule: ask the owner before every commit/push (explicit "yes"); no AI attribution. See ../CLAUDE.md "Git policy".
@@ -28,16 +28,17 @@ Git rule: ask the owner before every commit/push (explicit "yes"); no AI attribu
 - BUILD-005 (2026-11-16): on-device PDF/DOCX upload (pdfjs-dist, mammoth; lazy), paste normalization + merged-block recovery (real PDF text: 0 → 200 items), Android back button; gates 182 unit / 29 E2E
 - BUILD-006 (2026-11-16): BYO-AI path made robust (fences, bold, Q-forms, small talk), notes card with Copy prompt, DOCX zip-bomb guard, scanned vs unreadable PDFs, history after reload; gates 233 unit / 33 E2E; audit NOT RUN (network)
 - AUDIT-001 (2026-11-16, Fable): product/AUDIT-001.md, frozen (hash in BUILD_LOG). Verdict: GO with must-fix list (0 critical, 3 high)
-- FIX-001: A-01–A-04, A-07, A-09 fixed; A-05, A-06, A-08 partly (open); A-10–A-20 Low, listed. Gates 267 unit / 39 E2E; audit 0 vulnerabilities
+- FIX-001: A-01–A-04, A-07, A-09 fixed; A-10–A-20 Low, listed. Independent re-check 2026-11-21: A-01, A-02 resolved; A-03 desktop Chromium only
+- HARDEN-021 (2026-11-21): A-08 backup counts only after "Yes, I found the file" (+ optional share sheet); A-05 weakest-recall-first, new items in every session, "About N sessions today" + per-deck outlook; A-06 readiness: unseen and last-wrong items = 0, one hint on all screens. Quota itself unchanged
 - BETA-PREP: v0.2.0, version + Copy feedback info in Settings, tap-to-update banner, product/BETA_GUIDE.md, product/BETA_TEST_PLAN.md
-- Gates: see product/BUILD_LOG.md (final report at the end). Re-run 2026-11-21: typecheck PASS, 267/267 unit, 39/39 E2E
+- Gates (v0.2.1, 2026-11-21): typecheck PASS, unit 305/305, E2E 42/42, build PASS (bundle says 0.2.1), audit E2E 2/2; test:audit 12/19 (same 7 known non-sprint failures). Details: product/BUILD_LOG.md end
 - 2026-11-21 docs sync: CLAUDE.md, PRODUCT_SPEC, ADR-001 headers aligned with D-008–D-011 (no decision change)
 
 ## Next actions
-1. Owner: review BUILD_LOG "FIX-001" (decisions made alone); commit done (c695263)
-2. Owner: `npm run build`, drag app/dist to Netlify Drop; do the 10 phone checks in product/BETA_TEST_PLAN.md stage 0
+1. Owner: approve commit + push of staged v0.2.1 (decisions approved 2026-11-21: mixing, >10/day heuristic, last-wrong = 0, bump)
+2. Owner: `npm run build`, drag app/dist to Netlify Drop; do the phone checks in product/BETA_TEST_PLAN.md stage 0 (incl. export → find file → confirm; share sheet). Real-phone test is still the release gate
 3. Then: 1 friend for 3 days (send product/BETA_GUIDE.md), then up to 5 friends for an exam week; measure the D-008 rule
-4. Later: A-05/A-06/A-08 and Low findings; product name; mascot redraw; v0.2 sharing (ADR needed)
+4. Later: Low findings; pace-based "can't finish" warning (needs owner decision); product name; mascot redraw; sharing (ADR needed)
 
 ## Open questions
 - Do NotebookLM/Knowt plan review backward from an exam date? (check in current apps)

@@ -2,6 +2,7 @@ import { useMemo, useState, type FormEvent } from 'react';
 import { useApp } from '../app/context';
 import { PageTitle } from '../components/PageTitle';
 import { useAsync } from '../app/useAsync';
+import { READINESS_HINT } from '../copy';
 import { deleteDeck, deleteItem, updateDeck, updateItem } from '../data/repo';
 import { isDateStr, localDateStr } from '../domain/dates';
 import { draftFromItem, validateDraft, type ItemDraft } from '../domain/editItem';
@@ -71,7 +72,9 @@ export function DeckScreen({ deckId }: { deckId: string }) {
       <p className="muted">{examLabel(deck, now())}</p>
       <p>
         Readiness (estimated): <strong data-testid="deck-readiness">{formatPercent(deckReadiness(deck, items, scheduler, now()))}</strong>
-        <span className="hint"> · seen {seenCount(items, deck.id).seen} of {items.length} · a rough estimate of the average chance of recalling each item on exam day, based on your answers so far. Items you have never seen count as 0.</span>
+        {' · '}
+        <span data-testid="deck-seen">seen {seenCount(items, deck.id).seen} of {items.length}</span>
+        <span className="hint" data-testid="readiness-hint"> · {READINESS_HINT}</span>
       </p>
       {error && <p role="alert" className="error">{error}</p>}
 

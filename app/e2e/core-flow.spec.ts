@@ -58,11 +58,14 @@ test('import → review session → persistence → export → wipe → restore'
 
   // Export.
   await nav(page, 'Settings');
-  await expect(page.getByTestId('last-export')).toHaveText('Last exported: never');
+  await expect(page.getByTestId('last-export')).toHaveText('Last confirmed backup: never');
   const [download] = await Promise.all([page.waitForEvent('download'), page.getByRole('button', { name: 'Export backup' }).click()]);
   expect(download.suggestedFilename()).toMatch(/^reviewer-backup-\d{4}-\d{2}-\d{2}\.json$/);
   const backupPath = await download.path();
-  await expect(page.getByTestId('last-export')).not.toHaveText('Last exported: never');
+  // A-08 (v0.2.1): the download alone is not a backup; the student confirms they found the file.
+  await expect(page.getByTestId('last-export')).toHaveText('Last confirmed backup: never');
+  await page.getByRole('button', { name: 'Yes, I found the file' }).click();
+  await expect(page.getByTestId('last-export')).not.toHaveText('Last confirmed backup: never');
 
   // Wipe (with on-screen confirmation).
   await page.getByRole('button', { name: 'Wipe all data' }).click();

@@ -448,3 +448,50 @@ Scope: `app/**`, this log, STATUS, D-014, ADR-002 addendum. No new dependencies.
 - Update banner, clipboard, export and file pickers are verified in desktop Chromium only. Real phones: `BETA_TEST_PLAN.md` stage 0.
 - Open: A-05, A-06, A-08 (partly fixed); A-10 – A-20 (Low).
 - The fixes made after the verification were not checked by a second independent pass.
+
+# HARDEN-021 — v0.2.1 beta-readiness hardening: A-05, A-06, A-08 (2026-11-21)
+
+Scope: `app/src` (plan, readiness, copy, backup export, Today/Deck/Decks/Session/Settings screens), unit + E2E tests, this log, STATUS. No dependency, `package.json`, lockfile, backup-format, restore or parser changes. `AUDIT-001.md` not edited. Starting point: clean tree, HEAD `73d0184`, `git diff c695263 HEAD -- app` empty (checked).
+
+## What changed
+
+- **A-08 backup (`src/app/backupExport.ts` new, `SettingsScreen.tsx`, `repo.ts` comments).** An export attempt now only creates an in-memory pending backup and starts the download. `lastExportAt` (which silences the 7-day reminder) is written only after the student taps **"Yes, I found the file"**. **"I can't find it"** discards the attempt and says the reminder stays on. A reload, wipe or restore drops the attempt, so nothing can be confirmed without a fresh export. A download that throws shows the error and records nothing. **"Share backup file"** appears only where `navigator.canShare({files})` says yes; shared / cancelled (AbortError) / failed are reported, and none of them records a backup. Label renamed "Last confirmed backup". Backup content, checksum and atomic restore unchanged; restore still records the restored file's time (the student had that file).
+- **A-05 plan (`plan.ts`, `copy.ts`, `TodayScreen.tsx`, `SessionScreen.tsx`).** Due reviews are ordered by FSRS retrievability at "now" via `Scheduler.retrievability` (new optional `recall` argument to `buildDailyPlan`; ties: earlier due time, then item id). New items are mixed in with `mixQueue`: proportional share, and while both remain every session of `SESSION_SIZE` holds ≥1 review and ≥1 new item (was: first unseen item at index 290 of 300). Today shows "About N sessions today (10 items each)" from `SESSION_SIZE`. Each deck gets an outlook line from `deckOutlook()`: new items a day the plan needs to show every unseen item before the exam; "You may need more sessions to see every item" when that exceeds `MIN_NEW_PER_DAY` (the plan's own one-session baseline); a last-day line when the exam is today/tomorrow; passed/no-date lines. The daily quota itself is unchanged (still 100 new a day for 300 items / 3 days).
+- **A-06 readiness (`readiness.ts`, `copy.ts` `READINESS_HINT`, Today/Deck/Decks).** Mean over every deck item: unseen = 0, last answer wrong (`lastGrade 'again'`) = 0, last answer right = FSRS retrievability at the exam date. One shared hint on all three screens: "A rough study estimate, not a prediction of your exam result…". Audit case (300 items, one pass, 30% wrong, day before exam): old formula > 90% (test asserts), new ≤ 70%; plan-sim full-pass row D-1 now 66%.
+- **Tests.** New `tests/unit/hardening-v021.test.ts` (38 tests: ordering, ties, determinism, mixQueue property check over 0–60 × 0–60, outlook boundaries, session counts 0/1/10/11/20/21 and size 5, readiness cases, backup confirm/persist/repeat/restore, share outcomes). Updated for intended behaviour changes: `tests/unit/audit-fixes.test.ts` (workload wording), `e2e/core-flow.spec.ts` (confirm step), `e2e/audit-fixes.spec.ts` (wording + 3 new E2E: confirm/can't-find/reload/repeat, failed download, Today vs deck-screen hint and outlook).
+- **Bug found by my own test:** `mixQueue` duplicated items once new items ran out (take count not capped at the block). Fixed before any gate run.
+
+## Gate
+
+| Gate | Command (cwd `app/`) | Exit | Result |
+|---|---|---|---|
+| Typecheck | `npm run typecheck` | 0 | PASS |
+| Unit | `npm test` | 0 | PASS 305/305 (19 files; was 267) |
+| E2E | `npm run test:e2e` | 0 | PASS 42/42 (was 39) |
+| Build | `npm run build` | 0 | PASS |
+| Audit repro | `npm run test:audit` | 1 | 12 pass / 7 fail, same 7 as before this sprint: parser-repro "A-09 ___ separator", "A-10 sign-off", "A-12 Reason:" (Low, unrelated); data.audit "F" (old-API A-01 repro); roundtrip T1/T2/T3 (separator/sign-off mismatches). None involve plan, readiness or backup; plan-sim and backup audits pass |
+| Audit E2E | `npm run test:audit:e2e` | 0 | PASS 2/2 |
+| Diff check | `git diff --check` | 0 | PASS |
+| Network | diff grep for fetch/XHR/beacon/WebSocket/URLs; built URL literals vs v0.2.0 build | — | PASS: none added; URL literal set identical; E2E "no network requests leave the origin" PASS |
+
+## Decisions made alone (owner to review)
+
+1. New items mixed into every session (≥1 each while both remain) instead of "all reviews, then new".
+2. "Heavy" = more new items a day than `MIN_NEW_PER_DAY`. It uses the plan's own baseline, not a measured student pace. A "can't finish at your pace" warning would need a pace source (e.g. the last 7 days' reviews); not built.
+3. Latest-wrong items count 0 toward readiness; a pending export is memory-only (leaving Settings before confirming means exporting again).
+4. Version left at `0.2.0`: bumping needs a `package.json`/lockfile edit, which this task did not allow without approval.
+
+## Known gaps
+
+- NOT RUN: iOS/Android download persistence, real share sheet, iOS storage, real-device update path (A-03). Desktop Chromium only.
+- The daily new-item quota still front-loads short exam windows (A-05); Today now says so instead of hiding it.
+- No second independent review of this sprint yet.
+
+## HARDEN-021 release prep — v0.2.1 (2026-11-21)
+
+Owner approved (this session): keep new/review mixing; keep the >10 new/day warning as a heuristic; keep last-wrong = 0 in readiness; bump to 0.2.1. Supersedes "Decisions made alone" 1–4 above.
+
+- **Version:** `app/package.json` and `app/package-lock.json` (root + `packages[""]`) → `0.2.1`. Settings reads it via Vite `define`; built `index-*.js` contains `0.2.1` and no `0.2.0`. E2E assertions in `e2e/audit-fixes.spec.ts` updated (Settings text, feedback info). `tests/unit/feedback.test.ts` keeps `'0.2.0'`: synthetic input, not the app version. Historical log/handoff entries unchanged.
+- **Docs:** `BETA_GUIDE.md` backup steps (export → find file → "Yes, I found the file" / "I can't find it" / optional "Share backup file"); `BETA_GUIDE.md` and `BETA_TEST_PLAN.md` headers → v0.2.1; stage-0 check 1 includes the confirm step.
+- **Gate (cwd `app/`):** typecheck exit 0 PASS · `npm test` exit 0 PASS 305/305 · `npm run test:e2e` exit 0 PASS 42/42 · `npm run build` exit 0 PASS · `npm run test:audit` exit 1, 12/19, same 7 known failures (parser-repro A-09/A-10/A-12 labels, data.audit F, roundtrip T1–T3), none new · `npm run test:audit:e2e` exit 0 PASS 2/2 · `git diff --check` exit 0 PASS.
+- Real-device checks: NOT RUN.

@@ -15,12 +15,12 @@ import type { Grade, Item } from '../domain/types';
 type Mode = 'due' | 'mistakes';
 
 export function SessionScreen({ mode }: { mode: Mode }) {
-  const { db, now } = useApp();
+  const { db, now, scheduler } = useApp();
   // Snapshot the queue once, at session start.
   const state = useAsync(async () => {
     if (mode === 'mistakes') return (await loadMistakes(db)).slice(0, SESSION_SIZE);
     const { decks, items } = await loadAll(db);
-    return buildDailyPlan(decks, items, now()).queue.slice(0, SESSION_SIZE);
+    return buildDailyPlan(decks, items, now(), (c, at) => scheduler.retrievability(c, at)).queue.slice(0, SESSION_SIZE);
   }, [db, mode]);
 
   if (state.status === 'loading') return <p className="muted" aria-busy="true">Preparing your session…</p>;
