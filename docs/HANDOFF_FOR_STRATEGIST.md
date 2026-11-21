@@ -94,16 +94,11 @@ Paths are relative to `docs/` unless they start with `app/` or `../`.
 |---|---|
 | Current state, next actions | `STATUS.md` |
 | Why each choice was made | `decisions/DECISION_LOG.md` (D-000–D-014) |
-| What the product is | `product/PRODUCT_SPEC.md` (some §5/§11 lines are stale, see below) |
+| What the product is | `product/PRODUCT_SPEC.md` |
 | Platform / stack / import format | `product/ADR-001-platform.md`, `product/ADR-002-stack-scheduler-import.md` (+ addenda) |
 | Code structure | `product/ARCHITECTURE.md`, `../app/README.md` |
 | What was built, gate results, decisions made alone | `product/BUILD_LOG.md` (newest at the bottom) |
 | Audit findings | `product/AUDIT-001.md` (frozen; fix status in BUILD_LOG "FIX-001") |
 | Beta | `product/BETA_TEST_PLAN.md`, `product/BETA_GUIDE.md` |
 | Evidence | `research/SOURCE_REGISTER.md` (S-IDs), `research/EVIDENCE_LEDGER.md` (C-/H-IDs); grep, don't read whole |
-| Agent rules | `../CLAUDE.md` (top section is stale, see below) |
-
-**Docs that contradict reality (fix in a small docs task):**
-- `../CLAUDE.md` still says "No product has been chosen", and its V3 section forbids tests and fixtures. Both were overtaken by D-008/D-011.
-- `PRODUCT_SPEC.md` header says "Implementation: not authorized", and §5/§11 still list FSRS vs SM-2 and the platform as open. All were decided in D-010/D-011.
-- The ADR-001 header says "PROPOSED, awaiting approval". The approval is only recorded at the bottom (line 118) and in D-010.
+| Agent rules | `../CLAUDE.md` |

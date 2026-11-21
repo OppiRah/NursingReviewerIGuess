@@ -1,5 +1,6 @@
 # STATUS — read first, update last (≤60 lines)
-Last updated: 2026-11-16 · **Product: H (D-008)** · **BUILD-001–006 committed (b7355c8); AUDIT-001 + FIX-001 + BETA-PREP done (D-014), v0.2.0 staged, not committed, not deployed**
+Last updated: 2026-11-21 · **Product: H (D-008)** · **v0.2.0 (BUILD-001–006 + AUDIT-001/FIX-001/BETA-PREP, D-014) committed and pushed (c695263); not deployed**
+New strategist? Read `HANDOFF_FOR_STRATEGIST.md` first (written 2026-11-21).
 Repo: github.com/OppiRah/NursingReviewerIGuess (public). Interview notes are local-only in research/interviews/notes/ (gitignored).
 Git rule: ask the owner before every commit/push (explicit "yes"); no AI attribution. See ../CLAUDE.md "Git policy".
 
@@ -29,10 +30,11 @@ Git rule: ask the owner before every commit/push (explicit "yes"); no AI attribu
 - AUDIT-001 (2026-11-16, Fable): product/AUDIT-001.md, frozen (hash in BUILD_LOG). Verdict: GO with must-fix list (0 critical, 3 high)
 - FIX-001: A-01–A-04, A-07, A-09 fixed; A-05, A-06, A-08 partly (open); A-10–A-20 Low, listed. Gates 267 unit / 39 E2E; audit 0 vulnerabilities
 - BETA-PREP: v0.2.0, version + Copy feedback info in Settings, tap-to-update banner, product/BETA_GUIDE.md, product/BETA_TEST_PLAN.md
-- Gates: see product/BUILD_LOG.md (final report at the end)
+- Gates: see product/BUILD_LOG.md (final report at the end). Re-run 2026-11-21: typecheck PASS, 267/267 unit, 39/39 E2E
+- 2026-11-21 docs sync: CLAUDE.md, PRODUCT_SPEC, ADR-001 headers aligned with D-008–D-011 (no decision change)
 
 ## Next actions
-1. Owner: review BUILD_LOG "FIX-001" (decisions made alone) + commit/push (agents can't commit: denied in settings)
+1. Owner: review BUILD_LOG "FIX-001" (decisions made alone); commit done (c695263)
 2. Owner: `npm run build`, drag app/dist to Netlify Drop; do the 10 phone checks in product/BETA_TEST_PLAN.md stage 0
 3. Then: 1 friend for 3 days (send product/BETA_GUIDE.md), then up to 5 friends for an exam week; measure the D-008 rule
 4. Later: A-05/A-06/A-08 and Low findings; product name; mascot redraw; v0.2 sharing (ADR needed)
@@ -45,6 +47,7 @@ Git rule: ask the owner before every commit/push (explicit "yes"); no AI attribu
 ## Key files
 - Paths below are relative to docs/
 - Decisions: decisions/DECISION_LOG.md (D-000..D-014)
+- Handoff: HANDOFF_FOR_STRATEGIST.md
 - Product: product/PRODUCT_SPEC.md, product/ADR-001-platform.md, product/ADR-002-stack-scheduler-import.md, product/ARCHITECTURE.md, product/BUILD_LOG.md, product/AUDIT-001.md, product/BETA_GUIDE.md, product/BETA_TEST_PLAN.md
 - App: ../app/README.md (run, test, build, deploy, BYO-AI flow)
 - Evidence: research/SOURCE_REGISTER.md (grep S-ID), research/EVIDENCE_LEDGER.md (grep C-/H-ID)

@@ -1,6 +1,6 @@
 # ADR-001 — Platform and local storage for v0.1
 
-- **Status:** PROPOSED, awaiting owner approval (D-009). Writing this does not approve it.
+- **Status:** APPROVED with amendments (D-010); amendments at the end of this file. Proposed in D-009.
 - **Date:** 2026-11-14 · **Product:** H (D-008) · **Spec:** product/PRODUCT_SPEC.md §5, §10, §11
 - **Tags:** S-IDs → research/SOURCE_REGISTER.md; C-IDs → research/EVIDENCE_LEDGER.md
 

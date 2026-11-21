@@ -1,6 +1,6 @@
 # Instructions for Claude Code — Product Discovery Repository
 
-This repository is a **research workspace**, not a product implementation repository. The owner is a fourth-year CS student looking for a credible software opportunity, potentially a desktop/local-first/non-SaaS tool. No product has been chosen.
+This repository is a **research workspace**, not a product implementation repository. The owner is a fourth-year CS student looking for a credible software opportunity, potentially a desktop/local-first/non-SaaS tool. Selected product: **H, a nursing-student reviewer PWA** (D-008); see `docs/product/PRODUCT_SPEC.md`.
 
 ## Read order (just-in-time)
 
@@ -65,7 +65,7 @@ See `engineering/SKILLS_AND_TOOLING_POLICY.md`. No external skill, extension, br
 
 ## V3 — Test and CI/CD policy
 
-Read `engineering/TEST_STRATEGY_AND_CI_CD.md` before advising on build verification, and `engineering/VERIFICATION_AND_RELEASE_GATE.md` before proposing a release. **Until the owner authorizes implementation, only documentation/evidence checks are in scope.** Do not create CI workflows, application tests, test fixtures, browser automations or install testing tools until a product has been validated and the owner authorizes implementation. Later, choose testing layers according to actual risks and architecture; report exact commands and truthful PASS/FAIL/SKIPPED/NOT RUN status. AI-driven exploratory browser actions do not replace deterministic assertions or production-like integration checks. See V3 README notes.
+Read `engineering/TEST_STRATEGY_AND_CI_CD.md` before advising on build verification, and `engineering/VERIFICATION_AND_RELEASE_GATE.md` before proposing a release. **App tests, synthetic test fixtures and browser automation (unit/E2E) are authorized within BUILD tasks (D-011), inside `app/`.** CI workflows still need explicit owner approval; outside BUILD tasks, only documentation/evidence checks are in scope. Later, choose testing layers according to actual risks and architecture; report exact commands and truthful PASS/FAIL/SKIPPED/NOT RUN status. AI-driven exploratory browser actions do not replace deterministic assertions or production-like integration checks. See V3 README notes.
 
 ## Git policy
 

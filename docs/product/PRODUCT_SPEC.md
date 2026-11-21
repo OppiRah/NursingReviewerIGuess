@@ -1,6 +1,6 @@
 # Product Spec — H: Nursing student reviewer (v0.1 draft)
 
-- **Date:** 2026-11-14 · **Status:** selected by owner, `DECISION (D-008)` · **Implementation:** not authorized
+- **Date:** 2026-11-14 · **Status:** selected by owner, `DECISION (D-008)` · **Implementation:** authorized per BUILD tasks (D-011)
 - **Tags:** S-IDs point to `docs/research/SOURCE_REGISTER.md`; C-/H-IDs point to `docs/research/EVIDENCE_LEDGER.md`. `INFERENCE` = reasoning, not evidence. `UNKNOWN` = not established.
 
 ## 1. Problem and audience
@@ -44,7 +44,7 @@
 
 - Intake (a) and (b).
 - Exam dates per subject or chapter.
-- Daily session with spaced repetition. **Open decision: FSRS vs SM-2.**
+- Daily session with spaced repetition. **Decided: FSRS** (ADR-002, D-011).
 - Question types: multiple choice with rationale; select-all-that-apply; priority/first-action; flashcard.
 - Readiness per chapter.
 - Gentle streak with a "freeze".
@@ -106,9 +106,9 @@ Built-in AI; accounts and sync; block sharing (v0.2; tests H-H3); leaderboards; 
 
 ## 11. Open decisions for the owner
 
-1. Platform: see ADR-001 (proposed).
+1. Platform: **decided** — PWA now, Capacitor later (ADR-001, D-010).
 2. Local-first storage approach.
-3. Scheduler algorithm: FSRS vs SM-2.
+3. Scheduler algorithm: **decided** — FSRS (ADR-002, D-011).
 4. Product name.
 5. Mascot name and redraw plan.
 6. The "bring your own AI" prompt format.
