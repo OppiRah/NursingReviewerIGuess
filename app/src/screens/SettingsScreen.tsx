@@ -3,6 +3,8 @@ import { useApp } from '../app/context';
 import { PageTitle } from '../components/PageTitle';
 import { downloadText } from '../app/download';
 import { readTheme, saveTheme, type ThemePref } from '../app/theme';
+import { APP_VERSION, BUILD_DATE, readLastError } from '../app/version';
+import { buildFeedbackInfo, collectContentWords, collectFeedbackCounts } from '../domain/feedback';
 import { useAsync } from '../app/useAsync';
 import { buildExport, getSetting, markExported, newId, restoreBackup, setSetting, wipeAll } from '../data/repo';
 import { backupFileName, MAX_BACKUP_BYTES, needsBackupNudge, validateBackupText, type BackupFile } from '../domain/backup';
@@ -24,6 +26,8 @@ export function SettingsScreen() {
   const [time, setTime] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [theme, setTheme] = useState<ThemePref>(readTheme);
+  const [feedbackMsg, setFeedbackMsg] = useState<string | null>(null);
+  const [feedbackText, setFeedbackText] = useState<string | null>(null);
 
   if (state.status === 'loading') return <p className="muted" aria-busy="true">Loading settings…</p>;
   if (state.status === 'error') return <p role="alert">Couldn't load settings: {state.error}</p>;
@@ -54,7 +58,7 @@ export function SettingsScreen() {
       // Recorded only after the download was handed to the browser without an error.
       await markExported(db, backup.exportedAt);
       bump();
-      return 'Backup saved to your downloads. Keep a copy somewhere safe, like Google Drive or an email to yourself.';
+      return `Backup file created: ${backupFileName(t)}. Check that the file is in your Downloads or Files app, then keep a copy somewhere safe, like Google Drive or an email to yourself.`;
     });
 
   const onPickBackup = (e: ChangeEvent<HTMLInputElement>) => {
@@ -105,6 +109,26 @@ export function SettingsScreen() {
       bump();
       return 'Reminder file downloaded. Open it and tap "Add" to put it in your calendar. Downloading again updates the same event.';
     });
+
+  const onFeedback = async (): Promise<void> => {
+    setFeedbackText(null);
+    let persisted: boolean | null = null;
+    try {
+      persisted = (await navigator.storage?.persisted?.()) ?? null;
+    } catch {
+      persisted = null;
+    }
+    const standalone = window.matchMedia('(display-mode: standalone)').matches || (navigator as { standalone?: boolean }).standalone === true;
+    // Counts and device facts only: never question text, deck titles or any other content.
+    const info = buildFeedbackInfo({ version: APP_VERSION, buildDate: BUILD_DATE, userAgent: navigator.userAgent, standalone, counts: await collectFeedbackCounts(db), lastError: readLastError(), persisted, contentWords: await collectContentWords(db) });
+    try {
+      await navigator.clipboard.writeText(info);
+      setFeedbackMsg('Copied. Paste it in your message, with a screenshot if you can.');
+    } catch {
+      setFeedbackText(info);
+      setFeedbackMsg("Couldn't copy automatically. Select the text below and copy it.");
+    }
+  };
 
   const onTheme = (t: ThemePref): void => {
     setTheme(t);
@@ -190,6 +214,15 @@ export function SettingsScreen() {
             </div>
           </div>
         )}
+      </div>
+
+      <div className="card">
+        <h2>About and feedback</h2>
+        <p data-testid="app-version">Version {APP_VERSION} · built {BUILD_DATE}</p>
+        <p>Found a problem? Send a screenshot, and tap this to copy a few facts about your app (version, phone, counts). It never includes your questions or deck names.</p>
+        <button type="button" className="btn" onClick={() => void onFeedback()}>Copy feedback info</button>
+        {feedbackMsg && <p role="status" className="muted" data-testid="feedback-status">{feedbackMsg}</p>}
+        {feedbackText && <textarea readOnly rows={7} value={feedbackText} aria-label="Feedback info" onFocus={(e) => e.target.select()} />}
       </div>
 
       <p className="muted small">Everything you add stays on this device. This app has no account, no server and no tracking.</p>

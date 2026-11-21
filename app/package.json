@@ -1,7 +1,7 @@
 {
   "name": "nursing-reviewer",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Local-first PWA that turns your own nursing reviewers into short daily active-recall sessions.",
   "license": "UNLICENSED",
   "type": "module",
@@ -13,6 +13,8 @@
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "test": "vitest run",
     "test:e2e": "playwright test",
+    "test:audit": "vitest run --config vitest.audit.config.ts",
+    "test:audit:e2e": "playwright test --config playwright.audit.config.ts",
     "build": "vite build",
     "preview": "vite preview --port 4173 --strictPort"
   },

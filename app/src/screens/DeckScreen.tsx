@@ -5,7 +5,7 @@ import { useAsync } from '../app/useAsync';
 import { deleteDeck, deleteItem, updateDeck, updateItem } from '../data/repo';
 import { isDateStr, localDateStr } from '../domain/dates';
 import { draftFromItem, validateDraft, type ItemDraft } from '../domain/editItem';
-import { deckReadiness, formatPercent } from '../domain/readiness';
+import { deckReadiness, formatPercent, seenCount } from '../domain/readiness';
 import { letter } from '../domain/scoring';
 import type { Item, ItemType } from '../domain/types';
 import { examLabel } from './TodayScreen';
@@ -71,7 +71,7 @@ export function DeckScreen({ deckId }: { deckId: string }) {
       <p className="muted">{examLabel(deck, now())}</p>
       <p>
         Readiness (estimated): <strong data-testid="deck-readiness">{formatPercent(deckReadiness(deck, items, scheduler, now()))}</strong>
-        <span className="hint"> · average chance of recalling each item on exam day, based on your reviews so far</span>
+        <span className="hint"> · seen {seenCount(items, deck.id).seen} of {items.length} · a rough estimate of the average chance of recalling each item on exam day, based on your answers so far. Items you have never seen count as 0.</span>
       </p>
       {error && <p role="alert" className="error">{error}</p>}
 
@@ -189,12 +189,18 @@ function ItemEditor({ item, onSave, onCancel }: { item: Item; onSave: (patch: Pa
   const [draft, setDraft] = useState<ItemDraft>(() => draftFromItem(item));
   const [choicesText, setChoicesText] = useState(item.choices.join('\n'));
   const [error, setError] = useState<string | null>(null);
+  // Once the student types in the answer box, their letters are used exactly as typed.
+  const [answerTouched, setAnswerTouched] = useState(false);
+  const original = answerTouched ? undefined : item;
   const set = <K extends keyof ItemDraft>(k: K, v: ItemDraft[K]): void => setDraft((d) => ({ ...d, [k]: v }));
   const id = (s: string): string => `edit-${item.id}-${s}`;
+  // Show which choice will be saved as correct, so a changed list can never surprise the student.
+  const preview = draft.type === 'flashcard' ? null : validateDraft({ ...draft, choices: choicesText.split('\n') }, original);
+  const resolved = !preview ? '' : preview.ok ? `Will be saved as correct: ${preview.patch.answer.map((i) => `${letter(i)}. ${preview.patch.choices[i] ?? ''}`).join('; ')}` : 'Correct answer: not set yet (see the message when you save).';
 
   const submit = async (e: FormEvent): Promise<void> => {
     e.preventDefault();
-    const r = validateDraft({ ...draft, choices: choicesText.split('\n') });
+    const r = validateDraft({ ...draft, choices: choicesText.split('\n') }, original);
     if (!r.ok) {
       setError(r.error);
       return;
@@ -220,7 +226,8 @@ function ItemEditor({ item, onSave, onCancel }: { item: Item; onSave: (patch: Pa
           <label htmlFor={id('choices')}>Choices (one per line, in order a, b, c…)</label>
           <textarea id={id('choices')} rows={5} value={choicesText} onChange={(e) => setChoicesText(e.target.value)} />
           <label htmlFor={id('answer')}>Correct letter(s)</label>
-          <input id={id('answer')} type="text" value={draft.answer} onChange={(e) => set('answer', e.target.value)} placeholder="b   or   a, c" />
+          <input id={id('answer')} type="text" value={draft.answer} onChange={(e) => { setAnswerTouched(true); set('answer', e.target.value); }} placeholder="b   or   a, c" aria-describedby={id('resolved')} />
+          <p id={id('resolved')} className="hint" data-testid="resolved-answer">{resolved}</p>
         </>
       )}
       <label htmlFor={id('rat')}>Rationale</label>

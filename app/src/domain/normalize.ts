@@ -187,13 +187,26 @@ export function normalizeLines(input: string): NormLine[] {
     }
   });
   // "Q1: What is K?" followed by "A: 3.5-5" is a flashcard, not a numbered question.
+  // The question may wrap over a few lines before its "A:" line; any structure line (a choice, a
+  // number, a label, a separator, a heading) ends the search.
   for (const idx of qNumbered) {
+    let continuation = 0;
     for (let j = idx + 1; j < out.length; j++) {
       const t = out[j]?.text ?? '';
       if (!t) continue;
-      if (/^a\s*:/i.test(t)) {
+      if (!/^a\s*:/i.test(t)) {
+        // "2.5 mg…" at the start of a wrapped line is text, not a numbered question: require a space.
+        const structural = RE_STRUCT.test(t) && !/^\d{1,4}[.)]\S/.test(t);
+        if (structural || t === SEPARATOR || t.startsWith('#') || ++continuation > 8) break;
+        continue;
+      }
+      {
         const e = out[idx];
-        if (e) e.text = e.text.replace(/^\d{1,4}\.\s*/, 'Q: ');
+        if (e) {
+          e.text = e.text.replace(/^\d{1,4}\.\s*/, 'Q: ');
+          // A real flashcard start (an A: line follows): the parser must not fold it into a rationale.
+          delete e.orig;
+        }
       }
       break;
     }

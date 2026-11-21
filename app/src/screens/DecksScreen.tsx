@@ -2,7 +2,7 @@ import { useApp } from '../app/context';
 import { PageTitle } from '../components/PageTitle';
 import { useAsync } from '../app/useAsync';
 import { loadAll } from '../data/repo';
-import { deckReadiness, formatPercent } from '../domain/readiness';
+import { deckReadiness, formatPercent, seenCount } from '../domain/readiness';
 import { examLabel } from './TodayScreen';
 
 export function DecksScreen() {
@@ -32,7 +32,7 @@ export function DecksScreen() {
                 <h2 className="deck-title">{d.title}</h2>
                 <p className="muted">{examLabel(d, t)}</p>
                 <p>
-                  {own.length} {own.length === 1 ? 'item' : 'items'} · Readiness (estimated): <strong>{formatPercent(deckReadiness(d, items, scheduler, t))}</strong>
+                  {own.length} {own.length === 1 ? 'item' : 'items'} · Readiness (estimated): <strong>{formatPercent(deckReadiness(d, items, scheduler, t))}</strong> · seen {seenCount(items, d.id).seen} of {own.length}
                 </p>
                 {flagged > 0 && <p className="flag-note">⚑ {flagged} reported wrong: check {flagged === 1 ? 'it' : 'them'} against your source</p>}
                 <button type="button" className="btn" onClick={() => go({ name: 'deck', id: d.id })} aria-label={`Open ${d.title}`}>

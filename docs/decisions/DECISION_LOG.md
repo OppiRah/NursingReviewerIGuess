@@ -229,6 +229,24 @@
 - **Actions authorized (paths, budget, external actions):** `app/**` and the listed docs; no new dependencies; no commits by agents.
 - **Next review:** owner review of BUILD_LOG "BUILD-006", then commit; real-phone test of the copy → chatbot → paste loop.
 
+## D-014 — AUDIT-001 result, FIX-001 done, friend-beta preparation
+
+- **Date / status:** 2026-11-16 / implemented by Claude Code (Fable) under the owner's AUDIT-001 → FIX-001 → BETA-PREP task prompt; **not deployed, not committed** (owner commits)
+- **Decision owner / approval evidence:** Owner, through that task prompt (audit read-only; fixes and beta prep authorized after the freeze; no new dependencies)
+- **Question:** Is the app safe enough to hand to 3–5 friends for an exam week, and what must change first?
+- **Alternatives considered (including no-build):** ship as built (rejected: three High findings); delay the beta for a full redesign of planning and readiness (rejected: Medium findings have cheap mitigations).
+- **Evidence IDs and sources:** `docs/product/AUDIT-001.md` (frozen; SHA-256 in BUILD_LOG); reproduction tests `app/tests/audit/`; BUILD_LOG "FIX-001" incl. the verbatim second-opinion verification.
+- **Decision:**
+  - Audit verdict: **GO with must-fix list** (0 Critical, 3 High, 6 Medium, 11 Low).
+  - Fixed: A-01 – A-04, A-07, A-09; partly fixed and still open: A-05, A-06, A-08.
+  - **Deferred / left listed:** A-10 – A-20 (Low), including "Show source" (A-16): not in v0.1/v0.2; the content notice and "Report wrong" stand in for it until a later decision.
+  - Beta prep: v0.2.0, version in Settings, "Copy feedback info" (no content), tap-to-update banner, `BETA_GUIDE.md`, `BETA_TEST_PLAN.md`.
+- **Assumptions and uncertainty:** update banner, backup export and clipboard behave on real iPhones/Androids as in desktop Chromium (untested); the fixes made after the verification pass were not independently re-verified; the audit ran in the builder's session after a model switch (weaker independence).
+- **Expected upside / downside:** Upside: no known path to a silently wrong answer on choice questions; fixes can reach friends. Downside: updates need a tap; readiness remains a rough estimate.
+- **Reversal/kill conditions:** the stop conditions in `BETA_TEST_PLAN.md` (any wrong-answer bug or data loss pauses the beta).
+- **Actions authorized (paths, budget, external actions):** `app/**` and the listed docs; no deploy, no contact, no commits by agents.
+- **Next review:** after the owner's stage-0 phone checks; then after the 1-friend, 3-day stage.
+
 ## Future decision entry template
 
 ### D-XXX — [Title]

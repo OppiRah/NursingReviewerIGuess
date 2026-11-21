@@ -342,3 +342,109 @@ Bundle (gzip -9): initial `index-*.js` 133.4 KB + `error-*.js` 1.6 KB (≤250 KB
 - Chatbot styles beyond the four synthetic samples; #12 cosmetic emphasis; ZIP size under-declaration (#3).
 - Clipboard on iOS Safari and the copy → chatbot → paste loop on a real phone: untested.
 - Reload history behaviour verified in Chromium only.
+
+# AUDIT-001 frozen (2026-11-16)
+
+- File: `docs/product/AUDIT-001.md` (99 lines). **Never edit it after this entry.** Fix results go under "FIX-001" below.
+- SHA-256 (working file, LF line endings; check with `sha256sum docs/product/AUDIT-001.md`): `2f89275bbfa01eff3ee034f0a4f98380c4a5ee341f580399e2f2018345f55689`
+- Verdict: GO with must-fix list. Critical 0 · High 3 · Medium 6 · Low 11.
+- Reproduction tests: `app/tests/audit/` (`npm run test:audit`, `npm run test:audit:e2e`); not part of `npm test` / `npm run test:e2e`.
+
+# FIX-001 — fixes after AUDIT-001 (2026-11-16)
+
+Scope: `app/**`, this log, STATUS, D-014, ADR-002 addendum. No new dependencies. `AUDIT-001.md` not edited (hash re-checked at close-out).
+
+## Fixed (each had a test that failed first; tests in `tests/unit/audit-fixes.test.ts`, `tests/unit/update.test.ts`, `e2e/audit-fixes.spec.ts`, `e2e/update.spec.ts`)
+
+| ID | Sev | Fix |
+|---|---|---|
+| A-01 | High | The answer follows its choice when the choice list changes and the letters were not retyped; removing the correct choice (or rewording it while moving others) is refused; duplicate texts keep their own slots; the editor shows "Will be saved as correct: …" live; letters the student types are used as typed. |
+| A-02 | High | `Q<n>:` / `Question <n>` followed by an `A:` line (also after a question wrapped over several lines) always starts a flashcard, even directly after a rationale. |
+| A-03 | High | App-registered service worker with a "New version available — tap to update" banner, hidden during sessions and onboarding; reload only after a tap; version and build date in Settings. Verified in Chromium with a real service worker and a simulated deploy (`e2e/update.spec.ts`). |
+| A-04 | Medium | A passed exam date spreads new items like "no date". |
+| A-05 | Medium | Due reviews ordered by most overdue day, then lowest stability; Today says "about N sessions of 10". |
+| A-06 | Medium | "seen X of Y" and "rough estimate, not a score" next to readiness on Today, Decks and the deck screen. |
+| A-07 | Medium | Content notice (may contain mistakes; check your source; not medical advice) on Import and in session feedback. |
+| A-08 | Medium | Export message names the file and says to check it is in Downloads/Files. |
+| A-09 | Medium | A reader (or PDF worker) that fails to download shows "needs an internet connection the first time…" instead of "damaged PDF". |
+
+**Existing test changed (not weakened), for the owner to see:** `tests/unit/plan.test.ts` asserted the A-04 behaviour ("exam passed → all of it", 50). It now asserts the new rule (10, planned like "no date") and adds "exam today → all of it" (50).
+
+## Not fixed
+
+- **Open after verification (partly fixed):** A-05 (the plan still asks 100 new items on day one of a 300-item/3-day deck and never says "you can't finish at this pace"), A-06 (the readiness number itself is unchanged), A-08 (`lastExportAt` is still set when the download is handed off; needs the real-phone check).
+- **Low, left listed as instructed:** A-10 – A-20. A-12 is in practice fixed by the A-02 look-ahead (wrapped `Q1:` flashcards parse), but it was not re-verified separately.
+- **Deferred:** none. No fix needed the two-strike rule.
+
+## FIX-001 verification (fresh-eyes subagent, had AUDIT-001.md and the diff, not my reasoning) — verbatim
+
+> A-01: resolved — with letters untouched, reorder `[Delta,Gamma,Beta,Alpha]` and delete-above `[Beta,Gamma,Delta]` both keep Gamma, deleting Gamma is refused, SATA `[0,3]` follows a reorder, and the editor shows the resolved answer live (`src/screens/DeckScreen.tsx:195`). Residual: editing the correct text and moving it in one save (`[Alpha, Gamma (corrected), Epsilon, Delta]`, answer left "c") saves Epsilon as correct, visible only in the preview line.
+> A-02: partially resolved — `Q2:`, `Q2.`, `Q2)`, `Question 2:`, bold, `- Q2:` and `### Q2:` after a rationale now give 2 items with blank line, no separator or form feed. Still silently swallowed into the previous rationale: wrapped `Q2: Front that wraps\nonto a second line?\nA: Back` and bare `Question 2\nFront?\nA: Back`, because the look-ahead at `src/domain/normalize.ts:190-203` only checks the next non-blank line.
+> A-03: resolved — `src/app/update.ts` registers the worker, the banner is hidden on session and onboarding routes, reload happens only after a tap (double tap gives one reload, no loop), `dist/sw.js` has the `SKIP_WAITING` handler, and Settings shows version and build date. Gap: if the new worker is already installing when `register()` resolves, the `updatefound` listener misses it (`update.ts:74-80` never checks `r.installing`; probe: offered = 0), so the banner waits for the next cold start. Real-device behaviour not verified.
+> A-04: resolved — `newQuota` with 300 unseen gives 43 for exam `2026-11-15` (yesterday) and `2025-01-01`, same as no date; plan `dueCount` is 43 (`src/domain/plan.ts:36`).
+> A-05: partially resolved — same-day reviews now sort by lowest stability and Today shows "about 30 sessions of 10". The plan still asks 100 on day one (300 items, 3 days), unseen items come after every review (first unseen at index 290 of 300), and nothing says the deck can't be finished at this pace.
+> A-06: partially resolved — "seen X of Y" and "rough estimate, not a score" were added on Today, Decks and Deck screens. The `deckReadiness` calculation is unchanged, so the audit's case (each item seen once, 30% wrong) still shows 97% beside "seen 300 of 300".
+> A-07: resolved — `CONTENT_NOTICE` (mistakes, check your source, not medical advice) renders unconditionally on Import (`ImportScreen.tsx:276`) and in the feedback area for every item type (`SessionScreen.tsx:205`).
+> A-08: partially resolved — the wording now says "Backup file created… Check that the file is in your Downloads or Files app" (`SettingsScreen.tsx:61`). `markExported` still runs as soon as the download is handed off, so the 7-day nudge is still silenced if the phone saved nothing; no share sheet, and no real-device check is recorded.
+> A-09: partially resolved — dynamic-import failures now show "needs an internet connection the first time…" (`ImportScreen.tsx:140`, `src/import/kinds.ts:16`), and the A-03 reload covers stale code. A PDF worker script failure (`Cannot load script at: …pdf.worker…`) is not recognized and still shows "may be password-protected or damaged".
+> A-10: not resolved — no code change; `Q: Front\nA: Back\n___` still gives back "Back ___".
+> A-11: not resolved — no code change; the back is still "Back Let me know if you want more!".
+> A-12: not resolved — no code change; wrapped `Q1:` first card is still rejected with "needs at least 2 lettered choices", and the same pattern after a rationale is the silent case in A-02.
+> A-13: not resolved — no code change; `Q: What is the main\nReason: for this?\nA: Back` still gives question "What is the main" and rationale "for this?".
+> A-14: not resolved — no code change and no note in the format help; `__5__` still becomes `5`.
+> A-15: not resolved — `OnboardingScreen.tsx:60` still says "makes sure every item comes back before exam day".
+> A-16: not resolved — no "Show source" in `src/`, and no deferral recorded (grep over `docs/` finds it only in the spec, architecture and audit).
+> A-17: not resolved — no code change in `src/data/repo.ts`; schedule and mistake status survive an answer-key fix.
+> A-18: not resolved — no code change.
+> A-19: not resolved — no code change (the audit accepted this for the beta).
+> A-20: not resolved — the Import preview still shows counts and problems only (`ImportScreen.tsx:242-254`).
+>
+> New problems introduced by the fixes
+> 1. A-02 fix: rationale prose `…Rationale: Because alpha.\nQuestion 2: compare this with the next topic.\nA: the nurse should also consider B.` → the rationale is cut and a bogus flashcard is created ("compare this with the next topic." / "the nurse should also consider B."), with no warning. Same with a blank line before the `A:` line.
+> 2. A-01 fix: item `[Alpha,Beta,Gamma,Delta]` answer c; student reorders to `[Gamma,Alpha,Beta,Delta]` and wants the new c (Beta) → leaving or retyping "c" saves a. Gamma. The same letter on a changed list cannot be set in one save; only the preview line reveals it.
+> 3. A-01 fix: SATA `[Yes,No,Yes,Maybe]` with answer a, c reordered to `[No,Yes,Yes,Maybe]` → saved answer is b only (`indexOf` plus de-dupe in `editItem.ts:44-50`), so one correct choice is dropped.
+> 4. A-05 copy: "the weakest items come first" is not true across days or for unseen items → a stability-200 review due yesterday is queued before a stability-0.2 review due today.
+> 5. A-03: `App.tsx:276` reloads unconditionally 4 s after the tap → if the takeover is slow and the student starts a session within those 4 s, the reload lands mid-session.
+> 6. A-09: `isModuleLoadError` matches any message containing "failed to fetch" or "load failed" → an unrelated error with that text gets the "needs internet / reopen the app" advice.
+
+### Acted on once, after the verification (tests first; NOT re-verified by a second subagent)
+
+- A-01 residual + new problems 2, 3: followAnswer rewritten (own slot per duplicate; reword-and-move refused); the editor uses typed letters as typed once the answer box is edited.
+- A-02 partial: look-ahead now passes wrapped question lines (up to 8, "2.5 mg" is not structure) and bare `Question N`. `roundtrip` T1/T2 after this: 0 lost items in 3,000 decks; the remaining mismatches are trailing text on flashcards (A-10, A-11).
+- A-03 gap + new problem 5: a worker already installing at registration is tracked; the 4-second fallback reload never fires during a session.
+- A-09 partial + new problem 6: pdf.js worker-load failure recognized; the generic "failed to fetch"/"load failed" patterns removed.
+- New problem 4: copy now says "overdue and weakest reviews come first, then new items".
+- **Still open, accepted:** new problem 1 (prose inside a rationale with a `Question N:` line immediately followed by an `A:` line becomes a flashcard). Judged rarer and less harmful than swallowing real flashcards; the student sees an extra card.
+
+# BETA-PREP (2026-11-16)
+
+- **Version:** `0.2.0`; Settings shows "Version 0.2.0 · built <date>" (Vite `define` from `package.json`).
+- **Copy feedback info:** version, browser, installed yes/no, deck/item/review counts, storage-protected state, last error. Error text has quoted strings and every word that appears in the student's decks removed. `tests/unit/feedback.test.ts` and an E2E clipboard check prove no content strings.
+- **Update behaviour:** see A-03. Also checks for a new version when the app becomes visible again (at most hourly).
+- **Docs:** `BETA_GUIDE.md` (79 lines), `BETA_TEST_PLAN.md` (59 lines).
+- **Build:** `app/dist` 2.6 MB (2,643,795 bytes); `_headers` present; CSP meta in `index.html`; initial JS 136.2 KB gzipped (≤250 KB); `registerSW.js` no longer emitted.
+
+## Gate (final run)
+
+| Gate | Command | Result |
+|---|---|---|
+| Typecheck | `npm run typecheck` | PASS |
+| Unit | `npm test` | PASS 267/267 (18 files) |
+| E2E | `npm run test:e2e` | PASS 39/39 |
+| Build | `npm run build` | PASS |
+| Audit | `npm audit --omit=dev` | PASS, 0 vulnerabilities |
+| Audit repro | `npm run test:audit` | 12 pass, 7 fail by design: A-10, A-11, A-13 (Low, not fixed), the old-API A-01 repro, and the 3 round-trip tiers (remaining mismatches are A-10/A-11/A-13/A-14 only) |
+
+## Decisions made alone (owner to review)
+
+1. Changed the existing `plan.test.ts` expectation for a passed exam date (above).
+2. "Weakest first" uses FSRS stability within a due day, not a recomputed recall probability.
+3. The update banner needs a tap; nothing auto-updates. A friend who never taps stays on the old version until they do.
+4. The last error for feedback info is kept in `localStorage` on the device and aggressively redacted; it may read oddly ("… not found").
+5. `tests/audit/` and the two audit configs stay in the repo as the audit's evidence.
+
+## Known gaps
+
+- Update banner, clipboard, export and file pickers are verified in desktop Chromium only. Real phones: `BETA_TEST_PLAN.md` stage 0.
+- Open: A-05, A-06, A-08 (partly fixed); A-10 – A-20 (Low).
+- The fixes made after the verification were not checked by a second independent pass.

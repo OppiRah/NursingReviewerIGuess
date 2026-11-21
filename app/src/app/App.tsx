@@ -11,6 +11,7 @@ import { SessionScreen } from '../screens/SessionScreen';
 import { SettingsScreen } from '../screens/SettingsScreen';
 import { TodayScreen } from '../screens/TodayScreen';
 import { Ctx, type AppCtx, type Prefs, type Route } from './context';
+import { shouldOfferUpdate, watchForUpdate, type SwContainerLike } from './update';
 
 const NAV: { route: Route; label: string }[] = [
   { route: { name: 'today' }, label: 'Today' },
@@ -89,6 +90,9 @@ export function App() {
   const [route, setRoute] = useState<Route>({ name: 'today' });
   const [version, setVersion] = useState(0);
   const [leaveAsk, setLeaveAsk] = useState(false);
+  /** Set when a new version has downloaded and is waiting; calling it applies the update and reloads. */
+  const [applyUpdate, setApplyUpdate] = useState<(() => void) | null>(null);
+  const [updating, setUpdating] = useState(false);
   const routeRef = useRef<Route>(route);
   /** Set when the app itself moves back in history, so leaving a session needs no confirmation. */
   const silentPopRef = useRef(false);
@@ -132,6 +136,21 @@ export function App() {
     );
     // Ask the browser to keep our data (best effort; mostly helps installed PWAs).
     void navigator.storage?.persist?.().catch(() => undefined);
+  }, []);
+
+  // Service worker: registered by the app (production builds only) so updates are offered, never forced.
+  useEffect(() => {
+    if (!import.meta.env.PROD || !('serviceWorker' in navigator)) return;
+    let check: (() => void) | null = null;
+    void watchForUpdate(navigator.serviceWorker as unknown as SwContainerLike, (apply) => setApplyUpdate(() => apply), { reload: () => window.location.reload() }).then((h) => {
+      check = h.check;
+    });
+    // Installed apps are often resumed, not restarted: look for a new version when the app comes back.
+    const onVisible = (): void => {
+      if (document.visibilityState === 'visible') check?.();
+    };
+    document.addEventListener('visibilitychange', onVisible);
+    return () => document.removeEventListener('visibilitychange', onVisible);
   }, []);
 
   /** The app's own history move; cleared by the popstate it causes (or a timer, if none ever comes). */
@@ -244,6 +263,27 @@ export function App() {
           {route.name === 'deck' && <DeckScreen deckId={route.id} />}
           {route.name === 'settings' && <SettingsScreen />}
         </main>
+        {shouldOfferUpdate(applyUpdate !== null, route.name) && (
+          <div className="update-banner" role="status" data-testid="update-banner">
+            <button
+              type="button"
+              className="btn primary"
+              disabled={updating}
+              onClick={() => {
+                setUpdating(true);
+                applyUpdate?.();
+                // If the new version never takes over, a plain reload still picks it up.
+                // Never while a session is open (the student may have started one meanwhile).
+                window.setTimeout(() => {
+                  if (routeRef.current.name !== 'session') window.location.reload();
+                  else setUpdating(false);
+                }, 4000);
+              }}
+            >
+              {updating ? 'Updating…' : 'New version available — tap to update'}
+            </button>
+          </div>
+        )}
         {leaveAsk && <LeaveSessionDialog onLeave={leaveSession} onStay={() => setLeaveAsk(false)} />}
         {!hideNav && (
           <nav className="tabbar" aria-label="Main">

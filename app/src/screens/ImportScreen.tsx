@@ -5,7 +5,8 @@ import { createDeck } from '../data/repo';
 import { BYO_AI_PROMPT } from '../domain/byoPrompt';
 import { isDateStr, localDateStr } from '../domain/dates';
 import { MAX_IMPORT_BYTES, parseReviewer, type ParseResult } from '../domain/parser';
-import { FriendlyImportError, MAX_PDF_PAGES, MAX_UPLOAD_BYTES, fileKind } from '../import/kinds';
+import { CONTENT_NOTICE } from '../copy';
+import { FriendlyImportError, MAX_PDF_PAGES, MAX_UPLOAD_BYTES, READER_LOAD_MESSAGE, fileKind, isModuleLoadError } from '../import/kinds';
 
 const UNREADABLE_MESSAGE = "Text in this PDF couldn't be read cleanly — try the original Word/Google Doc.";
 const SCANNED_MESSAGE =
@@ -134,6 +135,10 @@ export function ImportScreen() {
     } catch (err) {
       if (err instanceof FriendlyImportError) {
         setFileError(err.message);
+        return;
+      }
+      if (isModuleLoadError(err)) {
+        setFileError(READER_LOAD_MESSAGE);
         return;
       }
       setFileError(
@@ -268,6 +273,7 @@ export function ImportScreen() {
           <p id="exam-hint" className="hint">Your daily plan works backward from this date. You can leave it empty.</p>
         )}
 
+        <p className="hint" data-testid="content-notice">{CONTENT_NOTICE}</p>
         {saveError && <p role="alert" className="error">Couldn't save: {saveError}</p>}
         <button type="submit" className="btn primary" disabled={!canSave}>
           {parsed && parsed.items.length > 0 ? `Save ${parsed.items.length} ${parsed.items.length === 1 ? 'question' : 'questions'}` : 'Save'}

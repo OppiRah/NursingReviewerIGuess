@@ -12,6 +12,16 @@ export class FriendlyImportError extends Error {
   override name = 'FriendlyImportError';
 }
 
+/** A lazy-loaded reader (PDF/Word) that could not be downloaded: offline, or the app was updated (AUDIT-001 A-09). */
+export function isModuleLoadError(err: unknown): boolean {
+  const m = err instanceof Error ? err.message : String(err);
+  // Chrome, Firefox and Safari wordings for a failed dynamic import, plus pdf.js's worker-load failure.
+  return /dynamically imported module|importing a module script failed|cannot load script|setting up fake worker failed/i.test(m);
+}
+
+export const READER_LOAD_MESSAGE =
+  "Couldn't load the file reader. It needs an internet connection the first time. If you are online, close the app fully and open it again (it may have been updated), then retry.";
+
 export function fileKind(file: { name: string; type: string }): FileKind {
   const name = file.name.toLowerCase();
   if (name.endsWith('.pdf') || file.type === 'application/pdf') return 'pdf';

@@ -3,7 +3,7 @@ import { useApp } from '../app/context';
 import { useAsync } from '../app/useAsync';
 import { MascotMoment, type Mood } from '../components/Mascot';
 import { PageTitle } from '../components/PageTitle';
-import { recovery, sessionEnd, sessionStart } from '../copy';
+import { CONTENT_NOTICE, recovery, sessionEnd, sessionStart } from '../copy';
 import { getSetting, loadAll, loadMistakes, recordReview, setSetting, updateItem } from '../data/repo';
 import { localDateStr } from '../domain/dates';
 import { buildDailyPlan, SESSION_SIZE } from '../domain/plan';
@@ -202,6 +202,7 @@ function QuestionCard({ item, onDone }: { item: Item; onDone: (g: Grade, correct
             )
           )}
           <ReportWrong item={item} />
+          <p className="hint small" data-testid="content-notice">{CONTENT_NOTICE}</p>
         </div>
       )}
     </article>

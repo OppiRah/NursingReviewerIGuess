@@ -3,6 +3,17 @@
  * never guilt, never mocks a mistake, never a medical authority.
  */
 
+/** Shown wherever questions are imported or answered (AUDIT-001 A-07). */
+export const CONTENT_NOTICE =
+  'Questions come from your own files or your chatbot, so they can contain mistakes. Check answers against your source. This app is a study aid, not medical advice.';
+
+/** Honest workload for Today when more than one session is due (AUDIT-001 A-05). */
+export const workloadLine = (dueCount: number, sessionSize = 10): string => {
+  if (dueCount <= sessionSize) return '';
+  const sessions = Math.ceil(dueCount / sessionSize);
+  return `That's about ${sessions} sessions of ${sessionSize}. Do what you can: overdue and weakest reviews come first, then new items.`;
+};
+
 const pick = (list: readonly string[], seed: number): string => list[Math.abs(seed) % list.length] ?? list[0] ?? '';
 
 export const MASCOT_NAME = 'Momentum';

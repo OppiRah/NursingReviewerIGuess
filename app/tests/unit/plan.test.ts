@@ -18,7 +18,8 @@ describe('newQuota (backward from exam date)', () => {
     expect(newQuota(deck('2026-11-24'), 300, 0, NOW)).toBe(30); // 10 days → 30/day
     expect(newQuota(deck('2026-11-24'), 20, 0, NOW)).toBe(MIN_NEW_PER_DAY);
     expect(newQuota(deck('2026-11-15'), 300, 0, NOW)).toBe(300); // exam tomorrow → all of it
-    expect(newQuota(deck('2026-11-01'), 50, 0, NOW)).toBe(50); // exam passed → all of it
+    expect(newQuota(deck('2026-11-01'), 50, 0, NOW)).toBe(MIN_NEW_PER_DAY); // exam passed → planned like "no date" (AUDIT-001 A-04; was: all of it)
+    expect(newQuota(deck('2026-11-14'), 50, 0, NOW)).toBe(50); // exam today → all of it
   });
 
   it('subtracts items already introduced today', () => {

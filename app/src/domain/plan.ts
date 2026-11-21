@@ -20,7 +20,7 @@ export interface DeckPlan {
 
 export interface DailyPlan {
   decks: Map<string, DeckPlan>;
-  /** Items to study today, reviews first (oldest due first), then new items. */
+  /** Items to study today: reviews first (most overdue day, then weakest), then new items. */
   queue: Item[];
   dueCount: number;
 }
@@ -32,7 +32,8 @@ export function daysToExam(deck: Deck, now: Date): number | null {
 
 export function newQuota(deck: Deck, unseen: number, introducedToday: number, now: Date): number {
   const left = daysToExam(deck, now);
-  const days = left === null ? DEFAULT_SPREAD_DAYS : Math.max(1, left);
+  // A passed exam date plans like "no date" (AUDIT-001 A-04): never the whole deck in one day.
+  const days = left === null || left < 0 ? DEFAULT_SPREAD_DAYS : Math.max(1, left);
   const target = Math.max(MIN_NEW_PER_DAY, Math.ceil((unseen + introducedToday) / days));
   return Math.max(0, target - introducedToday);
 }
@@ -63,7 +64,12 @@ export function buildDailyPlan(decks: Deck[], items: Item[], now: Date): DailyPl
     plans.set(deck.id, { deckId: deck.id, dueReviews, newToday: unseen.slice(0, quota) });
   }
 
-  const reviews = [...plans.values()].flatMap((p) => p.dueReviews).sort((a, b) => Date.parse(a.dueAt) - Date.parse(b.dueAt));
+  // Most overdue day first; within a day the weakest memory (lowest stability) first, so a student
+  // who can't finish still gets the items that need it most (AUDIT-001 A-05).
+  const dueDay = (it: Item): string => localDateStr(new Date(it.dueAt));
+  const reviews = [...plans.values()]
+    .flatMap((p) => p.dueReviews)
+    .sort((a, b) => dueDay(a).localeCompare(dueDay(b)) || a.card.stability - b.card.stability || Date.parse(a.dueAt) - Date.parse(b.dueAt));
   const fresh = [...plans.values()].flatMap((p) => p.newToday);
   const queue = [...reviews, ...fresh];
   return { decks: plans, queue, dueCount: queue.length };

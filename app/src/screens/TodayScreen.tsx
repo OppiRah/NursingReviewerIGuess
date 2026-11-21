@@ -2,12 +2,12 @@ import { useApp } from '../app/context';
 import { useAsync } from '../app/useAsync';
 import { MascotMoment } from '../components/Mascot';
 import { PageTitle } from '../components/PageTitle';
-import { streakLine, welcomeBack } from '../copy';
+import { streakLine, welcomeBack, workloadLine } from '../copy';
 import { getSetting, loadAll } from '../data/repo';
 import { needsBackupNudge } from '../domain/backup';
 import { daysBetween, localDateStr } from '../domain/dates';
 import { buildDailyPlan, daysToExam } from '../domain/plan';
-import { deckReadiness, formatPercent } from '../domain/readiness';
+import { deckReadiness, formatPercent, seenCount } from '../domain/readiness';
 import { computeStreak } from '../domain/streak';
 import type { Deck } from '../domain/types';
 
@@ -70,6 +70,7 @@ export function TodayScreen() {
         <p className="due-count" data-testid="due-count">
           <span className="big">{plan.dueCount}</span> {plan.dueCount === 1 ? 'item' : 'items'} due today
         </p>
+        {workloadLine(plan.dueCount) && <p className="hint" data-testid="workload">{workloadLine(plan.dueCount)}</p>}
         {plan.dueCount > 0 ? (
           <button type="button" className="btn primary big-btn" onClick={() => go({ name: 'session', mode: 'due' })}>
             Start review
@@ -93,6 +94,9 @@ export function TodayScreen() {
             <span data-testid="exam-label">{examLabel(d, t)}</span>
             <span className="readiness">
               Readiness (estimated): <strong data-testid="readiness">{formatPercent(deckReadiness(d, items, scheduler, t))}</strong>
+              {' · '}
+              <span data-testid="seen">seen {seenCount(items, d.id).seen} of {seenCount(items, d.id).total}</span>
+              <span className="hint"> · a rough estimate from your answers so far, not a score</span>
             </span>
           </li>
         ))}

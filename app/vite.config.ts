@@ -1,6 +1,7 @@
 import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
+import pkg from './package.json';
 
 /** Strict CSP: no inline scripts or styles, no remote origins. Exported for the security test. */
 export const CSP = [
@@ -28,12 +29,18 @@ function cspPlugin(): Plugin {
 
 // Offline app shell. No runtime caching of remote URLs: the app makes no remote calls.
 export default defineConfig({
+  define: {
+    __APP_VERSION__: JSON.stringify(pkg.version),
+    __BUILD_DATE__: JSON.stringify(new Date().toISOString().slice(0, 10)),
+  },
   plugins: [
     cspPlugin(),
     react(),
     VitePWA({
-      registerType: 'autoUpdate',
-      injectRegister: 'script', // external /registerSW.js, so the CSP needs no inline script
+      // AUDIT-001 A-03: a new version waits until the student taps "update" (src/app/update.ts registers
+      // the worker and shows the banner). Nothing reloads the app on its own, so a session is never interrupted.
+      registerType: 'prompt',
+      injectRegister: false,
       includeAssets: ['icons/icon.svg'],
       manifest: {
         name: 'Nursing Reviewer',

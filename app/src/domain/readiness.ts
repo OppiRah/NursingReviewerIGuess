@@ -24,6 +24,18 @@ export function deckReadiness(deck: Deck, items: Item[], scheduler: Scheduler, n
   return sum / own.length;
 }
 
+/** How many of a deck's items were ever reviewed (shown next to readiness, AUDIT-001 A-06). */
+export function seenCount(items: Item[], deckId: string): { seen: number; total: number } {
+  let seen = 0;
+  let total = 0;
+  for (const it of items) {
+    if (it.deckId !== deckId) continue;
+    total++;
+    if (it.card.reps > 0) seen++;
+  }
+  return { seen, total };
+}
+
 export function formatPercent(r: number | null): string {
   return r === null ? '–' : `${Math.round(r * 100)}%`;
 }
