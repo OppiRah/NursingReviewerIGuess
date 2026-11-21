@@ -73,6 +73,41 @@ test('pasting the PDF-artifacts fixture gives 30 items and 0 errors', async ({ p
   await expect(page.getByRole('button', { name: 'Save 30 questions' })).toBeEnabled();
 });
 
+test('the preview shows the first questions with the answer that will be marked correct (A-20)', async ({ page }) => {
+  await openFresh(page);
+  await nav(page, 'Import');
+  await page.getByLabel('Paste your reviewer').fill(await readText('e2e/fixtures/mixed-deck.txt'));
+  await expect(page.getByTestId('parsed-count')).toHaveText('4');
+  const sample = page.getByTestId('preview-sample');
+  await expect(sample.getByRole('listitem')).toHaveCount(3);
+  await expect(sample).toContainText('Select all that apply');
+  await expect(sample).toContainText('Answer: a. Red; c. Blue; d. Green');
+  await expect(sample).toContainText('A: 4');
+  await expect(sample).toContainText('Answer: b. The first task');
+  await expect(sample).toContainText('and 1 more');
+});
+
+test('at 360px a very long unbroken word in the preview does not cause sideways scrolling', async ({ page }) => {
+  await page.setViewportSize({ width: 360, height: 740 });
+  await openFresh(page);
+  await nav(page, 'Import');
+  const long = 'Sample' + 'x'.repeat(120);
+  await page.getByLabel('Paste your reviewer').fill(`1. ${long}?\na. ${long}\nb. Two\nAnswer: a\nRationale: ${long}`);
+  await expect(page.getByTestId('preview-sample')).toBeVisible();
+  const overflow = (): Promise<number> => page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+  expect(await overflow()).toBeLessThanOrEqual(0);
+  // The same text in a session (question, choice button, rationale) must wrap too.
+  await page.getByLabel('Deck title').fill('Sample long words');
+  await page.getByLabel('Exam date').fill(localDatePlus(5));
+  await page.getByRole('button', { name: 'Save 1 question' }).click();
+  await startSession(page);
+  await expect(page.locator('.question-text')).toBeVisible();
+  expect(await overflow()).toBeLessThanOrEqual(0);
+  await page.locator('.choices button').first().click();
+  await expect(page.locator('.rationale')).toBeVisible();
+  expect(await overflow()).toBeLessThanOrEqual(0);
+});
+
 test('unsupported file types are refused with a clear message', async ({ page }) => {
   await openFresh(page);
   await nav(page, 'Import');
@@ -97,6 +132,9 @@ test('study notes (no questions) show the AI-prompt card first; details stay col
 
   const card = page.getByTestId('notes-card');
   await expect(card).toContainText('This looks like study notes, not questions.');
+  // The chatbot step is disclosed honestly: the app uploads nothing, the chatbot does receive the notes.
+  await expect(card).toContainText('the chatbot you paste them into does receive them');
+  await expect(page.getByTestId('chatbot-notice')).toContainText('not paid review-center files');
   await expect(card).toContainText('Open ChatGPT/Claude, paste the prompt, then your notes');
   // The error list is not shown first: it sits inside the collapsed "Show details".
   await expect(page.getByTestId('preview')).toHaveCount(0);
@@ -119,4 +157,24 @@ test('chatbot output with a code fence, bold and small talk imports cleanly (acc
   await expect(page.getByTestId('parsed-count')).toHaveText('2');
   await expect(page.getByTestId('parse-errors')).toHaveCount(0);
   await expect(page.getByLabel('Deck title')).toHaveValue('Hema');
+});
+
+test('when the clipboard is blocked, Copy prompt opens the prompt box and selects it for manual copying', async ({ page }) => {
+  await openFresh(page);
+  await nav(page, 'Import');
+  await page.evaluate(() => {
+    Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: () => Promise.reject(new DOMException('blocked', 'NotAllowedError')) } });
+  });
+  await page.getByLabel(FILE_LABEL).setInputFiles('e2e/fixtures/prose-notes.txt');
+  await page.getByTestId('notes-card').getByRole('button', { name: 'Copy prompt' }).click();
+  await expect(page.getByTestId('notes-copy-status')).toContainText("Couldn't copy automatically");
+  const box = page.getByTestId('prompt-text');
+  await expect(box).toBeVisible();
+  await expect(box).toBeFocused();
+  await expect(box).toHaveValue(/Output only the questions/);
+  const selected = await page.evaluate(() => {
+    const t = document.querySelector<HTMLTextAreaElement>('[data-testid="prompt-text"]');
+    return t ? t.selectionEnd - t.selectionStart : 0;
+  });
+  expect(selected).toBeGreaterThan(500);
 });

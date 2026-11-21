@@ -28,6 +28,11 @@ export interface NormLine {
   orig?: string;
   /** The rewrite removed a markdown heading marker ("## 1. Cardio"): a heading unless a question follows. */
   fromHash?: boolean;
+  /**
+   * The original line started with lowercase "reason:" (normalized to "Rationale:"). Inside a question, a
+   * choice or a rationale this is wrapped text ("…most likely\nreason: low oxygen?"), kept word for word.
+   */
+  lowercaseReason?: string;
 }
 
 // ---------- Chatbot output (BUILD-006) ----------
@@ -183,7 +188,7 @@ export function normalizeLines(input: string): NormLine[] {
         out.push({ text: SEPARATOR, line, glued: text }, { text: (glued[1] ?? '').trim(), line });
         continue;
       }
-      out.push({ text, line });
+      out.push(/^reason\s*:/.test(cleaned) ? { text, line, lowercaseReason: cleaned } : { text, line });
     }
   });
   // "Q1: What is K?" followed by "A: 3.5-5" is a flashcard, not a numbered question.

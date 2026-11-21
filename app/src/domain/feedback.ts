@@ -4,11 +4,18 @@
  * deck titles or any other study content (tests/unit/feedback.test.ts proves it).
  */
 import type { ReviewerDB } from '../data/db';
+import { daysBetween, localDateStr } from './dates';
 
 export interface FeedbackCounts {
   decks: number;
   items: number;
   reviews: number;
+}
+
+/** Distinct local calendar days with at least one recorded review, in rolling windows that include today. */
+export interface StudyDays {
+  last7: number;
+  last14: number;
 }
 
 export interface FeedbackInput {
@@ -23,6 +30,8 @@ export interface FeedbackInput {
   persisted: boolean | null;
   /** Words from the student's content (collectContentWords); any of them in the error text is removed. */
   contentWords?: ReadonlySet<string>;
+  /** Study-day counts (collectStudyDays); "unknown" when not provided. */
+  studyDays?: StudyDays;
 }
 
 /**
@@ -50,6 +59,35 @@ export async function collectFeedbackCounts(db: ReviewerDB): Promise<FeedbackCou
 }
 
 /**
+ * Counts study days from review timestamps (`Review.at`, an ISO instant written by `recordReview`).
+ * Each timestamp is turned into the device's local calendar date, like the rest of the app does.
+ * A day counts once however many reviews it has. Windows are rolling and include today: "last 7"
+ * is today and the 6 days before it, "last 14" is today and the 13 before (so last7 ≤ last14).
+ * Missing, non-string or unparsable timestamps are skipped; future dates (clock trouble) are not counted.
+ */
+export function countStudyDays(reviewTimes: Iterable<unknown>, now: Date): StudyDays {
+  const today = localDateStr(now);
+  const days14 = new Set<string>();
+  const days7 = new Set<string>();
+  for (const at of reviewTimes) {
+    if (typeof at !== 'string') continue;
+    const t = new Date(at);
+    if (Number.isNaN(t.getTime())) continue;
+    const day = localDateStr(t);
+    const ago = daysBetween(day, today);
+    if (ago < 0 || ago > 13) continue;
+    days14.add(day);
+    if (ago <= 6) days7.add(day);
+  }
+  return { last7: days7.size, last14: days14.size };
+}
+
+/** Reads only the review timestamps (the `at` index keys) from local IndexedDB; no content, no network. */
+export async function collectStudyDays(db: ReviewerDB, now: Date): Promise<StudyDays> {
+  return countStudyDays(await db.reviews.orderBy('at').keys(), now);
+}
+
+/**
  * Keep the shape of an error, drop anything that could be content: quoted text is removed, any word
  * that also appears in the student's decks is removed, and the length is capped.
  */
@@ -71,6 +109,7 @@ export function buildFeedbackInfo(i: FeedbackInput): string {
     `Browser: ${i.userAgent.slice(0, 160)}`,
     `Installed: ${yn(i.standalone)}`,
     `Decks: ${i.counts.decks} · Items: ${i.counts.items} · Reviews: ${i.counts.reviews}`,
+    `Study days (last 7 days): ${i.studyDays?.last7 ?? 'unknown'} · Study days (last 14 days): ${i.studyDays?.last14 ?? 'unknown'}`,
     `Storage protected: ${yn(i.persisted)}`,
     `Last error: ${sanitizeError(i.lastError, i.contentWords)}`,
   ].join('\n');

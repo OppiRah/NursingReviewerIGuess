@@ -7,17 +7,21 @@ export const BUILD_DATE: string = typeof __BUILD_DATE__ === 'string' ? __BUILD_D
 
 const KEY = 'lastError';
 
-/** Remember the most recent unexpected error on this device only, for "Copy feedback info". */
+/**
+ * Remember the most recent unexpected error on this device only, for "Copy feedback info" (which strips
+ * any study content from it before showing it). Never sent anywhere.
+ */
+export function recordError(message: string): void {
+  try {
+    localStorage.setItem(KEY, `${new Date().toISOString().slice(0, 16)} ${message}`.slice(0, 300));
+  } catch {
+    /* storage unavailable */
+  }
+}
+
 export function installErrorLog(): void {
-  const save = (message: string): void => {
-    try {
-      localStorage.setItem(KEY, `${new Date().toISOString().slice(0, 16)} ${message}`.slice(0, 300));
-    } catch {
-      /* storage unavailable */
-    }
-  };
-  window.addEventListener('error', (e) => save(e.message || 'error'));
-  window.addEventListener('unhandledrejection', (e) => save(e.reason instanceof Error ? `${e.reason.name}: ${e.reason.message}` : 'unhandled rejection'));
+  window.addEventListener('error', (e) => recordError(e.message || 'error'));
+  window.addEventListener('unhandledrejection', (e) => recordError(e.reason instanceof Error ? `${e.reason.name}: ${e.reason.message}` : 'unhandled rejection'));
 }
 
 export function readLastError(): string | null {

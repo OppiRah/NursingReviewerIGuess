@@ -118,3 +118,13 @@ describe('shouldOfferUpdate', () => {
     expect(shouldOfferUpdate(false, 'today')).toBe(false);
   });
 });
+
+describe('watchForUpdate without a registration', () => {
+  it('a register() that resolves to nothing (blocked/stubbed workers) is handled quietly, not thrown', async () => {
+    const sw = { controller: null, register: () => Promise.resolve(undefined as unknown as RegistrationLike), addEventListener: () => undefined } as SwContainerLike;
+    const onReady = vi.fn();
+    const h = await watchForUpdate(sw, onReady, { reload: vi.fn() });
+    expect(() => h.check()).not.toThrow();
+    expect(onReady).not.toHaveBeenCalled();
+  });
+});

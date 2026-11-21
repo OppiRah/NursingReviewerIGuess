@@ -1,11 +1,13 @@
-import { useMemo, useState, type ChangeEvent, type FormEvent } from 'react';
+import { useMemo, useRef, useState, type ChangeEvent, type FormEvent } from 'react';
 import { useApp } from '../app/context';
+import { describeError } from '../app/errors';
 import { PageTitle } from '../components/PageTitle';
 import { createDeck } from '../data/repo';
 import { BYO_AI_PROMPT } from '../domain/byoPrompt';
 import { isDateStr, localDateStr } from '../domain/dates';
-import { MAX_IMPORT_BYTES, parseReviewer, type ParseResult } from '../domain/parser';
-import { CONTENT_NOTICE } from '../copy';
+import { MAX_IMPORT_BYTES, parseReviewer, type ParsedItem, type ParseResult } from '../domain/parser';
+import { letter } from '../domain/scoring';
+import { CHATBOT_NOTICE, CONTENT_NOTICE, ITEM_TYPE_LABEL } from '../copy';
 import { FriendlyImportError, MAX_PDF_PAGES, MAX_UPLOAD_BYTES, READER_LOAD_MESSAGE, fileKind, isModuleLoadError } from '../import/kinds';
 
 const UNREADABLE_MESSAGE = "Text in this PDF couldn't be read cleanly — try the original Word/Google Doc.";
@@ -46,6 +48,35 @@ function Issues({ parsed }: { parsed: ParseResult }) {
   );
 }
 
+const SAMPLE_ITEMS_SHOWN = 3;
+
+/**
+ * AUDIT-001 A-20: show the first few parsed questions with the answer the app will mark correct, so a
+ * student can spot a wrong answer key (common with chatbot output) before saving. Plain text only.
+ */
+function SampleItems({ items }: { items: ParsedItem[] }) {
+  if (items.length === 0) return null;
+  const shown = items.slice(0, SAMPLE_ITEMS_SHOWN);
+  const more = items.length - shown.length;
+  return (
+    <div data-testid="preview-sample">
+      <h3>Check a few before saving</h3>
+      <ol className="sample-items">
+        {shown.map((it, i) => (
+          <li key={i}>
+            <span className="hint">{ITEM_TYPE_LABEL[it.type]}</span>
+            <br />
+            {it.question}
+            <br />
+            <strong>{it.type === 'flashcard' ? `A: ${it.back}` : `Answer: ${it.answer.map((a) => `${letter(a)}. ${it.choices[a] ?? ''}`).join('; ')}`}</strong>
+          </li>
+        ))}
+      </ol>
+      {more > 0 && <p className="hint">and {more} more. After saving, you can check and edit every question in Decks.</p>}
+    </div>
+  );
+}
+
 /** "Chapter 3 reviewer.pdf" → "Chapter 3 reviewer" (title suggestion only). */
 function titleFromFileName(name: string): string {
   return name.replace(/\.[^.]+$/, '').replace(/[_]+/g, ' ').trim().slice(0, 120);
@@ -69,6 +100,9 @@ export function ImportScreen() {
   const [examDate, setExamDate] = useState('');
   const [fileError, setFileError] = useState<string | null>(null);
   const [copyMsg, setCopyMsg] = useState<string | null>(null);
+  /** The prompt text box: opened (and selected) when the clipboard is not available, so it can be copied by hand. */
+  const [promptOpen, setPromptOpen] = useState(false);
+  const promptRef = useRef<HTMLTextAreaElement>(null);
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState<string | null>(null);
   const [reading, setReading] = useState<string | null>(null);
@@ -156,7 +190,13 @@ export function ImportScreen() {
       await navigator.clipboard.writeText(BYO_AI_PROMPT);
       setCopyMsg('Prompt copied. Paste it into your chatbot, then add your material after it.');
     } catch {
-      setCopyMsg("Couldn't copy automatically. Select the prompt text below and copy it.");
+      setPromptOpen(true);
+      setCopyMsg("Couldn't copy automatically. The prompt is now shown under “Make one with your own AI”: tap it to select it all, then copy.");
+      // After the box opens: bring it into view and select the whole prompt.
+      window.setTimeout(() => {
+        promptRef.current?.scrollIntoView({ block: 'center' });
+        promptRef.current?.focus();
+      }, 0);
     }
   };
 
@@ -174,7 +214,7 @@ export function ImportScreen() {
       bump();
       go({ name: 'today' });
     } catch (err) {
-      setSaveError(err instanceof Error ? err.message : String(err));
+      setSaveError(describeError(err));
       setSaving(false);
     }
   };
@@ -185,12 +225,23 @@ export function ImportScreen() {
 
       <div className="card">
         <h2>Make one with your own AI</h2>
-        <p>Copy this prompt into ChatGPT, Claude or Gemini, paste your notes after it, then paste the answer here. This app never sends your notes anywhere.</p>
+        <p>Copy this prompt into ChatGPT, Claude or Gemini, paste your notes after it, then paste the answer here.</p>
+        <p className="hint" data-testid="chatbot-notice">{CHATBOT_NOTICE}</p>
+        <p className="hint">Tip: start with one exam&apos;s chapters, not the whole semester.</p>
         <button type="button" className="btn" onClick={copyPrompt}>Copy BYO-AI prompt</button>
         {copyMsg && <p role="status" className="muted">{copyMsg}</p>}
-        <details>
+        <details open={promptOpen} onToggle={(e) => setPromptOpen(e.currentTarget.open)}>
           <summary>Show the prompt</summary>
-          <pre className="prompt-text">{BYO_AI_PROMPT}</pre>
+          <textarea
+            ref={promptRef}
+            readOnly
+            rows={10}
+            className="prompt-text"
+            value={BYO_AI_PROMPT}
+            aria-label="BYO-AI prompt"
+            data-testid="prompt-text"
+            onFocus={(e) => e.target.select()}
+          />
         </details>
       </div>
 
@@ -231,6 +282,7 @@ export function ImportScreen() {
               <li>Open ChatGPT/Claude, paste the prompt, then your notes</li>
               <li>Paste the result here</li>
             </ol>
+            <p className="hint">{CHATBOT_NOTICE}</p>
             <button type="button" className="btn primary" onClick={copyPrompt}>Copy prompt</button>
             {copyMsg && <p role="status" className="muted" data-testid="notes-copy-status">{copyMsg}</p>}
             <details data-testid="notes-details">
@@ -252,6 +304,8 @@ export function ImportScreen() {
             <Issues parsed={parsed} />
           </div>
         )}
+        {/* Outside the live region: screen readers should not re-read sample questions on every keystroke. */}
+        {parsed && !looksLikeNotes && <SampleItems items={parsed.items} />}
 
         <label htmlFor="deck-title">Deck title</label>
         <input

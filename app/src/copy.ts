@@ -1,3 +1,5 @@
+import type { ItemType } from './domain/types';
+
 /**
  * All mascot copy lives here (PRODUCT_SPEC §7–8): encouraging, light Taglish allowed,
  * never guilt, never mocks a mistake, never a medical authority.
@@ -6,6 +8,16 @@
 /** Shown wherever questions are imported or answered (AUDIT-001 A-07). */
 export const CONTENT_NOTICE =
   'Questions come from your own files or your chatbot, so they can contain mistakes. Check answers against your source. This app is a study aid, not medical advice.';
+
+/** Display names for question types (Import preview, Decks badges and editor). */
+export const ITEM_TYPE_LABEL: Record<ItemType, string> = { mcq: 'Multiple choice', sata: 'Select all that apply', priority: 'Priority', flashcard: 'Flashcard' };
+
+/**
+ * Shown wherever the BYO-AI (chatbot) path is offered. The app itself uploads nothing, but the chatbot
+ * the student pastes into does receive the notes; say so plainly, and ask for permitted material only.
+ */
+export const CHATBOT_NOTICE =
+  'This app never uploads your notes, but the chatbot you paste them into does receive them. Only use notes you are allowed to share, not paid review-center files.';
 
 /** Today's workload in sessions (AUDIT-001 A-05). `sessionSize` is the app's real SESSION_SIZE. */
 export const workloadLine = (dueCount: number, sessionSize: number): string => {

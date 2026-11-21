@@ -143,8 +143,10 @@ textarea { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9
 
 .preview { border-top: 1px solid var(--border); margin-top: 16px; padding-top: 8px; }
 .issues { padding-left: 20px; font-size: 0.95rem; }
+.sample-items { padding-left: 20px; font-size: 0.95rem; }
+.sample-items li { margin: 8px 0; overflow-wrap: anywhere; }
 .issues.errors li { color: var(--bad); }
-.prompt-text { white-space: pre-wrap; font-size: 0.85rem; background: var(--bg); padding: 12px; border-radius: 10px; }
+.prompt-text { width: 100%; white-space: pre-wrap; font-size: 0.85rem; background: var(--bg); padding: 12px; border-radius: 10px; }
 details summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; }
 .confirm { border: 1px solid var(--bad); border-radius: 10px; padding: 12px; margin-top: 12px; }
 

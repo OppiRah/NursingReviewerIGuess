@@ -3,6 +3,7 @@ import { useApp } from '../app/context';
 import { MascotMoment } from '../components/Mascot';
 import { setSetting } from '../data/repo';
 import { BYO_AI_PROMPT } from '../domain/byoPrompt';
+import { CHATBOT_NOTICE } from '../copy';
 
 const STEPS = 3;
 
@@ -50,6 +51,8 @@ export function OnboardingScreen() {
             <li>Copy our prompt into your own chatbot (ChatGPT, Claude, Gemini), paste your notes after it, and paste the answer back here.</li>
             <li>Check the preview: problems are listed by line so you can fix them.</li>
           </ol>
+          <p className="hint">{CHATBOT_NOTICE}</p>
+          <p className="hint">Tip: start with one exam&apos;s chapters, not the whole semester.</p>
           <button type="button" className="btn" onClick={copy}>Copy BYO-AI prompt</button>
           {copied && <p role="status" className="muted">{copied}</p>}
         </>
@@ -57,7 +60,7 @@ export function OnboardingScreen() {
       {step === 2 && (
         <>
           <h1 id="page-title" tabIndex={-1} ref={headingRef}>Set your exam date</h1>
-          <p>When you import a reviewer, add the date of that exam. Your daily plan spreads new questions over the days you have left, and makes sure every item comes back before exam day.</p>
+          <p>When you import a reviewer, add the date of that exam. Your daily plan spreads new questions over the days you have left and aims to bring each one back before exam day. It is a guide, not a guarantee: with many questions and few days, Today tells you how many sessions it would take.</p>
           <p>No date yet? Leave it empty. You can add it later from the Decks screen.</p>
           <p>Tip: in Settings you can add a daily reminder to your calendar, and save a backup of your data.</p>
         </>

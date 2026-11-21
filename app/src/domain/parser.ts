@@ -101,6 +101,8 @@ interface PassResult extends ParseResult {
   headings: number[];
   /** Original line numbers of text outside any question (incl. chatbot small talk). */
   ignored: number[];
+  /** Original line numbers of chatbot small talk ("Sure! Here are…", "Let me know…"), skipped on purpose. */
+  chatter: number[];
 }
 
 function parseDeclaredType(raw: string): ItemType | null {
@@ -143,7 +145,7 @@ function startsWithAbbreviatedTerm(text: string): boolean {
 
 /** One parsing pass over normalized lines. `forced` holds line indexes that must start a question. */
 function parsePass(lines: NormLine[], forced: ReadonlySet<number>): PassResult {
-  const result: PassResult = { title: null, items: [], errors: [], warnings: [], requests: [], headings: [], ignored: [], proseWords: 0, ignoredWords: 0, answerLines: 0 };
+  const result: PassResult = { title: null, items: [], errors: [], warnings: [], requests: [], headings: [], ignored: [], chatter: [], proseWords: 0, ignoredWords: 0, answerLines: 0 };
   let firstHeading: string | null = null;
 
   let block: Block | null = null;
@@ -328,6 +330,12 @@ function parsePass(lines: NormLine[], forced: ReadonlySet<number>): PassResult {
   /** Lines already consumed by an undone glued split (see NormLine.glued). */
   let skipIdx = -1;
 
+  /**
+   * A question that already has its answer: an "Answer:" line, or (flashcards) an "A:" line with text.
+   * Flashcards keep their answer in `back`, not `answerRaw`, so both must be checked.
+   */
+  const isAnswered = (b: Block): boolean => b.answerRaw !== null || (b.back !== null && b.back.some((t) => t.trim() !== ''));
+
   lines.forEach((entry, i) => {
     const lineNo = entry.line;
     const line = entry.text;
@@ -343,9 +351,10 @@ function parsePass(lines: NormLine[], forced: ReadonlySet<number>): PassResult {
     // more small talk counts; "Here is why B is wrong…" in a rationale's second paragraph is kept.
     if (entry.chatty) {
       const prevBlank = (lines[i - 1]?.text ?? '') === '';
-      const finished = !!open && (open.field === 'rationale' || open.answerRaw !== null);
+      const finished = !!open && (open.field === 'rationale' || isAnswered(open));
       if (!open || (entry.chatty === 'signoff' && prevBlank && finished && onlyChatterFollows(i))) {
         finalize();
+        result.chatter.push(lineNo);
         ignore(lineNo, line);
         return;
       }
@@ -402,7 +411,7 @@ function parsePass(lines: NormLine[], forced: ReadonlySet<number>): PassResult {
     }
     if (RE_UNDERSCORES.test(line)) {
       // Between questions it separates them; inside an unanswered question it is a fill-in-the-blank.
-      if (!open || open.answerRaw !== null) finalize();
+      if (!open || isAnswered(open)) finalize();
       else appendText(open, line, lineNo);
       return;
     }
@@ -468,6 +477,13 @@ function parsePass(lines: NormLine[], forced: ReadonlySet<number>): PassResult {
       return;
     }
     if ((m = RE_RATIONALE.exec(line))) {
+      // A wrapped line that happens to start with lowercase "reason:" (normalized to "Rationale:") inside a
+      // question, a choice or a rationale is ordinary text: keep it word for word. Right after "Answer:"/"A:"
+      // it is still read as a (lowercase) rationale label. Capitalized labels are unaffected.
+      if (entry.lowercaseReason && (b.field === 'question' || b.field === 'choice' || b.field === 'rationale')) {
+        appendText(b, entry.lowercaseReason, lineNo);
+        return;
+      }
       // A second Rationale:/Explanation:/Reason: line adds to the first instead of replacing it.
       if (b.rationale) b.rationale.push(m[1] ?? '');
       else b.rationale = [m[1] ?? ''];
@@ -545,6 +561,23 @@ export function parseReviewer(input: string): ParseResult {
   const result: ParseResult = { title: pass.title, items: pass.items, errors: pass.errors, warnings: pass.warnings, proseWords: pass.proseWords, ignoredWords: pass.ignoredWords, answerLines: pass.answerLines };
   for (const [line, count] of recovered) {
     result.warnings.push({ line, message: `Recovered ${count} ${count === 1 ? 'question' : 'questions'} from a merged block near line ${line}.` });
+  }
+  // The same question twice (chatbots repeat themselves when asked for "more"): kept, but pointed out.
+  const firstSeen = new Map<string, number>();
+  const norm = (t: string): string => t.toLowerCase().replace(/\s+/g, ' ').trim();
+  for (const it of result.items) {
+    // Flashcards have no choices: their answer text is part of what makes two cards the same.
+    const key = `${it.type}|${norm(it.question)}|${it.type === 'flashcard' ? norm(it.back) : it.choices.map(norm).join('|')}`;
+    const first = firstSeen.get(key);
+    if (first === undefined) firstSeen.set(key, it.line);
+    else result.warnings.push({ line: it.line, message: `Line ${it.line}: this question looks the same as the one at line ${first}. Both were kept; delete one in Decks if it is a repeat.` });
+  }
+  // Text outside any question is never dropped silently: list it (chatbot small talk is skipped on purpose).
+  const chatter = new Set(pass.chatter);
+  const dropped = pass.ignored.filter((l) => !chatter.has(l));
+  if (dropped.length > 0) {
+    const shown = dropped.slice(0, 10).join(', ') + (dropped.length > 10 ? ', …' : '');
+    result.warnings.push({ line: 0, message: `${dropped.length} ${dropped.length === 1 ? 'line' : 'lines'} outside any question will not be imported (${dropped.length === 1 ? 'line' : 'lines'} ${shown}).` });
   }
   const h = pass.headings;
   if (h.length > 0) {

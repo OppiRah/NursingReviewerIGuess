@@ -1,6 +1,7 @@
 /** Data operations used by the screens. Each takes the db explicitly so tests can use fake-indexeddb. */
 import { buildBackup, type BackupData, type BackupFile } from '../domain/backup';
 import type { ParsedItem } from '../domain/parser';
+import { answerKeyChanged } from '../domain/editItem';
 import { clampToExam } from '../domain/plan';
 import type { Scheduler } from '../domain/scheduler';
 import type { Deck, Grade, Item, Review } from '../domain/types';
@@ -92,9 +93,31 @@ export async function loadMistakes(db: ReviewerDB): Promise<Item[]> {
   return items.sort((a, b) => Date.parse(a.dueAt) - Date.parse(b.dueAt));
 }
 
-export async function updateItem(db: ReviewerDB, id: string, patch: Partial<Pick<Item, 'type' | 'question' | 'choices' | 'answer' | 'back' | 'rationale' | 'flagged'>>): Promise<void> {
-  const n = await db.items.update(id, patch);
-  if (n === 0) throw new Error('Item not found');
+export async function updateItem(
+  db: ReviewerDB,
+  id: string,
+  patch: Partial<Pick<Item, 'type' | 'question' | 'choices' | 'answer' | 'back' | 'rationale' | 'flagged'>>,
+  now: Date = new Date(),
+): Promise<void> {
+  await db.transaction('rw', db.items, async () => {
+    const before = await db.items.get(id);
+    if (!before) throw new Error('Item not found');
+    const extra: Partial<Pick<Item, 'lastGrade' | 'dueAt' | 'card'>> = {};
+    // AUDIT-001 A-17: a fixed answer key voids the "mistake" earned under the old key, and the item comes
+    // back today so the student practises the corrected answer. The review log and the FSRS memory state
+    // (stability, difficulty, reps, lapses, last review) are kept; only the due date moves.
+    if (before.card.reps > 0 && answerKeyChanged(before, { ...before, ...patch })) {
+      extra.lastGrade = null;
+      if (Date.parse(before.dueAt) > now.getTime()) {
+        const due = now.toISOString();
+        // Item.dueAt is the indexed copy of card.dueAt and must always equal it (backup validation
+        // checks this); move both together, as updateDeck does when it pulls items before an exam.
+        extra.dueAt = due;
+        extra.card = { ...before.card, dueAt: due };
+      }
+    }
+    await db.items.update(id, { ...patch, ...extra });
+  });
 }
 
 /** Deletes the item and its review log. */

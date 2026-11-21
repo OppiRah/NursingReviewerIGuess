@@ -49,6 +49,8 @@ test('import → review session → persistence → export → wipe → restore'
   await expect(page.getByTestId('summary')).toContainText('You answered 5 items');
   await page.getByRole('button', { name: 'Back to Today' }).click();
   await expect(page.getByTestId('due-count')).toContainText('0 items due today');
+  // Completion sprint: once everything is done, Today says when to come back.
+  await expect(page.getByTestId('next-review')).toContainText(/^Next: \d+ reviews? (tomorrow|on .+)\.$/);
 
   // Reload: reviews persisted, due count stays down.
   await page.reload();

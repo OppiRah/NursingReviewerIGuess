@@ -2,17 +2,17 @@ import { useMemo, useState, type FormEvent } from 'react';
 import { useApp } from '../app/context';
 import { PageTitle } from '../components/PageTitle';
 import { useAsync } from '../app/useAsync';
-import { READINESS_HINT } from '../copy';
+import { describeError } from '../app/errors';
+import { ITEM_TYPE_LABEL, READINESS_HINT } from '../copy';
 import { deleteDeck, deleteItem, updateDeck, updateItem } from '../data/repo';
 import { isDateStr, localDateStr } from '../domain/dates';
-import { draftFromItem, validateDraft, type ItemDraft } from '../domain/editItem';
+import { answerKeyChanged, draftFromItem, validateDraft, type ItemDraft } from '../domain/editItem';
 import { deckReadiness, formatPercent, seenCount } from '../domain/readiness';
 import { letter } from '../domain/scoring';
 import type { Item, ItemType } from '../domain/types';
 import { examLabel } from './TodayScreen';
 
 const MAX_LIST = 100;
-const TYPE_LABEL: Record<ItemType, string> = { mcq: 'Multiple choice', sata: 'Select all that apply', priority: 'Priority', flashcard: 'Flashcard' };
 
 export function DeckScreen({ deckId }: { deckId: string }) {
   const { db, scheduler, now, go, version, bump } = useApp();
@@ -29,6 +29,7 @@ export function DeckScreen({ deckId }: { deckId: string }) {
   const [confirmDelete, setConfirmDelete] = useState<string | null>(null);
   const [confirmDeck, setConfirmDeck] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [notice, setNotice] = useState<string | null>(null);
 
   const filtered = useMemo(() => {
     if (state.status !== 'ready') return [];
@@ -52,13 +53,16 @@ export function DeckScreen({ deckId }: { deckId: string }) {
     );
   }
 
-  const run = async (fn: () => Promise<void>): Promise<void> => {
+  /** Runs a change; shows a failure at the top of the screen. Returns whether it worked, so callers never confirm a failed save. */
+  const run = async (fn: () => Promise<void>): Promise<boolean> => {
     setError(null);
     try {
       await fn();
       bump();
+      return true;
     } catch (e) {
-      setError(e instanceof Error ? e.message : String(e));
+      setError(describeError(e));
+      return false;
     }
   };
 
@@ -77,6 +81,7 @@ export function DeckScreen({ deckId }: { deckId: string }) {
         <span className="hint" data-testid="readiness-hint"> · {READINESS_HINT}</span>
       </p>
       {error && <p role="alert" className="error">{error}</p>}
+      {notice && <p role="status" className="muted" data-testid="deck-notice">{notice}</p>}
 
       <details className="card">
         <summary>Deck details</summary>
@@ -120,12 +125,19 @@ export function DeckScreen({ deckId }: { deckId: string }) {
               <ItemEditor
                 item={it}
                 onCancel={() => setEditing(null)}
-                onSave={(patch) => run(async () => { await updateItem(db, it.id, patch); setEditing(null); })}
+                onSave={(patch) =>
+                  run(async () => {
+                    await updateItem(db, it.id, patch, now());
+                    setEditing(null);
+                    // Same rule as updateItem (A-17): tell the student what a fixed answer key does.
+                    setNotice(it.card.reps > 0 && answerKeyChanged(it, { ...it, ...patch }) ? 'Answer changed. This question will come back today, and an earlier "wrong" no longer counts as a mistake.' : null);
+                  })
+                }
               />
             ) : (
               <>
                 <p className="item-meta">
-                  <span className={`badge badge-${it.type}`}>{TYPE_LABEL[it.type]}</span>
+                  <span className={`badge badge-${it.type}`}>{ITEM_TYPE_LABEL[it.type]}</span>
                   {it.flagged && <span className="badge badge-flag">⚑ Reported wrong</span>}
                 </p>
                 <p className="item-q">{it.question}</p>
@@ -162,33 +174,38 @@ export function DeckScreen({ deckId }: { deckId: string }) {
   );
 }
 
-function DeckDetailsForm({ title, examDate, onSave }: { title: string; examDate: string; onSave: (title: string, examDate: string) => Promise<void> }) {
+function DeckDetailsForm({ title, examDate, onSave }: { title: string; examDate: string; onSave: (title: string, examDate: string) => Promise<boolean> }) {
   const { now } = useApp();
   const [t, setT] = useState(title);
   const [d, setD] = useState(examDate);
   const [saved, setSaved] = useState(false);
   const today = localDateStr(now());
   // A new exam date can't be in the past; an existing (now past) date may be kept while renaming.
+  const datePast = d !== '' && d !== examDate && isDateStr(d) && d < today;
   const valid = t.trim().length > 0 && (d === '' || d === examDate || (isDateStr(d) && d >= today));
   const submit = async (e: FormEvent): Promise<void> => {
     e.preventDefault();
     if (!valid) return;
-    await onSave(t.trim(), d);
-    setSaved(true);
+    setSaved(await onSave(t.trim(), d));
   };
   return (
     <form className="form" onSubmit={submit}>
       <label htmlFor="deck-edit-title">Deck title</label>
       <input id="deck-edit-title" type="text" maxLength={120} value={t} onChange={(e) => { setT(e.target.value); setSaved(false); }} />
       <label htmlFor="deck-edit-exam">Exam date</label>
-      <input id="deck-edit-exam" type="date" value={d} onChange={(e) => { setD(e.target.value); setSaved(false); }} />
+      <input id="deck-edit-exam" type="date" value={d} onChange={(e) => { setD(e.target.value); setSaved(false); }} aria-describedby="deck-edit-exam-hint" />
+      {datePast ? (
+        <p id="deck-edit-exam-hint" role="alert" className="error">That date has already passed. Pick today or a later date, or leave it empty.</p>
+      ) : (
+        <p id="deck-edit-exam-hint" className="hint">A new date re-plans this deck: questions you have already seen come back before it.</p>
+      )}
       <button type="submit" className="btn primary" disabled={!valid}>Save deck details</button>
       {saved && <p role="status" className="muted">Saved.</p>}
     </form>
   );
 }
 
-function ItemEditor({ item, onSave, onCancel }: { item: Item; onSave: (patch: Parameters<typeof updateItem>[2]) => Promise<void>; onCancel: () => void }) {
+function ItemEditor({ item, onSave, onCancel }: { item: Item; onSave: (patch: Parameters<typeof updateItem>[2]) => Promise<boolean>; onCancel: () => void }) {
   const [draft, setDraft] = useState<ItemDraft>(() => draftFromItem(item));
   const [choicesText, setChoicesText] = useState(item.choices.join('\n'));
   const [error, setError] = useState<string | null>(null);
@@ -215,7 +232,7 @@ function ItemEditor({ item, onSave, onCancel }: { item: Item; onSave: (patch: Pa
     <form className="form editor" onSubmit={submit} aria-label="Edit item">
       <label htmlFor={id('type')}>Type</label>
       <select id={id('type')} value={draft.type} onChange={(e) => set('type', e.target.value as ItemType)}>
-        {(Object.keys(TYPE_LABEL) as ItemType[]).map((t) => <option key={t} value={t}>{TYPE_LABEL[t]}</option>)}
+        {(Object.keys(ITEM_TYPE_LABEL) as ItemType[]).map((t) => <option key={t} value={t}>{ITEM_TYPE_LABEL[t]}</option>)}
       </select>
       <label htmlFor={id('q')}>Question</label>
       <textarea id={id('q')} rows={3} value={draft.question} onChange={(e) => set('question', e.target.value)} />

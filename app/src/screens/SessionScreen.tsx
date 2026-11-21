@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useApp } from '../app/context';
 import { useAsync } from '../app/useAsync';
+import { createAnswerSaver, type AnswerSaver } from '../app/answerSaver';
 import { MascotMoment, type Mood } from '../components/Mascot';
 import { PageTitle } from '../components/PageTitle';
 import { CONTENT_NOTICE, recovery, sessionEnd, sessionStart } from '../copy';
@@ -48,12 +49,15 @@ interface Stats {
 type Phase = 'intro' | 'question' | 'recovery' | 'done';
 
 function Runner({ queue }: { queue: Item[] }) {
-  const { db, scheduler, now, go, bump, prefs } = useApp();
+  const { db, scheduler, now, bump, prefs, setLeaveGuard, leaveSession } = useApp();
   const [index, setIndex] = useState(0);
   const [stats, setStats] = useState<Stats>({ done: 0, correct: 0 });
   const [phase, setPhase] = useState<Phase>(prefs.mascot ? 'intro' : 'question');
   const [wrongStreak, setWrongStreak] = useState(0);
-  const [error, setError] = useState<string | null>(null);
+  /** A failed save, tied to its answer so a later success clears only its own error (C-2). */
+  const [error, setError] = useState<{ key: string; message: string; leaveFailed: boolean } | null>(null);
+  /** Re-render when the saver's saving/saved state changes ("Saving…", no re-grade once saved). */
+  const [, setSaverTick] = useState(0);
   const titleRef = useRef<HTMLHeadingElement>(null);
 
   const item = queue[index];
@@ -74,14 +78,90 @@ function Runner({ queue }: { queue: Item[] }) {
     setPhase('done');
   };
 
+  /**
+   * Answer persistence (R-3/R-4, app/answerSaver.ts). Each question on screen is written exactly once.
+   * A checked choice answer is pending until saved; it is saved by Next, or when the student leaves
+   * (End session, back → Leave, app sent to the background, page closing). A write that is already
+   * running is joined, never skipped, and nothing advances or counts in the summary until it succeeded.
+   * A failure keeps the student on the question with the error, so they can retry or choose to leave.
+   */
+  const mountedRef = useRef(true);
+  const advancedRef = useRef(new Set<string>());
+  const saverRef = useRef<AnswerSaver | null>(null);
+  saverRef.current ??= createAnswerSaver(
+    async (a) => {
+      await recordReview(db, a.itemId, a.grade, a.correct, scheduler, now());
+    },
+    {
+      // Only this session's screen is updated; a write finishing after it closed changes nothing here.
+      onError: (message, a) => {
+        if (mountedRef.current) setError({ key: a.key, message, leaveFailed: false });
+      },
+      onSaved: (a) => {
+        if (mountedRef.current) setError((e) => (e && e.key === a.key ? null : e));
+      },
+      onChange: () => {
+        if (mountedRef.current) setSaverTick((t) => t + 1);
+      },
+    },
+  );
+  const saver = saverRef.current;
+  const keyFor = (i: number, id: string): string => `${i}:${id}`;
+  const [leaving, setLeaving] = useState(false);
+  /** A save failed while leaving: offer "Leave anyway" next to the error. */
+  const markLeaveFailed = (): void => setError((e) => (e ? { ...e, leaveFailed: true } : e));
+
+  useEffect(() => {
+    mountedRef.current = true;
+    const flushInBackground = (): void => {
+      void saver.flush().then((r) => {
+        if (r.ok) bump();
+      });
+    };
+    const onHide = (): void => {
+      if (document.visibilityState === 'hidden') flushInBackground();
+    };
+    document.addEventListener('visibilitychange', onHide);
+    window.addEventListener('pagehide', flushInBackground);
+    // back → "Leave session": save the last answer first; stay here if that fails.
+    setLeaveGuard(async () => {
+      const r = await saver.flush();
+      if (r.ok) return true;
+      if (mountedRef.current) markLeaveFailed();
+      return false;
+    });
+    return () => {
+      mountedRef.current = false;
+      document.removeEventListener('visibilitychange', onHide);
+      window.removeEventListener('pagehide', flushInBackground);
+      setLeaveGuard(null);
+      flushInBackground(); // last chance (e.g. "Leave anyway" or a reload); failures are already shown
+    };
+  }, [saver, bump, setLeaveGuard]);
+
+  const onAnswered = (grade: Grade, correct: boolean): void => {
+    if (item) saver.setPending({ key: keyFor(index, item.id), itemId: item.id, grade, correct });
+  };
+
+  /** End session / "Leave anyway": the app serializes leaving (T-1) and runs the save guard above. */
+  const endSession = async (force = false): Promise<void> => {
+    if (leaving) return;
+    setLeaving(true);
+    await leaveSession({ force });
+    if (mountedRef.current) setLeaving(false); // still here: the save failed (error and "Leave anyway" shown)
+  };
+
   const submit = async (grade: Grade, correct: boolean): Promise<void> => {
     if (!item) return;
-    try {
-      await recordReview(db, item.id, grade, correct, scheduler, now());
-    } catch (e) {
-      setError(e instanceof Error ? e.message : String(e));
-      return;
-    }
+    const key = keyFor(index, item.id);
+    const answer = { key, itemId: item.id, grade, correct };
+    // Pending while it saves, so End session / Leave wait for this same write instead of skipping it.
+    // If a background save already wrote it, "Easy" cannot re-grade it (the first grade wins).
+    saver.setPending(answer);
+    const r = await saver.save(answer);
+    if (!r.ok) return; // error shown; the student can tap again to retry
+    if (advancedRef.current.has(key)) return; // a second tap joined the same save: advance only once
+    advancedRef.current.add(key);
     setError(null);
     setStats((s) => ({ done: s.done + 1, correct: s.correct + (correct ? 1 : 0) }));
     bump();
@@ -119,16 +199,46 @@ function Runner({ queue }: { queue: Item[] }) {
         <PageTitle className="progress-title" ref={titleRef}>
           Question {index + 1} of {queue.length}
         </PageTitle>
-        <button type="button" className="btn ghost" onClick={() => go({ name: 'today' })}>End session</button>
+        <button type="button" className="btn ghost" onClick={() => void endSession()} disabled={leaving}>End session</button>
       </div>
       <progress max={queue.length} value={index} aria-label="Session progress" />
-      {error && <p role="alert" className="error">Couldn't save that answer: {error}</p>}
-      <QuestionCard key={item.id} item={item} onDone={submit} />
+      {error && (
+        <div role="alert" className="error" data-testid="save-error">
+          <p>Couldn&apos;t save that answer: {error.message}</p>
+          <p>It was not counted yet. Tap Next (or Got it / Missed it) again to retry{error.leaveFailed ? ', or leave without it' : ''}.</p>
+          {error.leaveFailed && (
+            <button type="button" className="btn" onClick={() => void endSession(true)}>Leave anyway (this answer may not be saved)</button>
+          )}
+        </div>
+      )}
+      <QuestionCard
+        key={keyFor(index, item.id)}
+        item={item}
+        onDone={submit}
+        onAnswered={onAnswered}
+        saving={saver.isSaving(keyFor(index, item.id))}
+        saved={saver.isSaved(keyFor(index, item.id))}
+      />
     </section>
   );
 }
 
-function QuestionCard({ item, onDone }: { item: Item; onDone: (g: Grade, correct: boolean) => Promise<void> }) {
+function QuestionCard({
+  item,
+  onDone,
+  onAnswered,
+  saving,
+  saved,
+}: {
+  item: Item;
+  onDone: (g: Grade, correct: boolean) => Promise<void>;
+  /** A choice answer was checked: remembered so it is saved even if the student leaves before Next. */
+  onAnswered: (g: Grade, correct: boolean) => void;
+  /** This answer is being written right now (e.g. the app was just in the background). */
+  saving: boolean;
+  /** This answer is already saved, so its grade can no longer change. */
+  saved: boolean;
+}) {
   const [selected, setSelected] = useState<number[]>([]);
   const [result, setResult] = useState<ScoreResult | null>(null);
   const [revealed, setRevealed] = useState(false);
@@ -159,7 +269,17 @@ function QuestionCard({ item, onDone }: { item: Item; onDone: (g: Grade, correct
           <button type="button" className="btn primary" onClick={() => setRevealed(true)}>Show answer</button>
         )
       ) : (
-        <ChoiceList item={item} selected={selected} setSelected={setSelected} result={result} onSubmit={(sel) => setResult(scoreChoices(item, sel))} />
+        <ChoiceList
+          item={item}
+          selected={selected}
+          setSelected={setSelected}
+          result={result}
+          onSubmit={(sel) => {
+            const r = scoreChoices(item, sel);
+            setResult(r);
+            onAnswered(r.correct ? 'good' : 'again', r.correct);
+          }}
+        />
       )}
 
       {answered && (
@@ -171,8 +291,8 @@ function QuestionCard({ item, onDone }: { item: Item; onDone: (g: Grade, correct
               {item.rationale && <p className="rationale"><strong>Rationale: </strong>{item.rationale}</p>}
               <p className="muted">Did you remember it?</p>
               <div className="row">
-                <button type="button" className="btn" disabled={busy} onClick={() => finish('again', false)}>Missed it</button>
-                <button type="button" className="btn primary" disabled={busy} onClick={() => finish('good', true)}>Got it</button>
+                <button type="button" className="btn" disabled={busy || saving} onClick={() => finish('again', false)}>Missed it</button>
+                <button type="button" className="btn primary" disabled={busy || saving} onClick={() => finish('good', true)}>Got it</button>
               </div>
             </>
           ) : (
@@ -193,11 +313,15 @@ function QuestionCard({ item, onDone }: { item: Item; onDone: (g: Grade, correct
                   <p className="muted">No rationale was included for this item.</p>
                 )}
                 <div className="row">
-                  <button type="button" className="btn primary" disabled={busy} onClick={() => finish(result.correct ? 'good' : 'again', result.correct)}>Next</button>
-                  {result.correct && (
+                  <button type="button" className="btn primary" disabled={busy || saving} onClick={() => finish(result.correct ? 'good' : 'again', result.correct)}>
+                    {saving ? 'Saving…' : 'Next'}
+                  </button>
+                  {/* "Easy" changes the grade, which is only possible before this answer is written (C-1). */}
+                  {result.correct && !saving && !saved && (
                     <button type="button" className="btn" disabled={busy} onClick={() => finish('easy', true)}>Easy, show less often</button>
                   )}
                 </div>
+                {saved && !busy && <p className="hint" data-testid="answer-saved">Answer saved.</p>}
               </>
             )
           )}

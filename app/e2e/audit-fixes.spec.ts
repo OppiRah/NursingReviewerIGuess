@@ -140,13 +140,47 @@ test('BETA-PREP: Settings shows the version and copies feedback info without any
   await openFresh(page);
   await importFixture(page);
   await nav(page, 'Settings');
-  await expect(page.getByTestId('app-version')).toHaveText(/^Version 0\.2\.2 · built \d{4}-\d{2}-\d{2}$/);
+  await expect(page.getByTestId('app-version')).toHaveText(/^Version 0\.2\.3 · built \d{4}-\d{2}-\d{2}$/);
   await page.getByRole('button', { name: 'Copy feedback info' }).click();
   await expect(page.getByTestId('feedback-status')).toContainText('Copied');
   const copied = await page.evaluate(() => navigator.clipboard.readText());
-  expect(copied).toContain('Version: 0.2.2');
+  expect(copied).toContain('Version: 0.2.3');
   expect(copied).toMatch(/Decks: 1 · Items: \d+ · Reviews: 0/);
+  expect(copied).toContain('Study days (last 7 days): 0 · Study days (last 14 days): 0');
   expect(copied).not.toMatch(/Synthetic|Sample|sky|Blue/i);
+});
+
+test('v0.2.3: after a session, feedback info counts one study day and still has no content or timestamps', async ({ page, context }) => {
+  await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+  await openFresh(page);
+  await importFixture(page);
+  await startSession(page);
+  const breather = page.getByRole('button', { name: 'Continue' }); // mascot "Quick breather" after 3 misses
+  const done = page.getByRole('heading', { name: 'Session complete' });
+  for (let q = 1; q <= 5; q++) {
+    const question = page.getByRole('heading', { name: `Question ${q} of 5` });
+    await expect(question.or(breather)).toBeVisible();
+    if (await breather.isVisible()) await breather.click();
+    await expect(question).toBeVisible();
+    await page.locator('.choices button').first().click();
+    await page.getByRole('button', { name: 'Next' }).click();
+  }
+  await expect(done.or(breather)).toBeVisible();
+  if (await breather.isVisible()) await breather.click();
+  await expect(page.getByRole('heading', { name: 'Session complete' })).toBeVisible();
+  await page.getByRole('button', { name: 'Back to Today' }).click();
+  await nav(page, 'Settings');
+  await page.getByRole('button', { name: 'Copy feedback info' }).click();
+  await expect(page.getByTestId('feedback-status')).toContainText('Copied');
+  const copied = await page.evaluate(() => navigator.clipboard.readText());
+  expect(copied).toContain('Reviews: 5');
+  expect(copied).toContain('Study days (last 7 days): 1 · Study days (last 14 days): 1');
+  expect(copied).not.toMatch(/Synthetic|Sample|sky|Blue|Triangle|rationale/i);
+  // No review timestamps or review dates. (The existing "Last error:" line carries the error's own time by
+  // design, and here it is the known SW-blocked test-browser error, so that line is excluded.)
+  const lines = copied.split('\n').filter((l) => !l.startsWith('Last error:'));
+  expect(lines.join('\n')).not.toMatch(/T\d{2}:\d{2}|\d{1,2}:\d{2}/);
+  expect(lines.join('\n').match(/\d{4}-\d{2}-\d{2}/g)).toHaveLength(1); // only the build date
 });
 
 test('A-03: the built app registers its own service worker and can be told to update', async () => {
@@ -156,4 +190,50 @@ test('A-03: the built app registers its own service worker and can be told to up
   expect(fs.existsSync('dist/registerSW.js'), 'the auto-register script is replaced by app code').toBe(false);
   const html = fs.readFileSync('dist/index.html', 'utf8') as string;
   expect(html).not.toContain('registerSW');
+});
+
+test('restore confirmation compares the backup with what is on the device and warns before losing newer answers', async ({ page }) => {
+  await openFresh(page);
+  await importFixture(page);
+  await nav(page, 'Settings');
+  const [download] = await Promise.all([page.waitForEvent('download'), page.getByRole('button', { name: 'Export backup' }).click()]);
+  const backupPath = await download.path();
+  await nav(page, 'Today');
+  await startSession(page);
+  await page.getByRole('button', { name: 'b. Blue' }).click();
+  await page.getByRole('button', { name: 'Next' }).click();
+  await expect(page.getByRole('heading', { name: 'Question 2 of 5' })).toBeVisible();
+  await page.getByRole('button', { name: 'End session' }).click();
+  await nav(page, 'Settings');
+  await page.getByTestId('backup-file').setInputFiles(backupPath);
+  await expect(page.getByRole('group', { name: 'Confirm restore' })).toContainText('1 deck(s), 5 item(s) and 0 answer(s)');
+  await expect(page.getByTestId('restore-current')).toContainText('This device has 1 deck(s), 5 item(s) and 1 answer(s) now.');
+  await expect(page.getByTestId('restore-current')).toContainText('restoring it would lose that progress');
+  await page.getByRole('button', { name: 'Cancel' }).click();
+  await expect(page.getByRole('group', { name: 'Confirm restore' })).toHaveCount(0);
+});
+
+test('A-17: fixing a wrong answer key clears that mistake and tells the student it comes back today', async ({ page }) => {
+  await openFresh(page);
+  await importFixture(page);
+  await startSession(page);
+  // The student picks Green; suppose the reviewer's key (Blue) was the mistake.
+  await page.getByRole('button', { name: 'a. Green' }).click();
+  await expect(page.getByRole('heading', { name: 'Not quite' })).toBeVisible();
+  await page.getByRole('button', { name: 'Next' }).click();
+  await expect(page.getByRole('heading', { name: 'Question 2 of 5' })).toBeVisible();
+  await page.getByRole('button', { name: 'End session' }).click();
+  await expect(page.getByRole('button', { name: 'Review my mistakes (1)' })).toBeVisible();
+
+  await nav(page, 'Decks');
+  await page.getByRole('button', { name: /^Open / }).first().click();
+  const row = page.getByTestId('item-row').first();
+  await row.getByRole('button', { name: /^Edit/ }).click();
+  await row.getByLabel('Correct letter(s)').fill('');
+  await row.getByLabel('Correct letter(s)').fill('a');
+  await row.getByRole('button', { name: 'Save changes' }).click();
+  await expect(page.getByTestId('deck-notice')).toContainText('This question will come back today');
+
+  await nav(page, 'Today');
+  await expect(page.getByRole('button', { name: /^Review my mistakes/ })).toHaveCount(0);
 });

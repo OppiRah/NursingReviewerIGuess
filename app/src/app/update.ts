@@ -67,6 +67,8 @@ export async function watchForUpdate(sw: SwContainerLike, onReady: (apply: () =>
   } catch {
     return { check: () => undefined }; // no offline support in this browser/session; the app still works
   }
+  // Some environments (blocked or stubbed service workers) resolve without a registration.
+  if (!reg) return { check: () => undefined };
   const r = reg;
   // `controller` is null on the very first install: that is not an update.
   if (r.waiting && sw.controller) offer();

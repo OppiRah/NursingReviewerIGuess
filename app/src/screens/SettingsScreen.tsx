@@ -5,24 +5,35 @@ import { downloadText } from '../app/download';
 import { canShareBackup, shareBackup, toPending, type PendingBackup } from '../app/backupExport';
 import { readTheme, saveTheme, type ThemePref } from '../app/theme';
 import { APP_VERSION, BUILD_DATE, readLastError } from '../app/version';
-import { buildFeedbackInfo, collectContentWords, collectFeedbackCounts } from '../domain/feedback';
+import { buildFeedbackInfo, collectContentWords, collectFeedbackCounts, collectStudyDays } from '../domain/feedback';
 import { useAsync } from '../app/useAsync';
+import { describeError } from '../app/errors';
 import { buildExport, getSetting, markExported, newId, restoreBackup, setSetting, wipeAll } from '../data/repo';
 import { backupFileName, MAX_BACKUP_BYTES, needsBackupNudge, validateBackupText, type BackupFile } from '../domain/backup';
 import { buildDailyReminderIcs } from '../domain/ics';
 
-const msg = (e: unknown): string => (e instanceof Error ? e.message : String(e));
+const msg = describeError;
 
 export function SettingsScreen() {
   const { db, now, version, bump, prefs, setPrefs, reloadPrefs } = useApp();
   const state = useAsync(async () => ({
     lastExportAt: await getSetting<string | null>(db, 'lastExportAt', null),
     reminderTime: await getSetting<string>(db, 'reminderTime', '19:00'),
+    // Has the browser promised not to clear this app's data when the phone runs low on space?
+    persisted: await (async (): Promise<boolean | null> => {
+      try {
+        return (await navigator.storage?.persisted?.()) ?? null;
+      } catch {
+        return null;
+      }
+    })(),
   }), [db, version]);
 
   const [status, setStatus] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [pending, setPending] = useState<BackupFile | null>(null);
+  /** What is on this device now, shown next to the backup's counts so an older backup is not restored by mistake. */
+  const [current, setCurrent] = useState<{ decks: number; items: number; reviews: number } | null>(null);
   /** The latest export attempt, waiting for the student to confirm the file exists (A-08). Memory only. */
   const [exported, setExported] = useState<PendingBackup | null>(null);
   const [confirmWipe, setConfirmWipe] = useState(false);
@@ -34,7 +45,7 @@ export function SettingsScreen() {
 
   if (state.status === 'loading') return <p className="muted" aria-busy="true">Loading settings…</p>;
   if (state.status === 'error') return <p role="alert">Couldn't load settings: {state.error}</p>;
-  const { lastExportAt, reminderTime } = state.data;
+  const { lastExportAt, reminderTime, persisted } = state.data;
   const reminder = time ?? reminderTime;
 
   /** Runs one action at a time, with uniform status/error reporting. */
@@ -98,6 +109,7 @@ export function SettingsScreen() {
       if (file.size > MAX_BACKUP_BYTES) throw new Error('That file is too large to be a backup from this app.');
       const result = await validateBackupText(await file.text(), now());
       if (!result.ok) throw new Error(result.error);
+      setCurrent(await collectFeedbackCounts(db));
       setPending(result.backup);
       return null;
     });
@@ -109,7 +121,7 @@ export function SettingsScreen() {
       try {
         await restoreBackup(db, pending);
       } catch (e) {
-        throw new Error(`Restore failed; your previous data was kept. (${msg(e)})`);
+        throw new Error(`Restore failed; your previous data was kept. ${msg(e)}`);
       }
       setPending(null);
       setExported(null); // an earlier export attempt no longer describes this device's data
@@ -150,10 +162,10 @@ export function SettingsScreen() {
     }
     const standalone = window.matchMedia('(display-mode: standalone)').matches || (navigator as { standalone?: boolean }).standalone === true;
     // Counts and device facts only: never question text, deck titles or any other content.
-    const info = buildFeedbackInfo({ version: APP_VERSION, buildDate: BUILD_DATE, userAgent: navigator.userAgent, standalone, counts: await collectFeedbackCounts(db), lastError: readLastError(), persisted, contentWords: await collectContentWords(db) });
+    const info = buildFeedbackInfo({ version: APP_VERSION, buildDate: BUILD_DATE, userAgent: navigator.userAgent, standalone, counts: await collectFeedbackCounts(db), studyDays: await collectStudyDays(db, now()), lastError: readLastError(), persisted, contentWords: await collectContentWords(db) });
     try {
       await navigator.clipboard.writeText(info);
-      setFeedbackMsg('Copied. Paste it in your message, with a screenshot if you can.');
+      setFeedbackMsg('Copied. Paste it in your message. A screenshot is optional.');
     } catch {
       setFeedbackText(info);
       setFeedbackMsg("Couldn't copy automatically. Select the text below and copy it.");
@@ -176,6 +188,11 @@ export function SettingsScreen() {
         <p data-testid="last-export">
           Last confirmed backup: {lastExportAt ? new Date(lastExportAt).toLocaleDateString() : 'never'}
         </p>
+        {persisted === false && (
+          <p className="hint" data-testid="storage-not-protected">
+            This browser has not promised to keep the app&apos;s data if your phone runs low on space. Installing the app and keeping a backup file protect you.
+          </p>
+        )}
         {needsBackupNudge(lastExportAt, now()) && (
           <p className="nudge-text">Your data lives only on this device. A quick backup keeps it safe.</p>
         )}
@@ -201,9 +218,15 @@ export function SettingsScreen() {
         {pending && (
           <div className="confirm" role="group" aria-label="Confirm restore">
             <p>
-              Restore this backup from {new Date(pending.exportedAt).toLocaleString()}? It has {pending.data.decks.length} deck(s) and {pending.data.items.length} item(s).
+              Restore this backup from {new Date(pending.exportedAt).toLocaleString()}? It has {pending.data.decks.length} deck(s), {pending.data.items.length} item(s) and {pending.data.reviews.length} answer(s).
               <strong> It will replace everything currently on this device.</strong>
             </p>
+            {current && (
+              <p data-testid="restore-current">
+                This device has {current.decks} deck(s), {current.items} item(s) and {current.reviews} answer(s) now.
+                {current.reviews > pending.data.reviews.length && <strong> This device has more answers than the backup: restoring it would lose that progress.</strong>}
+              </p>
+            )}
             <div className="row">
               <button type="button" className="btn danger" onClick={onConfirmRestore} disabled={busy}>Replace my data with this backup</button>
               <button type="button" className="btn" onClick={() => setPending(null)}>Cancel</button>
@@ -261,7 +284,7 @@ export function SettingsScreen() {
       <div className="card">
         <h2>About and feedback</h2>
         <p data-testid="app-version">Version {APP_VERSION} · built {BUILD_DATE}</p>
-        <p>Found a problem? Send a screenshot, and tap this to copy a few facts about your app (version, phone, counts). It never includes your questions or deck names.</p>
+        <p>Found a problem? Tap this to copy a few facts about your app (version, phone, counts). It never includes your questions or deck names. A screenshot is optional; crop out your questions if you send one.</p>
         <button type="button" className="btn" onClick={() => void onFeedback()}>Copy feedback info</button>
         {feedbackMsg && <p role="status" className="muted" data-testid="feedback-status">{feedbackMsg}</p>}
         {feedbackText && <textarea readOnly rows={7} value={feedbackText} aria-label="Feedback info" onFocus={(e) => e.target.select()} />}

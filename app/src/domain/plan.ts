@@ -163,3 +163,25 @@ export function clampToExam(dueAtIso: string, deck: Deck | undefined, now: Date)
   if (lastDay.getTime() <= endOfLocalDay(now).getTime()) return dueAtIso;
   return Date.parse(dueAtIso) > lastDay.getTime() ? lastDay.toISOString() : dueAtIso;
 }
+
+/**
+ * When the student should come back: the next local day (after today) on which already-seen items are
+ * due, and how many. Never-seen items are not counted here (they are introduced by the daily plan).
+ */
+export function nextReviewDay(items: Item[], now: Date): { day: string; count: number } | null {
+  const today = localDateStr(now);
+  let day: string | null = null;
+  let count = 0;
+  for (const it of items) {
+    if (it.card.reps === 0) continue;
+    const t = new Date(it.dueAt);
+    if (Number.isNaN(t.getTime())) continue;
+    const d = localDateStr(t);
+    if (d <= today) continue;
+    if (day === null || d < day) {
+      day = d;
+      count = 1;
+    } else if (d === day) count++;
+  }
+  return day === null ? null : { day, count };
+}

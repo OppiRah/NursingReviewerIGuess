@@ -86,3 +86,20 @@ export function validateDraft(d: ItemDraft, original?: Pick<Item, 'choices' | 'a
   if (d.type !== 'sata' && answer.length !== 1) return { ok: false, error: 'This question type has exactly one answer. Change the type to "Select all that apply" for more.' };
   return { ok: true, patch: { type: d.type, question, choices, answer, back: '', rationale } };
 }
+
+type AnswerKey = Pick<Item, 'type' | 'choices' | 'answer' | 'back'>;
+const normKey = (s: string): string => s.replace(/\s+/g, ' ').trim().toLowerCase();
+
+/**
+ * The answer a student is judged against, as text: the correct choices' texts (order-free) or the
+ * flashcard's back. Reordering choices or fixing the question/rationale does not change it.
+ */
+function keyText(k: AnswerKey): string {
+  if (k.type === 'flashcard') return `card:${normKey(k.back)}`;
+  return `choice:${k.answer.map((i) => normKey(k.choices[i] ?? '')).sort().join('\u0000')}`;
+}
+
+/** AUDIT-001 A-17: did an edit change what counts as the correct answer? */
+export function answerKeyChanged(before: AnswerKey, after: AnswerKey): boolean {
+  return keyText(before) !== keyText(after);
+}

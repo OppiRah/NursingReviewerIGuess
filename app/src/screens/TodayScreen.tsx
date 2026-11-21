@@ -5,8 +5,8 @@ import { PageTitle } from '../components/PageTitle';
 import { outlookLine, READINESS_HINT, streakLine, welcomeBack, workloadLine } from '../copy';
 import { getSetting, loadAll } from '../data/repo';
 import { needsBackupNudge } from '../domain/backup';
-import { daysBetween, localDateStr } from '../domain/dates';
-import { buildDailyPlan, daysToExam, deckOutlook, SESSION_SIZE } from '../domain/plan';
+import { daysBetween, localDateStr, parseLocalDate } from '../domain/dates';
+import { buildDailyPlan, daysToExam, deckOutlook, nextReviewDay, SESSION_SIZE } from '../domain/plan';
 import { deckReadiness, formatPercent, seenCount } from '../domain/readiness';
 import { computeStreak } from '../domain/streak';
 import type { Deck } from '../domain/types';
@@ -21,6 +21,16 @@ export function examLabel(deck: Deck, now: Date): string {
   if (d === 1) return `1 day to ${deck.title} exam`;
   if (d === 0) return `${deck.title} exam is today. Kaya mo 'to!`;
   return `${deck.title} exam date has passed`;
+}
+
+/** "Next: 3 reviews tomorrow." — tells the student when to come back once today's plan is done. */
+export function nextLine(next: { day: string; count: number } | null, today: string): string | null {
+  if (!next) return null;
+  const n = `${next.count} ${next.count === 1 ? 'review' : 'reviews'}`;
+  const gap = daysBetween(today, next.day);
+  if (gap === 1) return `Next: ${n} tomorrow.`;
+  const when = parseLocalDate(next.day).toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
+  return `Next: ${n} on ${when} (in ${gap} days).`;
 }
 
 export function TodayScreen() {
@@ -45,6 +55,7 @@ export function TodayScreen() {
   const { decks, items, plan, lastExportAt, streak, daysAway } = state.data;
   const t = now();
   const mistakes = items.filter((i) => i.lastGrade === 'again').length;
+  const comeBack = plan.dueCount === 0 ? nextLine(nextReviewDay(items, t), localDateStr(t)) : null;
 
   if (decks.length === 0) {
     return (
@@ -76,7 +87,10 @@ export function TodayScreen() {
             Start review
           </button>
         ) : (
-          <p className="lead">All done for today. Nice work.</p>
+          <>
+            <p className="lead">All done for today. Nice work.</p>
+            {comeBack && <p className="hint" data-testid="next-review">{comeBack}</p>}
+          </>
         )}
         <p className="muted streak" data-testid="streak">{streakLine(streak.current, streak.broken, streak.freezeUsedThisWeek)}</p>
       </div>

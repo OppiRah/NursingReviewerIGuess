@@ -100,7 +100,12 @@ test('backup: export on one profile, restore on a fresh profile, compare every r
     if (await check.isVisible().catch(() => false)) await check.click();
     const show = page.getByRole('button', { name: 'Show answer' });
     if (await show.isVisible().catch(() => false)) await show.click();
+    const title = page.getByRole('heading', { level: 1 });
+    const before = (await title.textContent()) ?? '';
     await page.getByRole('button', { name: /^(Next|Got it)$/ }).click();
+    // The session only moves on after the answer is saved, so wait for that before going on
+    // (navigating away mid-save made this test intermittently see 2 reviews instead of 3).
+    await expect(title).not.toHaveText(before);
     const cont = page.getByRole('button', { name: 'Continue' });
     if (await cont.isVisible().catch(() => false)) await cont.click();
   }

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { ErrorBoundary } from '../components/ErrorBoundary';
 import { requestTitleFocus } from '../components/PageTitle';
 import { getDb } from '../data/db';
 import { getSetting, setSetting } from '../data/repo';
@@ -11,6 +12,7 @@ import { SessionScreen } from '../screens/SessionScreen';
 import { SettingsScreen } from '../screens/SettingsScreen';
 import { TodayScreen } from '../screens/TodayScreen';
 import { Ctx, type AppCtx, type Prefs, type Route } from './context';
+import { describeError } from './errors';
 import { shouldOfferUpdate, watchForUpdate, type SwContainerLike } from './update';
 
 const NAV: { route: Route; label: string }[] = [
@@ -36,6 +38,9 @@ interface NavState {
 function readNav(state: unknown): NavState | null {
   return state && typeof state === 'object' && (state as NavState).nr === 1 ? (state as NavState) : null;
 }
+
+/** A string that changes whenever the screen changes (used to reset the error boundary). */
+const routeKey = (r: Route): string => (r.name === 'deck' ? `deck:${r.id}` : r.name === 'session' ? `session:${r.mode}` : r.name);
 
 const sameRoute = (a: Route, b: Route): boolean =>
   a.name === b.name && (a.name !== 'deck' || (b.name === 'deck' && a.id === b.id)) && (a.name !== 'session' || (b.name === 'session' && a.mode === b.mode));
@@ -96,6 +101,8 @@ export function App() {
   const routeRef = useRef<Route>(route);
   /** Set when the app itself moves back in history, so leaving a session needs no confirmation. */
   const silentPopRef = useRef(false);
+  /** True while a leave is being processed (saving the last answer, then moving history): T-1. */
+  const leavingRef = useRef(false);
 
   const show = useCallback((r: Route) => {
     // Move focus to the new screen's heading for keyboard and screen-reader users.
@@ -132,7 +139,7 @@ export function App() {
         routeRef.current = base;
         setRoute(base);
       },
-      (e: unknown) => setFailed(e instanceof Error ? e.message : String(e)),
+      (e: unknown) => setFailed(describeError(e)),
     );
     // Ask the browser to keep our data (best effort; mostly helps installed PWAs).
     void navigator.storage?.persist?.().catch(() => undefined);
@@ -171,9 +178,11 @@ export function App() {
         return;
       }
       if (routeRef.current.name === 'session' && !silentPopRef.current) {
-        // Back during a session: stay on the session entry and ask first.
+        // Back during a session: stay on the session entry and ask first. If the session is already
+        // leaving (End session is saving, then going to Today), absorb this Back instead: no second
+        // dialog, no second history move (T-1).
         history.pushState({ nr: 1, route: routeRef.current, depth: (readNav(e.state)?.depth ?? 0) + 1 } satisfies NavState, '');
-        setLeaveAsk(true);
+        if (!leavingRef.current) setLeaveAsk(true);
         return;
       }
       silentPopRef.current = false;
@@ -221,10 +230,29 @@ export function App() {
     [show, silentPop],
   );
 
-  const leaveSession = useCallback(() => {
-    setLeaveAsk(false);
-    silentPop(() => history.back());
-  }, [silentPop]);
+  /** Set by the session screen: saves its last answer before leaving, and says whether that worked (R-3). */
+  const leaveGuardRef = useRef<(() => Promise<boolean>) | null>(null);
+  const setLeaveGuard = useCallback((guard: (() => Promise<boolean>) | null) => {
+    leaveGuardRef.current = guard;
+  }, []);
+  const leaveSession = useCallback(
+    async (opts?: { force?: boolean }) => {
+      setLeaveAsk(false);
+      if (leavingRef.current) return; // a leave is already in progress: never move history twice
+      leavingRef.current = true;
+      try {
+        // Stay on the session if its last answer could not be saved; it shows the error and "Leave anyway".
+        const guard = leaveGuardRef.current;
+        if (!opts?.force && guard && !(await guard())) return;
+        // Sessions are only started from Today, so Today is the destination. go() pops back to the base
+        // entry in one history move (and ignores taps while a move is in flight).
+        go({ name: 'today' });
+      } finally {
+        leavingRef.current = false;
+      }
+    },
+    [go],
+  );
   const bump = useCallback(() => setVersion((v) => v + 1), []);
   const setPrefs = useCallback(async (p: Prefs) => {
     setPrefsState(p); // optimistic: the control reflects the click immediately
@@ -235,16 +263,17 @@ export function App() {
   }, []);
 
   const ctx = useMemo<AppCtx | null>(
-    () => (scheduler && prefs ? { db: getDb(), scheduler, now: () => new Date(), go, version, bump, prefs, setPrefs, reloadPrefs } : null),
-    [scheduler, prefs, go, version, bump, setPrefs, reloadPrefs],
+    () => (scheduler && prefs ? { db: getDb(), scheduler, now: () => new Date(), go, version, bump, prefs, setPrefs, reloadPrefs, setLeaveGuard, leaveSession } : null),
+    [scheduler, prefs, go, version, bump, setPrefs, reloadPrefs, setLeaveGuard, leaveSession],
   );
 
   if (failed) {
     return (
       <main className="screen">
         <h1>Something went wrong</h1>
-        <p>The app couldn't open its storage on this device. If you're in a private window, try a normal one.</p>
-        <p className="muted">{failed}</p>
+        <p>The app couldn't start on this device.</p>
+        <p>{failed}</p>
+        <button type="button" className="btn primary" onClick={() => window.location.reload()}>Try again</button>
       </main>
     );
   }
@@ -255,13 +284,15 @@ export function App() {
     <Ctx.Provider value={ctx}>
       <div className="app">
         <main className="screen" id="main">
-          {route.name === 'onboarding' && <OnboardingScreen />}
-          {route.name === 'today' && <TodayScreen />}
-          {route.name === 'session' && <SessionScreen mode={route.mode} />}
-          {route.name === 'import' && <ImportScreen />}
-          {route.name === 'decks' && <DecksScreen />}
-          {route.name === 'deck' && <DeckScreen deckId={route.id} />}
-          {route.name === 'settings' && <SettingsScreen />}
+          <ErrorBoundary resetKey={routeKey(route)} onHome={() => go({ name: 'today' })}>
+            {route.name === 'onboarding' && <OnboardingScreen />}
+            {route.name === 'today' && <TodayScreen />}
+            {route.name === 'session' && <SessionScreen mode={route.mode} />}
+            {route.name === 'import' && <ImportScreen />}
+            {route.name === 'decks' && <DecksScreen />}
+            {route.name === 'deck' && <DeckScreen deckId={route.id} />}
+            {route.name === 'settings' && <SettingsScreen />}
+          </ErrorBoundary>
         </main>
         {shouldOfferUpdate(applyUpdate !== null, route.name) && (
           <div className="update-banner" role="status" data-testid="update-banner">
@@ -284,7 +315,7 @@ export function App() {
             </button>
           </div>
         )}
-        {leaveAsk && <LeaveSessionDialog onLeave={leaveSession} onStay={() => setLeaveAsk(false)} />}
+        {leaveAsk && <LeaveSessionDialog onLeave={() => void leaveSession()} onStay={() => setLeaveAsk(false)} />}
         {!hideNav && (
           <nav className="tabbar" aria-label="Main">
             {NAV.map((n) => (

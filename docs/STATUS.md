@@ -1,5 +1,5 @@
 # STATUS — read first, update last (≤60 lines)
-Last updated: 2026-11-21 · **Product: H (D-008)** · **v0.2.0 pushed (c695263); v0.2.1 (HARDEN-021: A-05/A-06/A-08 + version bump) staged, NOT committed; not deployed**
+Last updated: 2026-11-21 · **Product: H (D-008)** · **v0.2.1 committed and pushed (d68affb, = origin/main); local app/dist = HEAD build; not deployed; no device tests yet**
 New strategist? Read `HANDOFF_FOR_STRATEGIST.md` first (written 2026-11-21).
 Repo: github.com/OppiRah/NursingReviewerIGuess (public). Interview notes are local-only in research/interviews/notes/ (gitignored).
 Git rule: ask the owner before every commit/push (explicit "yes"); no AI attribution. See ../CLAUDE.md "Git policy".
@@ -35,8 +35,8 @@ Git rule: ask the owner before every commit/push (explicit "yes"); no AI attribu
 - 2026-11-21 docs sync: CLAUDE.md, PRODUCT_SPEC, ADR-001 headers aligned with D-008–D-011 (no decision change)
 
 ## Next actions
-1. Owner: approve commit + push of staged v0.2.1 (decisions approved 2026-11-21: mixing, >10/day heuristic, last-wrong = 0, bump)
-2. Owner: `npm run build`, drag app/dist to Netlify Drop; do the phone checks in product/BETA_TEST_PLAN.md stage 0 (incl. export → find file → confirm; share sheet). Real-phone test is still the release gate
+1. Owner: deploy app/dist to a domain ROOT (Netlify Drop); run Stage 0 in product/BETA_TEST_PLAN.md (revised 2026-11-21: 28 mandatory + 6 optional checks), record in a copy of product/STAGE0_RESULTS_TEMPLATE.md
+2. Owner: approve a second deploy for the update checks (U1–U3); it must be built on a later date or from a new commit, or no update is detected
 3. Then: 1 friend for 3 days (send product/BETA_GUIDE.md), then up to 5 friends for an exam week; measure the D-008 rule
 4. Later: Low findings; pace-based "can't finish" warning (needs owner decision); product name; mascot redraw; sharing (ADR needed)
 
