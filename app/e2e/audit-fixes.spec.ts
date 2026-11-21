@@ -140,11 +140,11 @@ test('BETA-PREP: Settings shows the version and copies feedback info without any
   await openFresh(page);
   await importFixture(page);
   await nav(page, 'Settings');
-  await expect(page.getByTestId('app-version')).toHaveText(/^Version 0\.2\.1 · built \d{4}-\d{2}-\d{2}$/);
+  await expect(page.getByTestId('app-version')).toHaveText(/^Version 0\.2\.2 · built \d{4}-\d{2}-\d{2}$/);
   await page.getByRole('button', { name: 'Copy feedback info' }).click();
   await expect(page.getByTestId('feedback-status')).toContainText('Copied');
   const copied = await page.evaluate(() => navigator.clipboard.readText());
-  expect(copied).toContain('Version: 0.2.1');
+  expect(copied).toContain('Version: 0.2.2');
   expect(copied).toMatch(/Decks: 1 · Items: \d+ · Reviews: 0/);
   expect(copied).not.toMatch(/Synthetic|Sample|sky|Blue/i);
 });
